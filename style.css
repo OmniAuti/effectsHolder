@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+section {
+  position: relative;
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.one {
+  border: 1px solid red;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 100px;
+  text-align: center;
+}
+
+.two {
+  border: 1px solid blue;
+}
+
+.two p {
+  position: absolute;
+  font-size: 100px;
+  top: 35%;
+  right: -100%;
+  transition: all ease 1000ms;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+}
+
+.active-two {
+  right: 50% !important;
+  transform: translateX(50%) !important;
+  opacity: 1 !important;
+}
+
+.three {
+  border: 1px solid green;
+}
+
+.three p {
+  position: absolute;
+  font-size: 100px;
+  top: 100%;
+  transition: all ease 1000ms;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+}
+
+.active-three {
+  top: 30% !important;
+  opacity: 1 !important;
+}
+
+.four {
+  border: 1px solid yellow;
+}
+
+.four p {
+  position: absolute;
+  margin-top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.four p span {
+  display: inline-block;
+  font-size: 100px;
+  transition: all ease 1000ms;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(100vw);
+  width: fit-content;
+}
+
+.five {
+  border: 1px solid black;
+}
+
+.five p {
+  margin: 50px auto;
+  height: 100px;
+  width: 356px;
+  /* NEED A DEFINED WIDTH */
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.five p span {
+  display: inline-block;
+  font-size: 0px;
+  transition: all ease 1000ms;
+  width: 100%;
+  width: fit-content;
+  /* CAN ALIGN TEXT WITH THIS*/
+  /* vertical-align: */
+}
+
+.six {
+  border: 1px solid black;
+}
+
+.six p {
+  margin: 50px auto;
+  height: 100px;
+  width: 356px;
+}
+
+.six p span {
+  display: inline-block;
+  font-size: 100px;
+  transition: all ease 1000ms;
+  width: 100%;
+  width: fit-content;
+  color:transparent;
+  text-shadow: 0px 0px 50px #000, 0px 0px 50px #000;
+}
