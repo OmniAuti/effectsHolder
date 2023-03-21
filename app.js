@@ -12,7 +12,9 @@ const sixText = document.querySelector(".six p");
 const seven = document.querySelector(".seven");
 const sevenText = document.querySelector(".seven p");
 const ten = document.querySelector(".ten");
-const tenLineMask = document.querySelector(".line-mask");
+
+const textRoll = document.querySelectorAll(".text-roll");
+const tenLineMask = document.querySelectorAll(".line-mask");
 
 const spanOne = document.querySelector(".span-one");
 const spanTwo = document.querySelector(".span-two");
@@ -102,15 +104,34 @@ window.addEventListener("scroll", () => {
   var windowHalf = window.innerHeight / 2;
 
   // console.log(ten.clientHeight, window.innerHeight);
-  var lineMaskWidth =
-    ((ten.getBoundingClientRect().top - ten.clientHeight) /
-      (windowHalf - ten.clientHeight)) *
-    100;
-  if (lineMaskWidth <= 0) {
-    tenLineMask.style.width = 0;
-  } else if (lineMaskWidth >= 110) {
-    lineMaskWidth = 110;
-  } else {
-    tenLineMask.style.width = `${lineMaskWidth}%`;
-  }
+  // var lineMaskWidth =
+  //   ((ten.getBoundingClientRect().top - ten.clientHeight) /
+  //     (windowHalf - ten.clientHeight)) *
+  //   100;
+  // tenLineMask.forEach((x) => {
+  //   if (lineMaskWidth <= 0) {
+  //     x.style.width = 0;
+  //   } else if (lineMaskWidth >= 110) {
+  //     lineMaskWidth = 110;
+  //   } else {
+  //     x.style.width = `${lineMaskWidth}%`;
+  //   }
+  // });
+  var textEnd = window.innerHeight / 2;
+  var textStart = window.innerHeight / 2 + textRoll[0].clientHeight;
+  var textGap = textStart - textEnd;
+  // console.log(textStart - textEnd);
+  textRoll.forEach((x) => {
+    if (x.getBoundingClientRect().top <= textEnd) {
+      x.childNodes[1].style.width = "0%";
+    }
+    if (x.getBoundingClientRect().top >= textStart) {
+      x.childNodes[1].style.width = "100%";
+    }
+    if (x.getBoundingClientRect().top <= textStart) {
+      var linePercent =
+        ((x.getBoundingClientRect().top - textStart) / textGap) * -100;
+      x.childNodes[1].style.width = `${100 - linePercent}%`;
+    }
+  });
 });

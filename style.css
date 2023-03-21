@@ -182,13 +182,13 @@ h1 {
     transform: translate(10%, 10%);
   }
   25% {
-    transform: translate(-10%, -10%);
+    transform: translate(-10%, -100%);
   }
   50% {
-    transform: translate(10%, -10%);
+    transform: translate(100%, -10%);
   }
   75% {
-    transform: translate(-10%, 10%);
+    transform: translate(-100%, 10%);
   }
   100% {
     transform: translate(10%, 10%);
@@ -201,7 +201,7 @@ h1 {
   border: 1px solid #eee;
   border-radius: 20px;
   background-color: rgba(224, 224, 224, 0.25);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -231,13 +231,15 @@ h1 {
   padding: 50px;
   height: 500px;
   border: 1px solid blue;
-  text-align: center;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
 }
 .text-roll {
   font-size: 150px;
   font-weight: bolder;
   width: fit-content;
-  margin: 0 auto;
   color: #111013;
   position: relative;
 }
