@@ -170,8 +170,29 @@ h1 {
   position: absolute;
   z-index: -1;
   height: 50%;
-  width: 60%;
-  object-fit: cover;
+  width: auto;
+  animation-name: plants;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes plants {
+  0% {
+    transform: translate(10%, 10%);
+  }
+  25% {
+    transform: translate(-10%, -10%);
+  }
+  50% {
+    transform: translate(10%, -10%);
+  }
+  75% {
+    transform: translate(-10%, 10%);
+  }
+  100% {
+    transform: translate(10%, 10%);
+  }
 }
 
 .glass {
@@ -179,8 +200,8 @@ h1 {
   width: 75%;
   border: 1px solid #eee;
   border-radius: 20px;
-  background-color: transparent;
-  backdrop-filter: blur(10px);
+  background-color: rgba(224, 224, 224, 0.25);
+  backdrop-filter: blur(5px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 

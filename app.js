@@ -106,7 +106,6 @@ window.addEventListener("scroll", () => {
     ((ten.getBoundingClientRect().top - ten.clientHeight) /
       (windowHalf - ten.clientHeight)) *
     100;
-  console.log(lineMaskWidth);
   if (lineMaskWidth <= 0) {
     tenLineMask.style.width = 0;
   } else if (lineMaskWidth >= 110) {
