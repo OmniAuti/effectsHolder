@@ -13,6 +13,8 @@ section {
   height: 50vh;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .one {
@@ -77,6 +79,7 @@ h1 {
   margin-top: 25px;
   left: 50%;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 
 .four p span {
@@ -103,6 +106,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: start;
+  white-space: nowrap;
 }
 
 .five p span {
@@ -131,6 +135,102 @@ h1 {
   transition: all ease 1000ms;
   width: 100%;
   width: fit-content;
-  color:transparent;
+  color: transparent;
   text-shadow: 0px 0px 50px #000, 0px 0px 50px #000;
+}
+
+.seven {
+  border: 1px solid black;
+}
+
+.seven p {
+  margin: 50px auto;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.seven p span {
+  display: inline-block;
+  font-size: 100px;
+  transition: all ease 1000ms;
+  width: 100%;
+  width: fit-content;
+  transform: translateY(-200vh);
+}
+
+.eight {
+  border: 1px solid green;
+  justify-content: center;
+  position: relative;
+  font-size: 100px;
+}
+
+.eight img {
+  position: absolute;
+  z-index: -1;
+  height: 50%;
+  width: 60%;
+  object-fit: cover;
+}
+
+.glass {
+  height: 90%;
+  width: 75%;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.nine {
+  border: 1px solid gray;
+  height: 1500px;
+}
+
+.nine p {
+  width: 50%;
+  min-width: 750px;
+  margin: 0 auto;
+  font-size: 50px;
+  font-weight: bolder;
+  color: #eee;
+}
+
+.nine p span {
+  transition: color ease 500ms;
+  line-height: 100px;
+}
+
+.span-active {
+  color: #000;
+}
+.ten {
+  padding: 50px;
+  height: 500px;
+  border: 1px solid blue;
+  text-align: center;
+}
+.text-roll {
+  font-size: 150px;
+  font-weight: bolder;
+  width: fit-content;
+  margin: 0 auto;
+  color: #111013;
+  position: relative;
+}
+
+.line-mask {
+  position: absolute;
+  background-color: #fff;
+  opacity: 0.85;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+}
+
+.eleven {
+  height: 200vh;
 }
