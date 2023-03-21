@@ -156,7 +156,7 @@ h1 {
   transition: all ease 1000ms;
   width: 100%;
   width: fit-content;
-  transform: translateY(-200vh);
+  transform: translateY(200vh);
 }
 
 .eight {
@@ -267,8 +267,9 @@ h1 {
   height: 150px;
   position: relative;
   transform-style: preserve-3d;
+  -webkit-transform: rotateX(-90deg);
   transform: rotateX(-90deg);
-  transition: transform ease 500ms;
+  transition: all ease 500ms;
 }
 
 .top {
@@ -276,10 +277,10 @@ h1 {
   font-size: 150px;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-transform: rotateX(90deg) translateZ(100px);
   transform: rotateX(90deg) translateZ(100px);
+  transform-style: flat;
+  background-color: #fff;
 }
 
 .side {
@@ -287,8 +288,8 @@ h1 {
   font-size: 150px;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-transform: rotateX(0deg) translateZ(100px);
   transform: rotateX(0deg) translateZ(100px);
+  transform-style: flat;
+  background-color: #fff;
 }

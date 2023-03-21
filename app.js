@@ -26,7 +26,6 @@ var fourArr = Array.from(fourText.children);
 var fiveArr = Array.from(fiveText.children);
 var sixArr = Array.from(sixText.children);
 var sevenArr = Array.from(sevenText.children);
-var elevenArr = Array.from(elevenBox);
 
 fourArr.forEach((x) => {
   x.style.transitionDelay = `${fourArr.indexOf(x) * 100}ms`;
@@ -38,10 +37,7 @@ sixArr.forEach((x) => {
   x.style.transitionDelay = `${sixArr.indexOf(x) * 100}ms`;
 });
 sevenArr.forEach((x) => {
-  x.style.transitionDelay = `${sevenArr.indexOf(x) * 100}ms`;
-});
-elevenArr.forEach((x) => {
-  x.style.transitionDelay = `${elevenArr.indexOf(x) * 100}ms`;
+  x.style.transitionDelay = `${sevenArr.indexOf(x) * 15}ms`;
 });
 
 window.addEventListener("scroll", () => {
