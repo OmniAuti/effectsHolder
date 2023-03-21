@@ -12,6 +12,8 @@ const sixText = document.querySelector(".six p");
 const seven = document.querySelector(".seven");
 const sevenText = document.querySelector(".seven p");
 const ten = document.querySelector(".ten");
+const eleven = document.querySelector(".eleven");
+const elevenBox = document.querySelectorAll(".eleven > .box");
 
 const textRoll = document.querySelectorAll(".text-roll");
 const tenLineMask = document.querySelectorAll(".line-mask");
@@ -24,6 +26,7 @@ var fourArr = Array.from(fourText.children);
 var fiveArr = Array.from(fiveText.children);
 var sixArr = Array.from(sixText.children);
 var sevenArr = Array.from(sevenText.children);
+var elevenArr = Array.from(elevenBox);
 
 fourArr.forEach((x) => {
   x.style.transitionDelay = `${fourArr.indexOf(x) * 100}ms`;
@@ -37,6 +40,9 @@ sixArr.forEach((x) => {
 sevenArr.forEach((x) => {
   x.style.transitionDelay = `${sevenArr.indexOf(x) * 100}ms`;
 });
+elevenArr.forEach((x) => {
+  x.style.transitionDelay = `${elevenArr.indexOf(x) * 100}ms`;
+});
 
 window.addEventListener("scroll", () => {
   var twoHeight = window.innerHeight - two.getBoundingClientRect().top;
@@ -45,6 +51,7 @@ window.addEventListener("scroll", () => {
   var fiveHeight = window.innerHeight - five.getBoundingClientRect().top;
   var sixHeight = window.innerHeight - six.getBoundingClientRect().top;
   var sevenHeight = window.innerHeight - seven.getBoundingClientRect().top;
+  var elevenHeight = window.innerHeight - eleven.getBoundingClientRect().top;
 
   if (twoHeight > window.innerHeight / 3) {
     twoText.classList.add("active-two");
@@ -117,6 +124,7 @@ window.addEventListener("scroll", () => {
   //     x.style.width = `${lineMaskWidth}%`;
   //   }
   // });
+
   var textEnd = window.innerHeight / 2;
   var textStart = window.innerHeight / 2 + textRoll[0].clientHeight;
   var textGap = textStart - textEnd;
@@ -134,4 +142,14 @@ window.addEventListener("scroll", () => {
       x.childNodes[1].style.width = `${100 - linePercent}%`;
     }
   });
+
+  if (elevenHeight > window.innerHeight / 2.5) {
+    elevenBox.forEach((x) => {
+      x.style.transform = "rotateX(0deg)";
+    });
+  } else {
+    elevenBox.forEach((x) => {
+      x.style.transform = "rotateX(-90deg)";
+    });
+  }
 });
