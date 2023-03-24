@@ -217,6 +217,7 @@ h1 {
   font-weight: bolder;
   color: #eee;
   padding: 25px 0px;
+  line-height: 1.5;
 }
 
 .nine p span {
@@ -387,5 +388,5 @@ h1 {
 .settling-cont div {
   display: inline-block;
   font-size: 350px;
-  transition: all linear 250ms;
+  transition: all linear 750ms;
 }
