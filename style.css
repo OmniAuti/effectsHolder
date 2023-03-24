@@ -88,7 +88,6 @@ h1 {
   transition: all ease 1000ms;
   width: 100%;
   text-align: center;
-  opacity: 0;
   transform: translateX(100vw);
   width: fit-content;
 }
@@ -156,7 +155,7 @@ h1 {
   transition: all ease 1000ms;
   width: 100%;
   width: fit-content;
-  transform: translateY(200vh);
+  transform: translateY(100vh);
 }
 
 .eight {
@@ -207,21 +206,21 @@ h1 {
 
 .nine {
   border: 1px solid gray;
-  height: 1500px;
+  height: fit-content;
 }
 
 .nine p {
   width: 50%;
   min-width: 750px;
   margin: 0 auto;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bolder;
   color: #eee;
+  padding: 25px 0px;
 }
 
 .nine p span {
   transition: color ease 500ms;
-  line-height: 100px;
 }
 
 .span-active {
@@ -237,11 +236,12 @@ h1 {
   flex-direction: column;
 }
 .text-roll {
-  font-size: 150px;
+  font-size: 100px;
   font-weight: bolder;
   width: fit-content;
   color: #111013;
   position: relative;
+  white-space: nowrap;
 }
 
 .line-mask {
@@ -252,7 +252,7 @@ h1 {
   width: 100%;
   top: 0;
   right: 0;
-  transition: width ease 250ms;
+  transition: width ease-out 250ms;
 }
 
 .eleven {
@@ -266,30 +266,126 @@ h1 {
   width: 105px;
   height: 150px;
   position: relative;
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateX(-90deg);
-  transform: rotateX(-90deg);
-  transition: all ease 500ms;
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  transition: all ease-out 250ms;
+  will-change: transform;
 }
 
 .top {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   position: absolute;
   font-size: 150px;
   width: 100%;
   height: 100%;
   -webkit-transform: rotateX(90deg) translateZ(100px);
   transform: rotateX(90deg) translateZ(100px);
-  transform-style: flat;
   background-color: #fff;
 }
 
 .side {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
   position: absolute;
   font-size: 150px;
   width: 100%;
   height: 100%;
   -webkit-transform: rotateX(0deg) translateZ(100px);
   transform: rotateX(0deg) translateZ(100px);
-  transform-style: flat;
   background-color: #fff;
+}
+
+.twelve {
+  height: 50vh;
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waterfall-container {
+  height: 140px;
+  width: fit-content;
+  margin: 0 auto;
+  font-size: 150px;
+  display: flex;
+  overflow: hidden;
+}
+
+.fall-cont {
+  position: relative;
+  transform: translateY(-100%);
+  height: fit-content;
+  margin: 0 7.5px;
+}
+
+.fall-cont:nth-of-type(1) {
+  transition: transform ease-in-out 2632ms;
+  transition-delay: 700ms;
+}
+.fall-cont:nth-of-type(2) {
+  transition: transform ease-in-out 2923ms;
+  transition-delay: 720ms;
+}
+.fall-cont:nth-of-type(3) {
+  transition: transform ease-in-out 2420ms;
+}
+.fall-cont:nth-of-type(4) {
+  transition: transform ease-in-out 1500ms;
+  transition-delay: 1000ms;
+}
+.fall-cont:nth-of-type(5) {
+  transition: transform ease-in-out 3200ms;
+}
+.fall-cont:nth-of-type(6) {
+  transition: transform ease-in-out 1150ms;
+  transition-delay: 290ms;
+}
+.fall-cont:nth-of-type(7) {
+  transition: transform ease-in-out 1623ms;
+  transition-delay: 250ms;
+}
+.fall-cont:nth-of-type(8) {
+  transition: transform ease-in-out 1500ms;
+}
+.fall-cont:nth-of-type(9) {
+  transition: transform ease-in-out 2222ms;
+  transition-delay: 222ms;
+}
+
+.thirteen {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.settling-cont {
+  width: fit-content;
+  margin: 0 auto;
+  border-bottom: 2.5px solid #000;
+  height: 350px;
+}
+
+.settling-cont div {
+  display: inline-block;
+  font-size: 350px;
+  transition: all linear 250ms;
 }

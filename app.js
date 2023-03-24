@@ -15,6 +15,9 @@ const ten = document.querySelector(".ten");
 const eleven = document.querySelector(".eleven");
 const elevenBox = document.querySelectorAll(".eleven > .box");
 
+const twelve = document.querySelector(".twelve");
+const thirteen = document.querySelector(".thirteen");
+
 const textRoll = document.querySelectorAll(".text-roll");
 const tenLineMask = document.querySelectorAll(".line-mask");
 
@@ -48,37 +51,60 @@ window.addEventListener("scroll", () => {
   var sixHeight = window.innerHeight - six.getBoundingClientRect().top;
   var sevenHeight = window.innerHeight - seven.getBoundingClientRect().top;
   var elevenHeight = window.innerHeight - eleven.getBoundingClientRect().top;
+  var twelveHeight = window.innerHeight - twelve.getBoundingClientRect().top;
+  var thirteenHeight =
+    window.innerHeight - thirteen.getBoundingClientRect().top;
 
-  if (twoHeight > window.innerHeight / 3) {
+  if (twoHeight > window.innerHeight / 2) {
     twoText.classList.add("active-two");
+  } else {
+    twoText.classList.remove("active-two");
   }
 
-  if (thirdHeight > window.innerHeight / 3) {
+  if (thirdHeight > window.innerHeight / 2) {
     threeText.classList.add("active-three");
+  } else {
+    threeText.classList.remove("active-three");
   }
 
-  if (fourHeight > window.innerHeight / 3) {
+  if (fourHeight > window.innerHeight / 2) {
     fourArr.forEach((x) => {
       x.style.transform = `translateX(0)`;
       x.style.opacity = `1`;
     });
+  } else {
+    fourArr.forEach((x) => {
+      x.style.transform = `translateX(100vw)`;
+    });
   }
 
-  if (fiveHeight > window.innerHeight / 3) {
+  if (fiveHeight > window.innerHeight / 2) {
     fiveArr.forEach((x) => {
       x.style.fontSize = "100px";
     });
-  }
-
-  if (sixHeight > window.innerHeight / 3) {
-    sixArr.forEach((x) => {
-      x.style.textShadow = "-2.5px 2.5px 0px #000, -2.5px 2.5px 0px #000";
+  } else {
+    fiveArr.forEach((x) => {
+      x.style.fontSize = "0px";
     });
   }
 
-  if (sevenHeight > window.innerHeight / 3) {
+  if (sixHeight > window.innerHeight / 2) {
+    sixArr.forEach((x) => {
+      x.style.textShadow = "-2.5px 2.5px 0px #000, -2.5px 2.5px 0px #000";
+    });
+  } else {
+    sixArr.forEach((x) => {
+      x.style.textShadow = "0px 0px 50px #000, 0px 0px 50px #000";
+    });
+  }
+
+  if (sevenHeight > window.innerHeight / 2) {
     sevenArr.forEach((x) => {
       x.style.transform = "translateY(0)";
+    });
+  } else {
+    sevenArr.forEach((x) => {
+      x.style.transform = "translateY(100vh)";
     });
   }
 
@@ -139,13 +165,76 @@ window.addEventListener("scroll", () => {
     }
   });
 
-  if (elevenHeight > window.innerHeight / 2.5) {
-    elevenBox.forEach((x) => {
-      x.style.transform = "rotateX(0deg)";
-    });
-  } else {
+  if (elevenHeight > window.innerHeight / 2) {
     elevenBox.forEach((x) => {
       x.style.transform = "rotateX(-90deg)";
     });
+  } else {
+    elevenBox.forEach((x) => {
+      x.style.transform = "rotateX(0deg)";
+    });
   }
+
+  const waterfall = document.querySelectorAll(".fall-cont");
+
+  if (twelveHeight > window.innerHeight / 2) {
+    waterfall.forEach((x) => {
+      x.style.transform = "translateY(0%)";
+    });
+  } else {
+    waterfall.forEach((x) => {
+      x.style.transform = "translateY(-100%)";
+    });
+  }
+
+  // if (thirteenHeight > window.innerHeight / 3) {
+  //   document.querySelectorAll(".settling-cont > div").forEach((x) => {
+  //     console.log("ojk");
+  //     x.style.transform = "translateY(0%)";
+  //   });
+  // } else {
+  //   document.querySelectorAll(".settling-cont > div").forEach((x) => {
+  //     var up = x.getAttribute("data-settle");
+
+  //     x.style.transform = `translateY(${up}%)`;
+  //   });
+  // }
+
+  var middleOfScreen = window.innerHeight / 2;
+
+  var percentage =
+    middleOfScreen /
+    document.querySelector(".settling-cont").getBoundingClientRect().top;
+  if (percentage >= 1) {
+    percentage = 1;
+  }
+  const settleArr = Array.from(
+    document.querySelector(".settling-cont").children
+  );
+  settleArr.forEach((x) => {
+    dataAtt = x.getAttribute("data-settle");
+    let settleDown = Number(dataAtt) + percentage * 100;
+    if (settleDown >= 0) settleDown = 0;
+    if (settleDown * -1 <= dataAtt) settleDown = dataAtt;
+    x.style.transform = `translateY(${settleDown}%)`;
+  });
+  // console.log(percentage);
 });
+
+const title = document.querySelector("title");
+
+var titleArr = [
+  "Aeriz | Aeroponic Cannabis",
+  "Clean Cannabis | Aeriz",
+  "Aeriz | Clean Cannabis",
+  "Aeroponic Cannabis | Aeriz",
+];
+
+var titleIdx = 0;
+setInterval(() => {
+  if (titleIdx > titleArr.length - 1) {
+    titleIdx = 0;
+  }
+  title.innerText = titleArr[titleIdx];
+  titleIdx++;
+}, 5000);
