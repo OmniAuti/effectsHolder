@@ -286,6 +286,7 @@ document.querySelectorAll(".hightlight-paragraph p span").forEach((x) => {
   const highlightParagraph = new IntersectionObserver(
     (entries) => {
       if (entries[0].boundingClientRect.top <= 0) return;
+      if (entries[0].boundingClientRect.top >= window.innerHeight) return;
       if (entries[0].isIntersecting) {
         document
           .querySelectorAll(".hightlight-paragraph p span")
@@ -304,7 +305,7 @@ document.querySelectorAll(".hightlight-paragraph p span").forEach((x) => {
     },
     {
       threshold: 0.5,
-      rootMargin: `0px 0px -${window.innerHeight / 2}px 0px`,
+      rootMargin: `${window.innerHeight}px 0px -${window.innerHeight / 2}px 0px`,
     }
   );
   highlightParagraph.observe(x);
@@ -415,7 +416,6 @@ const settleObserver = new IntersectionObserver(
 
 
 function handleZipperText() {
-    console.log('ziii')
     const middleOfScreen = window.innerHeight / 2;
     const zipCont = document.querySelector(".zip-container");
     const zipParent = document.querySelector(".zip-container-section");
