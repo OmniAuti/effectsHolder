@@ -345,7 +345,11 @@ const rotateTextObserver = new IntersectionObserver(
       Array.from(entries[0].target.children).forEach((x) => {
         x.style.transform = "rotateX(-90deg)";
       });
-      rotateTextObserver.unobserve(document.querySelector(".rotate-text"));
+    //   rotateTextObserver.unobserve(document.querySelector(".rotate-text"));
+    } else {
+        Array.from(entries[0].target.children).forEach((x) => {
+            x.style.transform = "rotateX(0deg)";
+          });
     }
   },
   {
@@ -359,7 +363,11 @@ const waterfallObserver = new IntersectionObserver((entries) => {
     Array.from(entries[0].target.children[0].children).forEach((x) => {
       x.style.transform = "translateY(0%)";
     });
-    waterfallObserver.unobserve(document.querySelector(".waterfall"));
+    // waterfallObserver.unobserve(document.querySelector(".waterfall"));
+  } else {
+    Array.from(entries[0].target.children[0].children).forEach((x) => {
+        x.style.transform = "translateY(-100%)";
+      });
   }
 }, options);
 
