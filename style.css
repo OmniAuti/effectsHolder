@@ -17,8 +17,7 @@ section {
   align-items: center;
 }
 
-.one {
-  border: 1px solid red;
+.title {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -30,11 +29,11 @@ h1 {
   text-align: center;
 }
 
-.two {
-  border: 1px solid blue;
+.horizontal-intro {
+  border: 1px solid #000;
 }
 
-.two p {
+.horizontal-intro p {
   position: absolute;
   font-size: 100px;
   top: 35%;
@@ -45,17 +44,17 @@ h1 {
   opacity: 0;
 }
 
-.active-two {
+.acitve-horizontal-intro {
   right: 50% !important;
   transform: translateX(50%) !important;
   opacity: 1 !important;
 }
 
-.three {
-  border: 1px solid green;
+.vertical-intro {
+  border: 1px solid #000;
 }
 
-.three p {
+.vertical-intro p {
   position: absolute;
   font-size: 100px;
   top: 100%;
@@ -65,16 +64,16 @@ h1 {
   opacity: 0;
 }
 
-.active-three {
+.active-vertical-intro {
   top: 30% !important;
   opacity: 1 !important;
 }
 
-.four {
-  border: 1px solid yellow;
+.one-at-a-time {
+  border: 1px solid #000;
 }
 
-.four p {
+.one-at-a-time p {
   position: absolute;
   margin-top: 25px;
   left: 50%;
@@ -82,7 +81,7 @@ h1 {
   white-space: nowrap;
 }
 
-.four p span {
+.one-at-a-time p span {
   display: inline-block;
   font-size: 100px;
   transition: all ease 1000ms;
@@ -92,11 +91,31 @@ h1 {
   width: fit-content;
 }
 
-.five {
+.wave-text {
+  border: 1px solid #000;
+}
+
+.wave-text p {
+  margin: 50px auto;
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+
+.wave-text p span {
+  display: inline-block;
+  font-size: 100px;
+  transition: all ease 1000ms;
+  width: 100%;
+  width: fit-content;
+  transform: translateY(100vh);
+}
+
+.growing-text {
   border: 1px solid black;
 }
 
-.five p {
+.growing-text p {
   margin: 50px auto;
   height: 100px;
   width: 356px;
@@ -108,7 +127,7 @@ h1 {
   white-space: nowrap;
 }
 
-.five p span {
+.growing-text p span {
   display: inline-block;
   font-size: 0px;
   transition: all ease 1000ms;
@@ -118,17 +137,17 @@ h1 {
   /* vertical-align: */
 }
 
-.six {
+.smokey-text {
   border: 1px solid black;
 }
 
-.six p {
+.smokey-text p {
   margin: 50px auto;
   height: 100px;
   width: 356px;
 }
 
-.six p span {
+.smokey-text p span {
   display: inline-block;
   font-size: 100px;
   transition: all ease 1000ms;
@@ -138,27 +157,7 @@ h1 {
   text-shadow: 0px 0px 50px #000, 0px 0px 50px #000;
 }
 
-.seven {
-  border: 1px solid black;
-}
-
-.seven p {
-  margin: 50px auto;
-  height: 100px;
-  width: 100%;
-  text-align: center;
-}
-
-.seven p span {
-  display: inline-block;
-  font-size: 100px;
-  transition: all ease 1000ms;
-  width: 100%;
-  width: fit-content;
-  transform: translateY(100vh);
-}
-
-.eight {
+/* .eight {
   border: 1px solid green;
   justify-content: center;
   position: relative;
@@ -192,7 +191,7 @@ h1 {
   100% {
     transform: translate(10%, 10%);
   }
-}
+} 
 
 .glass {
   height: 90%;
@@ -203,13 +202,14 @@ h1 {
   backdrop-filter: blur(10px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+*/
 
-.nine {
+.hightlight-paragraph {
   border: 1px solid gray;
   height: fit-content;
 }
 
-.nine p {
+.hightlight-paragraph p {
   width: 50%;
   min-width: 750px;
   margin: 0 auto;
@@ -220,17 +220,19 @@ h1 {
   line-height: 1.5;
 }
 
-.nine p span {
+.hightlight-paragraph p span {
   transition: color ease 500ms;
 }
 
-.span-active {
+.highlight-active {
   color: #000;
 }
-.ten {
+
+
+.highlight-sentence {
   padding: 50px;
   height: 500px;
-  border: 1px solid blue;
+  border: 1px solid #000;
   display: flex;
   align-items: start;
   justify-content: center;
@@ -256,14 +258,15 @@ h1 {
   transition: width ease-out 250ms;
 }
 
-.eleven {
+.rotate-text {
   height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid #000;
 }
 
-.eleven > .box {
+.rotate-text > .rotate-box {
   width: 105px;
   height: 150px;
   position: relative;
@@ -314,9 +317,9 @@ h1 {
   background-color: #fff;
 }
 
-.twelve {
+.waterfall {
   height: 50vh;
-  border: 1px solid red;
+  border: 1px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -372,7 +375,7 @@ h1 {
   transition-delay: 222ms;
 }
 
-.thirteen {
+.settle-text {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -389,4 +392,34 @@ h1 {
   display: inline-block;
   font-size: 350px;
   transition: all linear 750ms;
+}
+
+.fourteen {
+  height: 100vh;
+  border: 1px solid #000;
+  position: relative;
+}
+
+.zip-container {
+  font-size: 150px;
+  letter-spacing: -10px;
+  border: 1px solid #000;
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  transform: translate(50%, -50%);
+}
+
+.zip-letter {
+}
+
+.zip-letter:nth-of-type(even) {
+  transform: translateY(-50vh);
+}
+.zip-letter:nth-of-type(odd) {
+  transform: translateY(50vh);
+}
+
+.zip-container span {
+  display: inline-block;
 }
