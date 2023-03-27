@@ -394,8 +394,8 @@ h1 {
   transition: all linear 750ms;
 }
 
-.fourteen {
-  height: 100vh;
+.zip-container-section {
+  height: 50vh;
   border: 1px solid #000;
   position: relative;
 }
@@ -403,21 +403,19 @@ h1 {
 .zip-container {
   font-size: 150px;
   letter-spacing: -10px;
-  border: 1px solid #000;
-  position: absolute;
-  top: 50%;
-  right: -50%;
-  transform: translate(50%, -50%);
+  border-bottom: 1px solid #000;
+  position: sticky;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 
-.zip-letter {
-}
 
 .zip-letter:nth-of-type(even) {
-  transform: translateY(-50vh);
+  transform: translate(-100vw ,-100vh);
 }
 .zip-letter:nth-of-type(odd) {
-  transform: translateY(50vh);
+  transform: translate( -100vw, 100vh);
 }
 
 .zip-container span {

@@ -331,13 +331,16 @@ function handleHighlightText() {
   });
 }
 
-const highlightText = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) {
-    window.addEventListener("scroll", handleHighlightText);
-  } else {
-    window.removeEventListener("scroll", handleHighlightText);
-  }
-}, { threshold: 0, rootMargin: "0px 0px 0px 0px" });
+const highlightText = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      window.addEventListener("scroll", handleHighlightText);
+    } else {
+      window.removeEventListener("scroll", handleHighlightText);
+    }
+  },
+  { threshold: 0, rootMargin: "0px 0px 0px 0px" }
+);
 
 const rotateTextObserver = new IntersectionObserver(
   (entries) => {
@@ -345,11 +348,11 @@ const rotateTextObserver = new IntersectionObserver(
       Array.from(entries[0].target.children).forEach((x) => {
         x.style.transform = "rotateX(-90deg)";
       });
-    //   rotateTextObserver.unobserve(document.querySelector(".rotate-text"));
+      //   rotateTextObserver.unobserve(document.querySelector(".rotate-text"));
     } else {
-        Array.from(entries[0].target.children).forEach((x) => {
-            x.style.transform = "rotateX(0deg)";
-          });
+      Array.from(entries[0].target.children).forEach((x) => {
+        x.style.transform = "rotateX(0deg)";
+      });
     }
   },
   {
@@ -366,8 +369,8 @@ const waterfallObserver = new IntersectionObserver((entries) => {
     // waterfallObserver.unobserve(document.querySelector(".waterfall"));
   } else {
     Array.from(entries[0].target.children[0].children).forEach((x) => {
-        x.style.transform = "translateY(-100%)";
-      });
+      x.style.transform = "translateY(-100%)";
+    });
   }
 }, options);
 
@@ -410,6 +413,56 @@ const settleObserver = new IntersectionObserver(
   { threshold: 0, rootMargin: "0px 0px 0px 0px" }
 );
 
+
+function handleZipperText() {
+    console.log('ziii')
+    const middleOfScreen = window.innerHeight / 2;
+    const zipCont = document.querySelector(".zip-container");
+    const zipParent = document.querySelector(".zip-container-section");
+    const middlePlusZip = middleOfScreen - zipCont.clientHeight;
+  
+    var zipTop = ( zipParent.getBoundingClientRect().top / window.innerHeight * 100);
+    if (zipTop <= 0) zipTop = 0;
+  
+    var zipPercent = (middlePlusZip / zipCont.getBoundingClientRect().top) * 100;
+    if (zipPercent >= 100) {
+      zipPercent = 100
+    }
+    if (zipPercent <= 0) {
+      zipPercent = 0
+    }
+    const zipLettersOdd = document.querySelectorAll(
+      ".zip-letter:nth-of-type(odd)"
+    );
+    const zipLettersEven = document.querySelectorAll(
+      ".zip-letter:nth-of-type(even)"
+    );
+  if (zipParent.getBoundingClientRect().top <= 0 ) return
+  
+    zipLettersEven.forEach((x) => {
+      var padding = x.getAttribute("data-padding");
+      var evenZip = (-50 + zipPercent) - padding;
+      if (evenZip >= 0) evenZip = 0;
+  
+      x.style.transform = `translate(${zipTop}vw, ${evenZip}vh)`;
+    });
+  
+    zipLettersOdd.forEach((x) => {
+      var padding = x.getAttribute("data-padding");
+      var oddZip = (50 - zipPercent) - padding;
+      if (oddZip <= 0) oddZip = 0;
+      x.style.transform = `translate( ${zipTop}vw,${oddZip}vh)`;
+    });
+}
+
+const zipperObserver = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+        window.addEventListener("scroll", handleZipperText);
+    } else {
+        window.removeEventListener('scroll', handleZipperText)
+    }
+}, {threshold: 0.5})
+
 horizontalObserver.observe(document.querySelector(".horizontal-intro"));
 verticalObserver.observe(document.querySelector(".vertical-intro"));
 oneAtATimeObserver.observe(document.querySelector(".one-at-a-time"));
@@ -418,5 +471,8 @@ waveTextObserver.observe(document.querySelector(".wave-text"));
 smokeyTextObserver.observe(document.querySelector(".smokey-text"));
 rotateTextObserver.observe(document.querySelector(".rotate-text"));
 waterfallObserver.observe(document.querySelector(".waterfall"));
-highlightText.observe(document.querySelector('.highlight-sentence'))
+highlightText.observe(document.querySelector(".highlight-sentence"));
 settleObserver.observe(document.querySelector(".settle-text"));
+zipperObserver.observe(document.querySelector(".zip-container-section"))
+
+
