@@ -29,6 +29,8 @@ h1 {
   text-align: center;
 }
 
+/* --------------------- HORIZONTAL INTRO --------------------- */
+
 .horizontal-intro {
   border: 1px solid #000;
 }
@@ -50,6 +52,8 @@ h1 {
   opacity: 1 !important;
 }
 
+/* --------------------- VERTICAL INTRO --------------------- */
+
 .vertical-intro {
   border: 1px solid #000;
 }
@@ -68,6 +72,8 @@ h1 {
   top: 30% !important;
   opacity: 1 !important;
 }
+
+/* --------------------- ONE AT A TIME INTRO --------------------- */
 
 .one-at-a-time {
   border: 1px solid #000;
@@ -91,6 +97,8 @@ h1 {
   width: fit-content;
 }
 
+/* --------------------- WAVEY INTRO --------------------- */
+
 .wave-text {
   border: 1px solid #000;
 }
@@ -110,6 +118,8 @@ h1 {
   width: fit-content;
   transform: translateY(100vh);
 }
+
+/* --------------------- GROWING INTRO --------------------- */
 
 .growing-text {
   border: 1px solid black;
@@ -136,6 +146,8 @@ h1 {
   /* CAN ALIGN TEXT WITH THIS*/
   /* vertical-align: */
 }
+
+/* --------------------- SMOKEY INTRO --------------------- */
 
 .smokey-text {
   border: 1px solid black;
@@ -204,6 +216,17 @@ h1 {
 }
 */
 
+/* --------------------- INTO FOCUS --------------------- */
+
+.focus p {
+  font-size: 150px;
+  margin: 0 auto;
+  color: transparent;
+  text-shadow: 0px 0px 15px #000;
+}
+
+/* --------------------- HIGHLIGHT PARAGRAPH --------------------- */
+
 .hightlight-paragraph {
   border: 1px solid gray;
   height: fit-content;
@@ -213,7 +236,7 @@ h1 {
   width: 50%;
   min-width: 750px;
   margin: 0 auto;
-  font-size: 25px;
+  font-size: 40px;
   font-weight: bolder;
   color: #eee;
   padding: 25px 0px;
@@ -228,7 +251,6 @@ h1 {
   color: #000;
 }
 
-
 .highlight-sentence {
   padding: 50px;
   height: 500px;
@@ -238,6 +260,9 @@ h1 {
   justify-content: center;
   flex-direction: column;
 }
+
+/* --------------------- HIGHLIGHT SENTENCE --------------------- */
+
 .text-roll {
   font-size: 100px;
   font-weight: bolder;
@@ -257,6 +282,8 @@ h1 {
   right: 0;
   transition: width ease-out 250ms;
 }
+
+/* --------------------- HORIZONTAL INTRO --------------------- */
 
 .rotate-text {
   height: 50vh;
@@ -317,6 +344,8 @@ h1 {
   background-color: #fff;
 }
 
+/* --------------------- WATERFALL INTRO --------------------- */
+
 .waterfall {
   height: 50vh;
   border: 1px solid #000;
@@ -375,6 +404,8 @@ h1 {
   transition-delay: 222ms;
 }
 
+/* --------------------- SETTLE INTRO --------------------- */
+
 .settle-text {
   height: 100vh;
   display: flex;
@@ -394,6 +425,8 @@ h1 {
   transition: all linear 750ms;
 }
 
+/* --------------------- ZIPPER INTRO --------------------- */
+
 .zip-container-section {
   height: 50vh;
   border: 1px solid #000;
@@ -410,14 +443,15 @@ h1 {
   transform: translate(-50%, 0%);
 }
 
-
 .zip-letter:nth-of-type(even) {
-  transform: translate(-100vw ,-100vh);
+  transform: translate(100vw, -100vh);
 }
+
 .zip-letter:nth-of-type(odd) {
-  transform: translate( -100vw, 100vh);
+  transform: translate(100vw, 100vh);
 }
 
 .zip-container span {
   display: inline-block;
+  transition: transform linear 200ms;
 }
