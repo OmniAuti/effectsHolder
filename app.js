@@ -80,47 +80,6 @@ const smokeyTextObserver = new IntersectionObserver((entries) => {
   }
 }, options);
 
-// FOCUS TEXT
-function focusText(e) {
-  const x = e.clientX;
-  const y = e.clientY;
-
-  var splitFocus = Array.from(document.querySelectorAll(".focus-text span"));
-
-  splitFocus.forEach((letter) => {
-    var box = letter.getBoundingClientRect();
-    var boxCenter =
-      Math.floor(
-        Math.sqrt(
-          Math.pow(x - (box.left + box.width / 2), 2) +
-            Math.pow(y - (box.top + box.height / 2), 2)
-        )
-      ) * 0.1;
-
-    if (boxCenter > 20) {
-      boxCenter = 20;
-    }
-    if (boxCenter < 0) {
-      boxCenter = 2.5;
-    }
-    letter.style.textShadow = `0px 0px ${boxCenter}px #000`;
-    letter.style.fontSize = `${170 - boxCenter}px`;
-  });
-}
-
-const focusTextObserver = new IntersectionObserver(
-  (entries) => {
-    if (entries[0].isIntersecting) {
-      document.querySelector(".focus").addEventListener("mousemove", focusText);
-    } else {
-      document
-        .querySelector(".focus")
-        .removeEventListener("mousemove", focusText);
-    }
-  },
-  { threshold: 0.5 }
-);
-
 // HIGHTLIGHT PARAGRAPH
 document.querySelectorAll(".hightlight-paragraph p span").forEach((x) => {
   const highlightParagraph = new IntersectionObserver(
@@ -200,7 +159,6 @@ const rotateTextObserver = new IntersectionObserver(
   },
   {
     threshold: 0.9,
-    rootMargin: "0px 0px -150px 0px",
   }
 );
 
@@ -307,18 +265,106 @@ const zipperObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
+// FOCUS TEXT
+function focusText(e) {
+  const x = e.clientX;
+  const y = e.clientY;
+
+  var splitFocus = Array.from(document.querySelectorAll(".focus-text span"));
+
+  splitFocus.forEach((letter) => {
+    var box = letter.getBoundingClientRect();
+    var boxCenter =
+      Math.floor(
+        Math.sqrt(
+          Math.pow(x - (box.left + box.width / 2), 2) +
+            Math.pow(y - (box.top + box.height / 2), 2)
+        )
+      ) * 0.1;
+
+    if (boxCenter > 20) {
+      boxCenter = 20;
+    }
+    if (boxCenter < 0) {
+      boxCenter = 2.5;
+    }
+    letter.style.textShadow = `0px 0px ${boxCenter * 1.25}px #000`;
+    //letter.style.transform = `scale(1.${boxCenter})`; -- KEEP THIS FOR POPCORN TEXT
+    letter.style.fontSize = `${170 - boxCenter * 0.5}px`;
+  });
+}
+
+const focusTextObserver = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      document.querySelector(".focus").addEventListener("mousemove", focusText);
+    } else {
+      document
+        .querySelector(".focus")
+        .removeEventListener("mousemove", focusText);
+    }
+  },
+  { threshold: 0.5 }
+);
+
+// SCROLL SKEW TEXT
+
+let currentPos = window.pageYOffset;
+const scrollText = document.querySelector(".skew-text");
+const scrollBox = document.querySelectorAll(".skew-box");
+const scrollH = document.querySelector(".skew-h2");
+
+const scrollSkew = () => {
+  const newPos = window.pageYOffset;
+  const diff = newPos - currentPos;
+  var speed = diff * 0.15;
+
+  if (speed >= 2) {
+    speed = 2;
+  }
+  if (speed <= -2) {
+    speed = -2;
+  }
+  console.log(speed);
+  scrollText.style.transform = `skewY(${speed}deg)`;
+  scrollH.style.transform = `skewY(${speed}deg)`;
+  scrollBox.forEach((x) => {
+    x.style.transform = `skewY(${speed}deg)`;
+  });
+
+  currentPos = newPos;
+
+  requestAnimationFrame(scrollSkew);
+};
+
+scrollSkew();
+
+// const scrollSkewObserver = new IntersectionObserver(
+//   (entries) => {
+//     if (entries[0].isIntersecting) {
+//       scrollSkew();
+//       console.log("it");
+//     } else {
+//       console.log("done");
+//     }
+//   },
+//   { threshold: 0, rootMargin: "0px 0px 0px 0px" }
+// );
+
 horizontalObserver.observe(document.querySelector(".horizontal-intro"));
 verticalObserver.observe(document.querySelector(".vertical-intro"));
 oneAtATimeObserver.observe(document.querySelector(".one-at-a-time"));
 growingTextObserver.observe(document.querySelector(".growing-text"));
 waveTextObserver.observe(document.querySelector(".wave-text"));
 smokeyTextObserver.observe(document.querySelector(".smokey-text"));
-focusTextObserver.observe(document.querySelector(".focus"));
 rotateTextObserver.observe(document.querySelector(".rotate-text"));
 waterfallObserver.observe(document.querySelector(".waterfall"));
 highlightText.observe(document.querySelector(".highlight-sentence"));
 settleObserver.observe(document.querySelector(".settle-text"));
 zipperObserver.observe(document.querySelector(".zip-container-section"));
+
+focusTextObserver.observe(document.querySelector(".focus"));
+// scrollSkewObserver.observe(document.querySelector(".skew-scroll"));
 
 const canvasWidth = window.innerWidth;
 const canvasHeight = window.innerHeight / 2;
