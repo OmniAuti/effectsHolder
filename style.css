@@ -447,6 +447,75 @@ h1 {
   transition: transform linear 200ms;
 }
 
+/* --------------------- FILL TEXT --------------------- */
+
+.fill-text {
+  height: 100vh;
+  border: 1px solid #000;
+}
+
+.fill-wrapper {
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+}
+
+.fill-wrapper p {
+  font-size: 150px;
+  /* -webkit-text-stroke: 1px #000;*/
+  color: transparent !important;
+  font-weight: bolder;
+  background-image: url("img/svg.png");
+  background-repeat: repeat-x;
+  background-size: 80%;
+  background-position: 0% -10%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --------------------- COMING SOON TEXT --------------------- */
+
+.coming-soon {
+  border: 1px solid #000;
+  position: relative;
+  text-align: center;
+
+  height: 100vh;
+}
+
+.coming-soon h2 {
+  font-size: 17vw;
+  will-change: transform;
+  /* transform: translate3d(0px, 40vw, 0px) scale3d(3.2, 3.2, 1); */
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  transition: transform ease-out 250ms;
+}
+
+.coming-soon h2 span {
+  display: block;
+}
+
+/* --------------------- INTO FOCUS --------------------- */
+
+.together {
+  border: 1px solid #000;
+  position: relative;
+}
+
+.together p {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  font-size: 150px;
+  margin: 0 auto;
+  white-space: nowrap;
+  letter-spacing: 100px;
+  transition: all ease 1000ms;
+}
+
 /* --------------------- INTO FOCUS --------------------- */
 
 .focus p {
@@ -490,5 +559,5 @@ h1 {
   margin: 50px;
   font-size: 100px;
   transform-origin: left;
-  transition: transform linear 150ms;
+  transition: transform ease-out 150ms;
 }

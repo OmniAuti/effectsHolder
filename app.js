@@ -243,14 +243,14 @@ function handleZipperText() {
     var padding = x.getAttribute("data-padding");
     var evenZip = -50 + zipPercent - padding;
     if (evenZip >= 5) evenZip = 0;
-    x.style.transform = `translate(${zipTop}vw, ${evenZip / 2.5}vh)`;
+    x.style.transform = `translate(${zipTop}vw, ${evenZip / 1.5}vh)`;
   });
 
   zipLettersOdd.forEach((x) => {
     var padding = x.getAttribute("data-padding");
     var oddZip = 50 - zipPercent - padding;
     if (oddZip <= -5) oddZip = 0;
-    x.style.transform = `translate( ${zipTop}vw,${oddZip / 2.5}vh)`;
+    x.style.transform = `translate( ${zipTop}vw,${oddZip / 1.5}vh)`;
   });
 }
 
@@ -264,6 +264,152 @@ const zipperObserver = new IntersectionObserver(
   },
   { threshold: 0.5 }
 );
+
+// FILLING TEXT
+const fillText = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    let idx = -10;
+    const int = setInterval(() => {
+      if (idx >= 325) clearInterval(int);
+      document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
+        idx * 4
+      }% ${idx * 0.25}%`;
+      idx++;
+    }, 10);
+  }
+  // } else {
+  //   console.log("ok");
+  //   const int = setInterval(() => {
+  //     let idx = 325;
+  //     if (idx <= -10) clearInterval(int);
+  //     document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
+  //       idx * 4
+  //     }% ${idx * 0.25}%`;
+  //     idx--;
+  //   }, 10);
+  // }
+}, options);
+
+// COMING SOON TEXT
+var timer = null;
+var movementTrack;
+function comingSoon() {
+  if (document.querySelector(".coming-soon").getBoundingClientRect().top <= 0) {
+    return;
+  }
+  // GETTING DIRECTION FOR AFTER MOVEMENT -------
+  var direction;
+  if (
+    document.querySelector(".coming-soon").getBoundingClientRect().top <=
+    movementTrack
+  ) {
+    // console.log("down");
+    direction = "down";
+  } else if (
+    document.querySelector(".coming-soon").getBoundingClientRect().top >=
+    movementTrack
+  ) {
+    // console.log("up");
+    direction = "up";
+  }
+
+  var scale =
+    window.innerHeight /
+    document.querySelector(".coming-soon").getBoundingClientRect().top /
+    2;
+  var topPos = scale * 17;
+
+  if (scale >= 2.2) return;
+  if (topPos >= 40) return;
+  if (scale >= 2.2) scale = 2.2;
+  if (topPos >= 40) topPos = 40;
+
+  document.querySelector(
+    ".coming-soon h2"
+  ).style.transform = `translate3d(0px, ${40 - topPos}vw, 0px) scale3d(${
+    3.2 - scale
+  }, ${3.2 - scale}, 1)`;
+  // MOVEMENT AFTER TIMEOUT ----------------
+  if (timer) {
+    clearTimeout(timer);
+  }
+
+  timer = setTimeout(function () {
+    var idx = 0;
+    const funStuff = setInterval(() => {
+      if (idx >= 0.5) {
+        clearInterval(funStuff);
+      }
+      if (scale >= 2.2) {
+        clearInterval(funStuff);
+        return;
+      }
+      if (topPos >= 40) {
+        clearInterval(funStuff);
+        return;
+      }
+      idx += 0.05;
+      if (direction === "down") {
+        if (scale >= 2.2) {
+          clearInterval(funStuff);
+          return;
+        }
+        if (topPos >= 40) {
+          clearInterval(funStuff);
+          return;
+        }
+        document.querySelector(
+          ".coming-soon h2"
+        ).style.transform = `translate3d(0px, ${
+          40 - topPos - idx
+        }vw, 0px) scale3d(${3.2 - scale - idx * 0.05}, ${
+          3.2 - scale - idx * 0.05
+        }, 1)`;
+      } else if (direction === "up") {
+        if (scale >= 2.2) {
+          clearInterval(funStuff);
+          return;
+        }
+        if (topPos >= 40) {
+          clearInterval(funStuff);
+          return;
+        }
+        document.querySelector(
+          ".coming-soon h2"
+        ).style.transform = `translate3d(0px, ${
+          40 - topPos + idx
+        }vw, 0px) scale3d(${3.2 - scale + idx * 0.05}, ${
+          3.2 - scale + idx * 0.05
+        }, 1)`;
+      } else {
+        clearInterval(funStuff);
+        return;
+      }
+    }, 25);
+  }, 150);
+  movementTrack = document
+    .querySelector(".coming-soon")
+    .getBoundingClientRect().top;
+}
+
+const comingSoonObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    window.addEventListener("scroll", comingSoon);
+  } else {
+    window.removeEventListener("scroll", comingSoon);
+  }
+});
+
+// COME TOGETHER
+const comeTogetherObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    document.querySelector(".together p").style.letterSpacing = "normal";
+  } else {
+    document.querySelector(".together p").style.letterSpacing = "100px";
+  }
+}, options);
+
+//--------------------------------------------------------------------------
 
 // FOCUS TEXT
 function focusText(e) {
@@ -325,7 +471,7 @@ const scrollSkew = () => {
   if (speed <= -2) {
     speed = -2;
   }
-  console.log(speed);
+  // console.log(speed);
   scrollText.style.transform = `skewY(${speed}deg)`;
   scrollH.style.transform = `skewY(${speed}deg)`;
   scrollBox.forEach((x) => {
@@ -362,7 +508,9 @@ waterfallObserver.observe(document.querySelector(".waterfall"));
 highlightText.observe(document.querySelector(".highlight-sentence"));
 settleObserver.observe(document.querySelector(".settle-text"));
 zipperObserver.observe(document.querySelector(".zip-container-section"));
-
+fillText.observe(document.querySelector(".fill-text"));
+comingSoonObserver.observe(document.querySelector(".coming-soon"));
+comeTogetherObserver.observe(document.querySelector(".together"));
 focusTextObserver.observe(document.querySelector(".focus"));
 // scrollSkewObserver.observe(document.querySelector(".skew-scroll"));
 
