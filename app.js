@@ -519,12 +519,17 @@ const canvasHeight = window.innerHeight / 2;
 
 // THIS SECTION IS FOR BUTTONS ONLY -------------------------
 
-const btn = document.querySelector(".btn-default");
-const holographicFill = document.querySelector(".btn-w-holographic");
-btn.addEventListener("mouseenter", (e) => {
-  var rect = holographicFill.getBoundingClientRect();
-  var x = e.clientX - rect.left; //x position within the element.
-  var y = e.clientY - rect.top; //y position within the element.
-  holographicFill.style.setProperty("--btnFillTop", `${y}px`);
-  holographicFill.style.setProperty("--btnFillLeft", `${x}px`);
-});
+const btn = document.querySelectorAll(".btn-default");
+
+btn.forEach((b) =>
+  b.addEventListener("mouseenter", (e) => {
+    var rect = b.getBoundingClientRect();
+    var x = e.clientX - rect.left; //x position within the element.
+    var y = e.clientY - rect.top; //y position within the element.
+    b.style.setProperty("--btnFillTop", `${y}px`);
+    b.style.setProperty("--btnFillLeft", `${x}px`);
+    // FIX THIS LATER SHOUDLNT BOTH RUN AT SAME TIME
+    b.style.setProperty("--btnFillTop", `${y}px`);
+    b.style.setProperty("--btnFillLeft", `${x}px`);
+  })
+);
