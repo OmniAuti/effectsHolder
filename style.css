@@ -898,14 +898,14 @@ h1 {
   cursor: pointer;
   box-shadow: 2px 2px 1.5px rgba(67, 67, 67, 0.5);
   transform: translate(-0.5px, -0.5px);
-  transition: all ease 250ms;
+  transition: all ease 500ms;
 }
 .btn-default:hover {
   cursor: pointer;
   box-shadow: 2px 2px 1.5px rgba(67, 67, 67, 0.25),
     inset 2px 2px 2.5px rgba(67, 67, 67, 0.5);
   transform: translate(-0.5px, -0.5px);
-  transition: all ease 250ms;
+  transition: all ease 500ms;
 }
 
 .btn-w-arrow:hover .btn-arrow:after {
@@ -913,6 +913,6 @@ h1 {
   transition: transform ease 250ms;
 }
 .btn-w-arrow:hover .btn-arrow:before {
-  transition: all ease 250ms;
+  transition: all ease 500ms;
   left: 50%;
 }
