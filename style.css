@@ -293,28 +293,22 @@ h1 {
 .rotate-text-section {
   height: 50vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  flex-direction: column;
+  padding-left: 100px;
 }
 .rotate-text {
   display: flex;
   align-items: center;
   justify-content: center;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .rotate-text > .rotate-box {
-  width: 110px;
-  height: 150px;
+  /* width: 100px; */
+  height: 140px;
+  /* border: 1px solid red; */
   position: relative;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -323,8 +317,9 @@ h1 {
   transform-style: preserve-3d;
   -webkit-transform: rotateX(0deg);
   transform: rotateX(0deg);
-  transition: all ease-out 500ms;
+  transition: all ease 500ms;
   will-change: transform;
+  overflow: visible;
 }
 
 .rotate-box-menu {
@@ -340,12 +335,19 @@ h1 {
   transform: rotate(0deg);
   transition: all ease-out 250ms;
   will-change: transform;
+  margin: 25px 0;
+  cursor: pointer;
 }
 
 .rotate-box-menu:hover,
 .rotate-text:hover .rotate-box {
   -webkit-transform: rotateX(0deg);
   transform: rotateX(-90deg);
+}
+
+.sideways > .rotate-text:hover .rotate-box {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(-90deg) rotateY(45deg);
 }
 
 .top {
@@ -355,11 +357,9 @@ h1 {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: absolute;
-  font-size: 150px;
-  width: 100%;
-  height: 100%;
+  font-size: 125px;
   -webkit-transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(100px);
+  transform: rotateX(90deg) translateZ(50px);
   font-weight: 350;
   font-family: "KormelinkItalic";
   font-feature-settings: "swsh";
@@ -367,7 +367,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 10px;
+  width: 100px;
 }
 
 .top-menu {
@@ -377,19 +377,18 @@ h1 {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: absolute;
-  font-size: 150px !important;
+  font-size: 125px !important;
   width: 100%;
   height: 100%;
   -webkit-transform: rotateX(90deg) translateZ(100px);
   transform: rotateX(90deg) translateZ(52.5px);
-  background-color: #fff;
   font-weight: 350;
   font-family: "KormelinkItalic" !important;
   font-feature-settings: "swsh" !important;
   color: #9d9fa2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .top span {
@@ -416,18 +415,15 @@ h1 {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  position: absolute;
-  font-size: 150px;
-  width: 100%;
-  height: 100%;
+  /* position: absolute; */
+  font-size: 125px;
   -webkit-transform: rotateX(0deg) translateZ(100px);
   transform: rotateX(0deg) translateZ(100px);
-  background-color: #fff;
   font-family: "Montserrat", sans-serif !important;
   color: #9d9fa2;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 .side-box-menu {
   -webkit-transform-style: preserve-3d;
@@ -446,7 +442,7 @@ h1 {
   color: #9d9fa2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 #bigger {
@@ -651,7 +647,6 @@ h1 {
 /* --------------------- SKEW SCROLL --------------------- */
 
 .skew-scroll {
-  border: 1px solid red;
   height: fit-content;
   padding: 50px;
   display: flex;
@@ -761,12 +756,18 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border: 1px solid #000;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
+}
+
+.side-rotate-menu,
+.top-rotate-menu {
+  text-transform: uppercase;
 }
 
 /* -------------------------------BUTTONS ------------------------------------- */
