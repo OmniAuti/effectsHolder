@@ -503,7 +503,7 @@ oneAtATimeObserver.observe(document.querySelector(".one-at-a-time"));
 growingTextObserver.observe(document.querySelector(".growing-text"));
 waveTextObserver.observe(document.querySelector(".wave-text"));
 smokeyTextObserver.observe(document.querySelector(".smokey-text"));
-rotateTextObserver.observe(document.querySelector(".rotate-text"));
+// rotateTextObserver.observe(document.querySelector(".rotate-text"));
 waterfallObserver.observe(document.querySelector(".waterfall"));
 highlightText.observe(document.querySelector(".highlight-sentence"));
 settleObserver.observe(document.querySelector(".settle-text"));

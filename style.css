@@ -290,12 +290,21 @@ h1 {
 
 /* --------------------- HORIZONTAL INTRO --------------------- */
 
-.rotate-text {
-  height: 100vh;
+.rotate-text-section {
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #000;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.rotate-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -304,7 +313,7 @@ h1 {
 }
 
 .rotate-text > .rotate-box {
-  width: 105px;
+  width: 110px;
   height: 150px;
   position: relative;
   -webkit-transform-style: preserve-3d;
@@ -316,6 +325,27 @@ h1 {
   transform: rotateX(0deg);
   transition: all ease-out 500ms;
   will-change: transform;
+}
+
+.rotate-box-menu {
+  height: 100px;
+  width: 1000px;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(0deg);
+  transform: rotate(0deg);
+  transition: all ease-out 250ms;
+  will-change: transform;
+}
+
+.rotate-box-menu:hover,
+.rotate-text:hover .rotate-box {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(-90deg);
 }
 
 .top {
@@ -330,7 +360,36 @@ h1 {
   height: 100%;
   -webkit-transform: rotateX(90deg) translateZ(100px);
   transform: rotateX(90deg) translateZ(100px);
+  font-weight: 350;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.top-menu {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  font-size: 150px !important;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+  transform: rotateX(90deg) translateZ(52.5px);
   background-color: #fff;
+  font-weight: 350;
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .top span {
@@ -347,6 +406,8 @@ h1 {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  font-weight: 600 !important;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .side {
@@ -362,6 +423,34 @@ h1 {
   -webkit-transform: rotateX(0deg) translateZ(100px);
   transform: rotateX(0deg) translateZ(100px);
   background-color: #fff;
+  font-family: "Montserrat", sans-serif !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.side-box-menu {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  font-size: 150px;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX(0deg) translateZ(100px);
+  transform: rotateX(0deg) translateZ(55px);
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bigger {
+  font-size: 150px;
 }
 
 /* --------------------- WATERFALL INTRO --------------------- */
@@ -668,70 +757,19 @@ h1 {
 }
 
 .menu-rotate {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #000;
-  height: 100vh;
-  width: 100vw;
-  list-style-type: none;
-  cursor: pointer;
-}
-.container-rotate {
-  width: fit-content;
-  height: 500px;
-  position: relative;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1;
-  grid-template-rows: 1;
-  transition: all ease 500ms;
-  border: 1px solid blue;
-}
-.og-rotate,
-.top-rotate {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
-  justify-self: center;
-  transition: all ease 500ms;
-}
-
-.og-rotate {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transform: rotateX(0deg) translateZ(0px);
-  transform: rotateX(10deg) translateZ(0px);
-  border: 1px solid red;
 }
 
-.top-rotate {
-  font-weight: 350;
-  font-family: "KormelinkItalic";
-  font-feature-settings: "swsh";
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  /* make translate z to fontsize*/
-  -webkit-transform: rotateX(90deg) translateZ(50px);
-  transform: rotateX(90deg) translateZ(50px);
-  opacity: 1;
-  border: 1px solid red;
-}
-
-.container-rotate:hover .top-rotate {
-  transform: rotateX(0deg) translateZ(0px);
-  opacity: 1;
-}
-
-.container-rotate:hover .og-rotate {
-  -webkit-transform: rotateX(-90deg) translateZ(50px);
-  transform: rotateX(-90deg) rotateX(50px);
-  opacity: 1;
-}
-
+/* -------------------------------BUTTONS ------------------------------------- */
 .button-section {
   display: flex;
   align-items: center;
