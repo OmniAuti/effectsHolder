@@ -954,3 +954,428 @@ h1 {
   transition: all ease 500ms;
   left: 50%;
 }
+
+/*--------- DRIP -----------------------*/
+
+.drip-section {
+  border: 1px solid #000;
+  height: 50vh;
+  width: 100vw;
+  -webkit-filter: contrast(5);
+  filter: contrast(5);
+  position: relative;
+  background-color: #fff;
+}
+.drip-container {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+.drip-container h1 {
+  font-size: 250px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  -webkit-filter: blur(5px);
+}
+
+.drip-one {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 200px;
+  left: 25px;
+  -webkit-filter: blur(5px);
+  animation-name: dripOne;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 2500ms;
+}
+
+@keyframes dripOne {
+  0% {
+    top: 200px;
+    width: 0px;
+    height: 0px;
+    background-color: #000;
+  }
+  10% {
+    width: 40px;
+    height: 50px;
+    background-color: #000;
+  }
+  40% {
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+  50% {
+    top: 225px;
+    width: 40px;
+    height: 50px;
+  }
+  100% {
+    top: 1000px;
+    width: 40px;
+    height: 50px;
+  }
+}
+
+.drip-two {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 225px;
+  -webkit-filter: blur(5px);
+  animation-name: dripTwo;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 5000ms;
+}
+@keyframes dripTwo {
+  0% {
+    top: 50px;
+    width: 0px;
+    height: 0px;
+    background: #000;
+  }
+  10% {
+    width: 40px;
+    height: 50px;
+    background: #000;
+  }
+
+  40% {
+    top: 225px;
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+
+  50% {
+    top: 225px;
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+  100% {
+    top: 1000px;
+    width: 40px;
+    height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+}
+.drip-rgba {
+  animation-name: dripThree;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-duration: 4200ms;
+  animation-fill-mode: forwards;
+}
+.drip-three {
+  width: 55px;
+  height: 55px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: -7px;
+  left: 404px;
+  -webkit-filter: blur(5px);
+}
+@keyframes dripThree {
+  0% {
+    top: -7px;
+  }
+  10% {
+    top: 20px;
+    width: 55px;
+    height: 60px;
+    background: #000;
+  }
+  20% {
+    top: 25px;
+    width: 55px;
+    height: 60px;
+    background: #000;
+  }
+  55% {
+    top: 225px;
+    width: 55px;
+    height: 65px;
+    background-: #000;
+  }
+  85% {
+    top: 225px;
+    width: 55px;
+    height: 65px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+
+  100% {
+    top: 1000px;
+    width: 55px;
+    height: 65px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+}
+.drip-four {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 100px;
+  left: 605px;
+  -webkit-filter: blur(5px);
+  animation-name: dripFour;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 2500ms;
+  animation-delay: 250ms;
+}
+@keyframes dripFour {
+  0% {
+    top: 105px;
+    width: 0px;
+    height: 0px;
+  }
+  25% {
+    top: 150px;
+    width: 40px;
+    height: 55px;
+  }
+  50% {
+    top: 160px;
+    width: 40px;
+    height: 55px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+  100% {
+    top: 1000px;
+    width: 40px;
+    height: 55px;
+  }
+}
+
+/* ----- BLACK DRIP ONLY */
+
+.drip-container-black {
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+.drip-container-black h1 {
+  font-size: 250px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  -webkit-filter: blur(5px);
+}
+
+.drip-one-black {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 200px;
+  left: 25px;
+  -webkit-filter: blur(5px);
+  animation-name: dripOneB;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 2500ms;
+}
+
+@keyframes dripOneB {
+  0% {
+    top: 200px;
+    width: 0px;
+    height: 0px;
+  }
+  10% {
+    width: 40px;
+    height: 50px;
+  }
+  40% {
+    width: 40px;
+    height: 50px;
+  }
+  50% {
+    top: 225px;
+    width: 40px;
+    height: 50px;
+  }
+  100% {
+    top: 1000px;
+    width: 40px;
+    height: 50px;
+  }
+}
+
+.drip-two-black {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 225px;
+  -webkit-filter: blur(5px);
+  animation-name: dripTwoB;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 5000ms;
+}
+@keyframes dripTwoB {
+  0% {
+    top: 65px;
+    width: 0px;
+    height: 0px;
+  }
+  15% {
+    width: 50px;
+    height: 60px;
+  }
+  50% {
+    top: 225px;
+    width: 50px;
+    height: 60px;
+  }
+  100% {
+    top: 1000px;
+    width: 50px;
+    height: 60px;
+  }
+}
+.drip-black {
+  animation-name: dripThreeB;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-duration: 4200ms;
+  animation-fill-mode: forwards;
+}
+.drip-three-black {
+  width: 55px;
+  height: 55px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: -7px;
+  left: 404px;
+  -webkit-filter: blur(5px);
+}
+@keyframes dripThreeB {
+  0% {
+    top: -7px;
+  }
+  10% {
+    top: 20px;
+    width: 55px;
+    height: 60px;
+  }
+  20% {
+    top: 25px;
+    width: 55px;
+    height: 60px;
+  }
+  55% {
+    top: 225px;
+    width: 55px;
+    height: 65px;
+  }
+  85% {
+    top: 225px;
+    width: 55px;
+    height: 65px;
+  }
+  100% {
+    top: 1000px;
+    width: 55px;
+    height: 65px;
+  }
+}
+.drip-four-black {
+  width: 0px;
+  height: 0px;
+  background-color: #000;
+  position: absolute;
+  border-radius: 50%;
+  top: 100px;
+  left: 605px;
+  -webkit-filter: blur(5px);
+  animation-name: dripFourB;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease;
+  animation-duration: 2500ms;
+  animation-delay: 250ms;
+}
+@keyframes dripFourB {
+  0% {
+    top: 105px;
+    width: 0px;
+    height: 0px;
+  }
+  25% {
+    top: 150px;
+    width: 40px;
+    height: 55px;
+  }
+  50% {
+    top: 160px;
+    width: 40px;
+    height: 55px;
+  }
+  100% {
+    top: 1000px;
+    width: 40px;
+    height: 55px;
+  }
+}

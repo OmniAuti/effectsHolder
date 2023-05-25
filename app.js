@@ -574,3 +574,13 @@ rotateFluidBox.forEach((box) => {
     box.classList.remove("top-fluid-enter-menu");
   });
 });
+
+document
+  .querySelector(".drip-container-black")
+  .addEventListener("mouseenter", () => {
+    document.querySelector(".drip-three-black").classList.add("drip-black");
+  });
+
+document.querySelector(".drip-container").addEventListener("mouseenter", () => {
+  document.querySelector(".drip-three").classList.add("drip-rgba");
+});
