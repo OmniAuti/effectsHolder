@@ -600,6 +600,7 @@ h1 {
   will-change: transform;
   margin-bottom: 40px;
   cursor: pointer;
+  will-change: transform;
 }
 
 .top-box-menu {
@@ -722,7 +723,7 @@ h1 {
   height: fit-content;
   height: 75px;
   width: 70%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   /* border: 1px solid red; */
 }
 
@@ -741,7 +742,7 @@ h1 {
   transition: all ease-out 250ms;
   will-change: transform;
   cursor: pointer;
-  /* border: 1px solid green; */
+  will-change: transform; /* border: 1px solid green; */
 }
 
 .top {
@@ -988,6 +989,7 @@ h1 {
   top: 200px;
   left: 25px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripOne;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -1021,11 +1023,25 @@ h1 {
     top: 225px;
     width: 40px;
     height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   }
   100% {
     top: 1000px;
     width: 40px;
     height: 50px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   }
 }
 
@@ -1036,8 +1052,9 @@ h1 {
   position: absolute;
   border-radius: 50%;
   top: 50%;
-  left: 225px;
+  left: 230px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripTwo;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -1051,15 +1068,15 @@ h1 {
     background: #000;
   }
   10% {
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 65px;
     background: #000;
   }
 
   40% {
     top: 225px;
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 65px;
     background: linear-gradient(
         217deg,
         rgba(255, 0, 0, 0.8),
@@ -1071,8 +1088,8 @@ h1 {
 
   50% {
     top: 225px;
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 65px;
     background: linear-gradient(
         217deg,
         rgba(255, 0, 0, 0.8),
@@ -1083,8 +1100,8 @@ h1 {
   }
   100% {
     top: 1000px;
-    width: 40px;
-    height: 50px;
+    width: 50px;
+    height: 65px;
     background: linear-gradient(
         217deg,
         rgba(255, 0, 0, 0.8),
@@ -1110,12 +1127,13 @@ h1 {
   top: -7px;
   left: 404px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 @keyframes dripThree {
   0% {
     top: -7px;
   }
-  10% {
+  15% {
     top: 20px;
     width: 55px;
     height: 60px;
@@ -1131,9 +1149,9 @@ h1 {
     top: 225px;
     width: 55px;
     height: 65px;
-    background-: #000;
+    background: #000;
   }
-  85% {
+  60% {
     top: 225px;
     width: 55px;
     height: 65px;
@@ -1168,6 +1186,7 @@ h1 {
   top: 100px;
   left: 605px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripFour;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -1201,6 +1220,13 @@ h1 {
     top: 1000px;
     width: 40px;
     height: 55px;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   }
 }
 
@@ -1217,6 +1243,7 @@ h1 {
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .drip-one-black {
@@ -1228,6 +1255,7 @@ h1 {
   top: 200px;
   left: 25px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripOneB;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -1269,6 +1297,7 @@ h1 {
   top: 50%;
   left: 225px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripTwoB;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
@@ -1311,6 +1340,7 @@ h1 {
   top: -7px;
   left: 404px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 @keyframes dripThreeB {
   0% {
@@ -1351,6 +1381,7 @@ h1 {
   top: 100px;
   left: 605px;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
   animation-name: dripFourB;
   animation-iteration-count: infinite;
   animation-timing-function: ease;
