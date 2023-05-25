@@ -24,7 +24,7 @@ html {
 
 section {
   position: relative;
-  height: 75vh;
+  height: 100vh;
   width: 100%;
   overflow: hidden;
   display: flex;
@@ -288,167 +288,6 @@ h1 {
   transition: width ease-out 250ms;
 }
 
-/* --------------------- HORIZONTAL INTRO --------------------- */
-
-.rotate-text-section {
-  height: 100vh;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 100px;
-}
-.rotate-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-.rotate-text > .rotate-box {
-  /* width: 100px; */
-  height: 140px;
-  /* border: 1px solid red; */
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-  transition: all ease 500ms;
-  will-change: transform;
-  overflow: visible;
-}
-
-.rotate-box-menu {
-  height: 100px;
-  width: 1000px;
-  position: relative;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  -webkit-transform: rotateX(0deg);
-  transform: rotate(0deg);
-  transition: all ease-out 250ms;
-  will-change: transform;
-  margin: 25px 0;
-  cursor: pointer;
-}
-
-.rotate-box-menu:hover,
-.rotate-text:hover .rotate-box {
-  -webkit-transform: rotateX(0deg);
-  transform: rotateX(-90deg);
-}
-
-.sideways > .rotate-text:hover .rotate-box {
-  -webkit-transform: rotateX(0deg);
-  transform: rotateX(-90deg) rotateY(45deg);
-}
-
-.top {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  position: absolute;
-  font-size: 125px;
-  -webkit-transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(50px);
-  font-weight: 350;
-  font-family: "KormelinkItalic";
-  font-feature-settings: "swsh";
-  color: #9d9fa2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-}
-
-.top-menu {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  position: absolute;
-  font-size: 125px !important;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: rotateX(90deg) translateZ(100px);
-  transform: rotateX(90deg) translateZ(52.5px);
-  font-weight: 350;
-  font-family: "KormelinkItalic" !important;
-  font-feature-settings: "swsh" !important;
-  color: #9d9fa2;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
-
-.top span {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-
-.side span {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  font-weight: 600 !important;
-  font-family: "Montserrat", sans-serif !important;
-}
-
-.side {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  /* position: absolute; */
-  font-size: 125px;
-  -webkit-transform: rotateX(0deg) translateZ(100px);
-  transform: rotateX(0deg) translateZ(100px);
-  font-family: "Montserrat", sans-serif !important;
-  color: #9d9fa2;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
-}
-.side-box-menu {
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  position: absolute;
-  font-size: 150px;
-  width: 100%;
-  height: 100%;
-  -webkit-transform: rotateX(0deg) translateZ(100px);
-  transform: rotateX(0deg) translateZ(55px);
-  background-color: #fff;
-  font-family: "Montserrat", sans-serif;
-  color: #9d9fa2;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-}
-
-#bigger {
-  font-size: 150px;
-}
-
 /* --------------------- WATERFALL INTRO --------------------- */
 
 .waterfall {
@@ -702,13 +541,13 @@ h1 {
 
 .container-morph {
   list-style-type: none;
-  width: fit-content;
-  height: fit-content;
+  width: 100vw;
+  height: 100vh;
   position: relative;
   background: white;
   margin: 0 auto;
   display: grid;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   grid-template-columns: 1;
   grid-template-rows: 1;
   transition: all ease 500ms;
@@ -751,23 +590,254 @@ h1 {
   opacity: 1;
 }
 
+/* START OF SOLID BOX ROTATING MENU ------------------------------------------- */
+
 .menu-rotate {
-  height: 75vh;
+  height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   flex-direction: column;
   border: 1px solid #000;
+  padding-left: 50px;
+}
+
+.rotate-box-menu {
+  height: 70px;
+  width: 100%;
+  position: relative;
+  /* DIRECT CONTAINER OF ROTATING BOX NEEDS TP HACE BELOW*/
+  font-size: 100px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transform: rotateX(0deg);
+  transform: rotate(0deg);
+  transition: all ease-out 250ms;
+  will-change: transform;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.top-box-menu {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  /*FONT SIZE IS BEING ALTERED BY DEFAULT H1 AND THEN BUMPED TO 150PX BY #BIGGER ID*/
+  font-size: 150px !important;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX(90deg) translateZ(35px);
+  transform: rotateX(90deg) translateZ(35px);
+  font-weight: 350;
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  opacity: 0;
+  transition: all ease-out 250ms;
+  backface-visibility: hidden;
+}
+
+.bottom-box-menu {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  /*FONT SIZE IS BEING ALTERED BY DEFAULT H1 AND THEN BUMPED TO 150PX BY #BIGGER ID*/
+  font-size: 150px !important;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX-(90deg) translateZ(35px);
+  transform: rotateX(-90deg) translateZ(35px);
+  font-weight: 350;
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  opacity: 0;
+  transition: all ease-out 250ms;
+  backface-visibility: hidden;
+}
+
+.side-box-menu {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  font-size: 150px;
+  width: fit-content;
+  height: 100%;
+  -webkit-transform: rotateX(0deg) translateZ(100px);
+  transform: rotateX(0deg) translateZ(55px);
+  font-family: "Montserrat", sans-serif;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  opacity: 1;
+  transition: all ease-out 250ms;
+  backface-visibility: hidden;
 }
 
 .side-rotate-menu,
 .top-rotate-menu {
   text-transform: uppercase;
+}
+
+/*PLACE HOLDER TO OVERRIDE H1 DEFAULT SIZE*/
+#bigger {
+  font-size: 125px;
+}
+
+/* THIS IS THE HOVER ROTATE FOR ALL BOX ROTATION MENU SECTIONS */
+.top-enter-menu:hover,
+.rotate-text:hover .rotate-box {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(-90deg);
+}
+
+.bottom-enter-menu:hover {
+  -webkit-transform: rotateX(0deg);
+  transform: rotateX(90deg);
+}
+
+.top-enter-menu:hover .top-box-menu {
+  opacity: 1;
+}
+
+.bottom-enter-menu:hover .bottom-box-menu {
+  opacity: 1;
+}
+
+.top-enter-menu:hover .side-box-menu,
+.bottom-enter-menu:hover .side-box-menu {
+  opacity: 0;
+}
+
+/* START OF FLUID BOX ROTATING MENU ------------------------------------------- */
+
+.rotate-text-section {
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  padding-left: 50px;
+}
+.rotate-fluid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.rotate-box {
+  height: 70px;
+  width: 100%;
+  position: relative;
+  /* DIRECT CONTAINER OF ROTATING BOX NEEDS TP HACE BELOW*/
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(0deg);
+  transform: rotate(0deg);
+  transition: all ease-out 250ms;
+  will-change: transform;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.top {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  /*FONT SIZE IS BEING ALTERED BY DEFAULT H1 AND THEN BUMPED TO 150PX BY #BIGGER ID*/
+  font-size: 100px !important;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX(90deg) translateZ(35px);
+  transform: rotateX(90deg) translateZ(35px);
+  font-weight: 350;
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+
+.side {
+  backface-visibility: hidden;
+  text-transform: uppercase;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  font-size: 100px;
+  width: fit-content;
+  height: 100%;
+  -webkit-transform: rotateX(0deg) translateZ(100px);
+  transform: rotateX(0deg) translateZ(55px);
+  font-family: "Montserrat", sans-serif;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom {
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /*FONT SIZE IS BEING ALTERED BY DEFAULT H1 AND THEN BUMPED TO 150PX BY #BIGGER ID*/
+  font-size: 100px !important;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: rotateX-(90deg) translateZ(-25px);
+  transform: rotateX(-90deg) translateZ(-25px);
+  font-weight: 350;
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  color: #9d9fa2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+
+.top-fluid-enter-menu:hover .rotate-box {
+  transform: rotateX(-90deg);
+}
+.bottom-fluid-enter-menu:hover .rotate-box {
+  transform: rotateX(90deg);
 }
 
 /* -------------------------------BUTTONS ------------------------------------- */

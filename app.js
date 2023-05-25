@@ -533,3 +533,44 @@ btn.forEach((b) =>
     b.style.setProperty("--btnFillLeft", `${x}px`);
   })
 );
+
+const rotateBox = document.querySelectorAll(".rotate-box-menu");
+
+rotateBox.forEach((box) => {
+  box.addEventListener("mouseenter", (e) => {
+    var rect = box.getBoundingClientRect();
+    var rectMiddle = rect.height / 2 + rect.top;
+    var y = e.clientY; //y position within the element.
+    if (y > rectMiddle) {
+      box.classList.add("bottom-enter-menu");
+    }
+    if (y < rectMiddle) {
+      box.classList.add("top-enter-menu");
+    }
+    console.log(rectMiddle, y);
+  });
+  box.addEventListener("mouseleave", () => {
+    box.classList.remove("bottom-enter-menu");
+    box.classList.remove("top-enter-menu");
+  });
+});
+
+const rotateFluidBox = document.querySelectorAll(".rotate-fluid-container");
+
+rotateFluidBox.forEach((box) => {
+  box.addEventListener("mouseenter", (e) => {
+    var rect = box.getBoundingClientRect();
+    var rectMiddle = rect.height / 2 + rect.top;
+    var y = e.clientY; //y position within the element.
+    if (y > rectMiddle) {
+      box.classList.add("bottom-fluid-enter-menu");
+    }
+    if (y < rectMiddle) {
+      box.classList.add("top-fluid-enter-menu");
+    }
+  });
+  box.addEventListener("mouseleave", () => {
+    box.classList.remove("bottom-fluid-enter-menu");
+    box.classList.remove("top-fluid-enter-menu");
+  });
+});
