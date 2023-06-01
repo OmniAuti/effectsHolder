@@ -595,8 +595,8 @@ h1 {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-transform: rotateX(0deg);
-  transform: rotate(0deg);
-  transition: all ease-out 250ms;
+  transform: rotateX(0deg);
+  transition: all ease-in-out 250ms;
   will-change: transform;
   margin-bottom: 40px;
   cursor: pointer;
@@ -966,6 +966,10 @@ h1 {
   filter: contrast(5);
   position: relative;
   background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .drip-container {
   width: fit-content;
@@ -1145,14 +1149,20 @@ h1 {
     height: 60px;
     background: #000;
   }
-  55% {
-    top: 225px;
+  50% {
+    top: 210px;
     width: 55px;
     height: 65px;
-    background: #000;
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   }
   60% {
-    top: 225px;
+    top: 215px;
     width: 55px;
     height: 65px;
     background: linear-gradient(
