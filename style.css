@@ -1446,11 +1446,40 @@ h1 {
   top: 0;
   left: 50%;
   border-radius: 54% 46% 43% 57% / 37% 41% 59% 63%;
-  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
-    15px 25px 10px rgba(0, 0, 0, 0.1), 15px 20px 20px rgba(0, 0, 0, 0.05),
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.5),
+    inset 15px 15px 15px rgba(0, 0, 0, 0.25), 7px 7.5px 10px rgba(0, 0, 0, 0.5),
+    50px 10px 20px rgba(0, 0, 0, 0.05),
     inset -10px -10px 15px rgba(255, 255, 255, 1);
   backdrop-filter: blur(2.5px);
   transition: all ease 500ms;
+  z-index: 2;
+}
+
+.drop-one::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 54% 46% 43% 57% / 37% 41% 59% 63%;
+  filter: blur(2px);
+  top: 20px;
+  left: 30px;
+}
+.drop-one::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 45px;
+  background-color: rgba(255, 255, 255, 1);
+  /* border: 1px solid red; */
+  border-radius: 84% 56% 83% 37% / 77% 51% 79% 63%;
+  filter: blur(2px);
+  bottom: -5px;
+  z-index: 11;
+  bottom: 5px;
+  right: 12px;
+  /* border: 1px solid red; */
 }
 
 .drop-one:hover {
