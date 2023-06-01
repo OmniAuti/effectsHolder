@@ -962,26 +962,33 @@ h1 {
   border: 1px solid #000;
   height: 50vh;
   width: 100vw;
-  -webkit-filter: contrast(5);
-  filter: contrast(5);
+
   position: relative;
-  background-color: #fff;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.drip-section img {
+  position: absolute;
+  z-index: 9;
+}
+
 .drip-container {
   width: fit-content;
-  height: fit-content;
+  height: 500px;
   margin: 0 auto;
   position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  -webkit-filter: contrast(5);
+  filter: contrast(5);
 }
 .drip-container h1 {
   font-size: 250px;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   -webkit-filter: blur(5px);
+  filter: blur(5px);
 }
 
 .drip-one {
@@ -1128,14 +1135,14 @@ h1 {
   background-color: #000;
   position: absolute;
   border-radius: 50%;
-  top: -7px;
+  top: 5px;
   left: 404px;
   -webkit-filter: blur(5px);
   filter: blur(5px);
 }
 @keyframes dripThree {
   0% {
-    top: -7px;
+    top: 5px;
   }
   15% {
     top: 20px;
@@ -1461,11 +1468,53 @@ h1 {
   box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
     15px 25px 10px rgba(0, 0, 0, 0.1), 15px 20px 20px rgba(0, 0, 0, 0.05),
     inset -10px -10px 15px rgba(255, 255, 255, 1);
-  backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(5px);
   transition: all ease 500ms;
 }
 
 .drop-two:hover {
   transform: translate(5px, -5px);
   border-radius: 37% 63% 44% 56% / 48% 58% 42% 52%;
+}
+
+/* ----- TEXT ------------------------------------------------ */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+#holographic {
+  /* background-color: #74ebd5; */
+  background-size: 200%;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30rem;
+  height: 40rem;
+  font-size: 9.5rem;
+  padding: 2rem;
+  /* background-color: #000e4a;
+  background-color: #e8f3ff; */
+}
+.card__text {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: url("https://t4.ftcdn.net/jpg/02/92/69/73/360_F_292697304_THQBWq1bpjVZJcED2gOZ3IneLBwLdwDx.jpg");
+}
+
+.mask {
+  display: block;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4);
+  letter-spacing: 2px;
+  line-height: 1;
+  text-align: center;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  font-weight: 350;
 }
