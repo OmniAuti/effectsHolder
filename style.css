@@ -1420,3 +1420,52 @@ h1 {
     height: 55px;
   }
 }
+
+.water-droplets {
+  border: 1px solid blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.drops {
+  position: relative;
+}
+
+.drop-one {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 50%;
+  border-radius: 54% 46% 43% 57% / 37% 41% 59% 63%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
+    15px 25px 10px rgba(0, 0, 0, 0.1), 15px 20px 20px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 1);
+  backdrop-filter: blur(2.5px);
+  transition: all ease 500ms;
+}
+
+.drop-one:hover {
+  transform: translate(-5px, 5px);
+
+  border-radius: 67% 43% 40% 63% / 45% 52% 48% 55%;
+}
+.drop-two {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 0;
+  left: 10%;
+  border-radius: 26% 74% 81% 49% / 37% 58% 42% 63%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.1),
+    15px 25px 10px rgba(0, 0, 0, 0.1), 15px 20px 20px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 1);
+  backdrop-filter: blur(2.5px);
+  transition: all ease 500ms;
+}
+
+.drop-two:hover {
+  transform: translate(5px, -5px);
+  border-radius: 37% 63% 44% 56% / 48% 58% 42% 52%;
+}
