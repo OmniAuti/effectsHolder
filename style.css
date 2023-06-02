@@ -1513,7 +1513,8 @@ h1 {
 /* ----- TEXT ------------------------------------------------ */
 .holo-text {
   min-height: fit-content;
-  height: 150rem;
+  height: 170rem;
+  margin-bottom: 500px;
 }
 .container {
   display: flex;
@@ -1543,35 +1544,59 @@ h1 {
   background-size: cover;
 }
 
-.mask-dark {
-  display: block;
-  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1),
-    0px 2px 3px rgba(255, 255, 255, 0.4);
-  line-height: 1;
-  padding: 50px;
-  text-align: center;
-  font-family: "KormelinkItalic";
-  font-feature-settings: "swsh";
-  font-weight: 350;
-}
 .mask {
   display: block;
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4);
   line-height: 1;
-  padding: 50px;
+  padding: 0px 50px 50px 50px;
   text-align: center;
   font-family: "KormelinkItalic";
   font-feature-settings: "swsh";
   font-weight: 350;
 }
 
-.mask-demo {
+.mask-light {
   display: block;
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.75);
   line-height: 1;
-  padding: 25px;
+  padding: 0px 50px 50px 50px;
   text-align: center;
   font-family: "KormelinkItalic";
   font-feature-settings: "swsh";
   font-weight: 350;
+}
+.mask-dark {
+  display: block;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1),
+    0px 2px 3px rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  padding: 0px 50px 50px 50px;
+  text-align: center;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  font-weight: 350;
+}
+.mask-hover {
+  display: block;
+  text-shadow: 0px 0px 0px rgba(157, 159, 162, 1)
+    /* 0px 2px 3px rgba(255, 255, 255, 0.4); */;
+  line-height: 1;
+  padding: 0px 50px 50px 50px;
+  text-align: center;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  font-weight: 350;
+  transition: all ease 250ms;
+}
+
+.mask-hover:hover {
+  display: block;
+  padding: 0px 50px 50px 50px;
+
+  text-shadow: 0px 2px 3px rgba(157, 159, 162, 0)
+    /* 0px 2px 3px rgba(255, 255, 255, 0.4); */;
+}
+
+hr {
+  margin-bottom: 100px;
 }
