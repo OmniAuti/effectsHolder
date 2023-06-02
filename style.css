@@ -1534,7 +1534,7 @@ h1 {
   align-items: center;
   width: 500px;
   height: 40rem;
-  font-size: 9rem;
+  font-size: 7rem;
   padding: 0rem;
 }
 .card__text {
@@ -1576,6 +1576,28 @@ h1 {
   font-feature-settings: "swsh";
   font-weight: 350;
 }
+.mask-light-hover {
+  display: block;
+  text-shadow: 0px 0px 0px rgba(157, 159, 162, 1);
+  line-height: 1;
+  padding: 0px 50px 50px 50px;
+  text-align: center;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  font-weight: 350;
+  transition: all ease 500ms;
+}
+.mask-dark-hover {
+  display: block;
+  text-shadow: 0px 0px 0px rgba(157, 159, 162, 1);
+  line-height: 1;
+  padding: 0px 50px 50px 50px;
+  text-align: center;
+  font-family: "KormelinkItalic";
+  font-feature-settings: "swsh";
+  font-weight: 350;
+  transition: all ease 500ms;
+}
 .mask-hover {
   display: block;
   text-shadow: 0px 0px 0px rgba(157, 159, 162, 1)
@@ -1586,15 +1608,25 @@ h1 {
   font-family: "KormelinkItalic";
   font-feature-settings: "swsh";
   font-weight: 350;
-  transition: all ease 250ms;
+  transition: all ease 500ms;
 }
 
 .mask-hover:hover {
   display: block;
   padding: 0px 50px 50px 50px;
-
-  text-shadow: 0px 2px 3px rgba(157, 159, 162, 0)
-    /* 0px 2px 3px rgba(255, 255, 255, 0.4); */;
+  text-shadow: 0px 2px 3px rgba(157, 159, 162, 0),
+    0px 2px 3px rgba(255, 255, 255, 0.4);
+}
+.mask-light-hover:hover {
+  display: block;
+  padding: 0px 50px 50px 50px;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.75);
+}
+.mask-dark-hover:hover {
+  display: block;
+  padding: 0px 50px 50px 50px;
+  text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1),
+    0px 2px 3px rgba(255, 255, 255, 0.4);
 }
 
 hr {
