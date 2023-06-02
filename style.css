@@ -811,6 +811,7 @@ h1 {
 
 /* -------------------------------BUTTONS ------------------------------------- */
 .button-section {
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -960,8 +961,10 @@ h1 {
 
 .drip-section {
   border: 1px solid #000;
+  min-height: 900px;
   height: 100vh;
   width: 100vw;
+  min-width: 1200px;
 
   position: relative;
   overflow: hidden;
