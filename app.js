@@ -584,3 +584,59 @@ document
 document.querySelector(".drip-container").addEventListener("mouseenter", () => {
   document.querySelector(".drip-three").classList.add("drip-rgba");
 });
+
+//DRAG AND DROP FEATURE -----------------------------------------------
+
+const dragContainer = document.querySelector(".drag-drop");
+const dragTail = document.querySelector(".drag-tail");
+const dragEl = document.querySelectorAll(".drag");
+dragEl.forEach((el) => {
+  let movementEl = false;
+  var arr;
+  var drugX,
+    drugY = 0;
+  el.addEventListener("mousedown", (e) => {
+    arr = [];
+    e.preventDefault();
+    drugX = e.clientX - el.offsetLeft;
+    drugY = e.clientY - el.offsetTop;
+    movementEl = true;
+  });
+
+  el.addEventListener("mousemove", (e) => {
+    e.preventDefault();
+    if (movementEl === true) {
+      let newX = e.clientX - el.offsetLeft;
+      let newY = e.clientY - el.offsetTop;
+      el.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      el.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+    }
+  });
+
+  el.addEventListener("mouseup", (e) => {
+    console.log(arr);
+    movementEl = false;
+  });
+
+  el.addEventListener("mouseleave", (e) => {
+    movementEl = false;
+  });
+});
+
+const test = document.querySelector(".container-morph");
+
+test.addEventListener("mouseover", () => {
+  test.style.filter = "contrast(20)";
+  document.querySelector(".og").style.opacity = "0";
+  document.querySelector(".morph").style.opacity = "1";
+  setTimeout(() => {
+    test.style.filter = "contrast(1)";
+  }, 500);
+});
+test.addEventListener("mouseleave", () => {
+  setTimeout(() => {
+    document.querySelector(".og").style.opacity = "1";
+    document.querySelector(".morph").style.opacity = "0";
+    test.style.filter = "contrast(1)";
+  }, 500);
+});
