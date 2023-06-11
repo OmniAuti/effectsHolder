@@ -2105,7 +2105,7 @@ hr {
 
 .drag-two {
   background-image: url("./img/drag-two.png");
-  left: 10%;
+  left: 40%;
   background-color: #fff;
 }
 
@@ -2116,7 +2116,7 @@ hr {
   content: "";
   width: 500px;
   height: 750px;
-  left: 10%;
+  left: 40%;
   /* top: 0px; */
   border-radius: 50px;
   background-image: url("./holographic.jpeg");
