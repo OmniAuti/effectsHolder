@@ -2106,9 +2106,12 @@ hr {
 .drag-two {
   background-image: url("./img/drag-two.png");
   left: 10%;
+  background-color: #fff;
 }
 
-.drag-tail {
+.drag-tail,
+.drag-tail-two,
+.drag-tail-three {
   position: absolute;
   content: "";
   width: 500px;
@@ -2124,4 +2127,14 @@ hr {
   z-index: -1;
   opacity: 1;
   filter: blur(5px);
+  overflow: hidden;
+}
+
+.drag-tail-two {
+  opacity: 0.5;
+  filter: blur(10px);
+}
+.drag-tail-three {
+  opacity: 0.25;
+  filter: blur(15px);
 }

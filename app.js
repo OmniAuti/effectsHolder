@@ -589,6 +589,8 @@ document.querySelector(".drip-container").addEventListener("mouseenter", () => {
 
 const dragContainer = document.querySelector(".drag-drop");
 const dragTail = document.querySelector(".drag-tail");
+const dragTailTwo = document.querySelector(".drag-tail-two");
+const dragTailThree = document.querySelector(".drag-tail-three");
 const dragEl = document.querySelectorAll(".drag");
 dragEl.forEach((el) => {
   let movementEl = false;
@@ -626,7 +628,7 @@ dragEl.forEach((el) => {
         trailY = 0;
       }
       //
-      console.log(trailX, trailY);
+      // console.log(trailX, trailY);
       newX = e.clientX - el.offsetLeft;
       newY = e.clientY - el.offsetTop;
       el.style.top = `${el.offsetTop + (newY - drugY)}px`;
@@ -635,17 +637,41 @@ dragEl.forEach((el) => {
       dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
       dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
       dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-
       //-------------------------
+      dragTailTwo.style.transition = "transform ease-in-out 250ms";
+      dragTailTwo.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      dragTailTwo.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      dragTailTwo.style.transform = `translate(${trailX * 2}px, ${
+        trailY * 2
+      }px)`;
+      //-------------------------
+      dragTailThree.style.transition = "transform ease-in-out 250ms";
+      dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      dragTailThree.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      dragTailThree.style.transform = `translate(${trailX * 3}px, ${
+        trailY * 3
+      }px)`;
     }
   });
 
   el.addEventListener("mouseup", (e) => {
     movementEl = false;
     dragTail.style.transition = "all ease 250ms";
+    dragTailTwo.style.transition = "all ease 250ms";
+    dragTailThree.style.transition = "all ease 250ms";
+    //
     dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
     dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+    //
+    dragTailTwo.style.top = `${el.offsetTop + (newY - drugY)}px`;
+    dragTailTwo.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+    //
+    dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
+    dragTailThree.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+    //
     dragTail.style.transform = `none`;
+    dragTailTwo.style.transform = `none`;
+    dragTailThree.style.transform = `none`;
 
     setTimeout(() => {
       dragTail.style.transition = "none";
