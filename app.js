@@ -615,11 +615,15 @@ dragEl.forEach((el) => {
         trailX = -25;
       } else if (newX < drugX) {
         trailX = 25;
+      } else if (newX === drugX) {
+        trailX = 0;
       }
       if (newY > drugY) {
         trailY = -25;
       } else if (newY < drugY) {
         trailY = 25;
+      } else if (newY === drugY) {
+        trailY = 0;
       }
       //
       console.log(trailX, trailY);
