@@ -2337,15 +2337,15 @@ hr {
   background-repeat: no-repeat;
   z-index: -1;
   opacity: 1;
-  filter: blur(5px);
+  /* filter: blur(5px); */
   overflow: hidden;
 }
 
 .drag-tail-two {
   opacity: 0.5;
-  filter: blur(10px);
+  /* filter: blur(10px); */
 }
 .drag-tail-three {
   opacity: 0.25;
-  filter: blur(15px);
+  /* filter: blur(15px); */
 }
