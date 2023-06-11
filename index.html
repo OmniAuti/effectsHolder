@@ -550,90 +550,23 @@
       <h2 data-content="Culture" class="swipe-link-left">Culture</h2>
     </section>
     <!---->
-    <!---->
-    <section class="drip-section">
-      <img src="img/test.png" alt="" />
-      <div class="drip-container-black">
-        <h1>DRIP</h1>
-        <div class="drip-one-black"></div>
-        <div class="drip-two-black"></div>
-        <div class="drip-three-black"></div>
-        <div class="drip-four-black"></div>
-      </div>
-      <div class="drip-container">
-        <h1>DRIP</h1>
-        <div class="drip-one"></div>
-        <div class="drip-two"></div>
-        <div class="drip-three"></div>
-        <div class="drip-four"></div>
-      </div>
-    </section>
-    <!---->
-    <section class="water-droplets">
-      <div class="drops">
-        <h1>WATER BLUR</h1>
-        <div class="drop-one"></div>
-        <div class="drop-below"></div>
-
-        <div class="drop-two"></div>
-      </div>
-    </section>
-    <!---->
-    <section class="holo-text">
-      <div class="container" onmousemove="handleMouseMove(event)">
-        <div class="card">
-          <div class="card__text" id="holographic">
-            <div class="mask_anim_top">
-              <div class="mask-hover">Pristine RoØts</div>
-              <div class="mask">Pristine RoØts</div>
-              <hr />
-              <div class="mask-light-hover">Pristine RoØts</div>
-              <div class="mask-light">Pristine RoØts</div>
-              <hr />
-              <div class="mask-dark-hover">Pristine RoØts</div>
-              <div class="mask-dark">Pristine RoØts</div>
-            </div>
-          </div>
+    <section class="hamburger-section">
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-swipe hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        <p data-content="MENU" class="nav_btn-text-swipe">MENU</p>
+        <div aria-hidden="true" class="hamburger_container-swipe">
+          <div class="hamburger-swipe hamburger_one-swipe"></div>
+          <div class="hamburger-swipe hamburger_two-swipe"></div>
+          <div class="hamburger-swipe hamburger_three-swipe"></div>
         </div>
       </div>
-    </section>
-    <!--HOLOGRAPHIC TEXT SCRIPT-->
-    <script>
-      const holographicElement = document.getElementById("holographic");
-
-      function updateHolographicBackground(valueX, valueY) {
-        const percentage = "" + valueX * 150 + "% " + valueY * 200 + "%";
-        holographicElement.style.backgroundPosition = percentage;
-      }
-
-      function handleMouseMove(event) {
-        const x = event.clientX;
-        const y = event.clientY;
-        const width = document.querySelector(".holo-text").clientWidth;
-        const height = document.querySelector(".holo-text").clientHeight;
-        const valueX = x / width;
-        const valueY = y / height;
-        updateHolographicBackground(valueX, valueY);
-        var halfW = document.querySelector(".holo-text").clientWidth / 2;
-        var halfH = document.querySelector(".holo-text").clientHeight / 2;
-        var coorX =
-          halfW -
-          (event.pageX - document.querySelector(".holo-text").offsetLeft);
-        var coorY =
-          halfH -
-          (event.pageY - document.querySelector(".holo-text").offsetTop);
-        var degX = (coorY / halfH) * 5 + "deg";
-        var degY = (coorX / halfW) * -5 + "deg";
-
-        document.querySelector(".card").style.transform =
-          "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
-          degX +
-          ") rotateY(" +
-          degY +
-          ")";
-      }
-    </script>
-    <section class="hamburger-section">
       <div
         tabindex="0"
         role="button"
@@ -771,6 +704,90 @@
       <div class="drag drag-tail-two"></div>
       <div class="drag drag-tail-three"></div>
     </section>
+    <!---->
+    <section class="drip-section">
+      <img src="img/test.png" alt="" />
+      <div class="drip-container-black">
+        <h1>DRIP</h1>
+        <div class="drip-one-black"></div>
+        <div class="drip-two-black"></div>
+        <div class="drip-three-black"></div>
+        <div class="drip-four-black"></div>
+      </div>
+      <div class="drip-container">
+        <h1>DRIP</h1>
+        <div class="drip-one"></div>
+        <div class="drip-two"></div>
+        <div class="drip-three"></div>
+        <div class="drip-four"></div>
+      </div>
+    </section>
+    <!---->
+    <section class="water-droplets">
+      <div class="drops">
+        <h1>WATER BLUR</h1>
+        <div class="drop-one"></div>
+        <div class="drop-below"></div>
+
+        <div class="drop-two"></div>
+      </div>
+    </section>
+    <!---->
+    <section class="holo-text">
+      <div class="container" onmousemove="handleMouseMove(event)">
+        <div class="card">
+          <div class="card__text" id="holographic">
+            <div class="mask_anim_top">
+              <div class="mask-hover">Pristine RoØts</div>
+              <div class="mask">Pristine RoØts</div>
+              <hr />
+              <div class="mask-light-hover">Pristine RoØts</div>
+              <div class="mask-light">Pristine RoØts</div>
+              <hr />
+              <div class="mask-dark-hover">Pristine RoØts</div>
+              <div class="mask-dark">Pristine RoØts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--HOLOGRAPHIC TEXT SCRIPT-->
+    <script>
+      const holographicElement = document.getElementById("holographic");
+
+      function updateHolographicBackground(valueX, valueY) {
+        const percentage = "" + valueX * 150 + "% " + valueY * 200 + "%";
+        holographicElement.style.backgroundPosition = percentage;
+      }
+
+      function handleMouseMove(event) {
+        const x = event.clientX;
+        const y = event.clientY;
+        const width = document.querySelector(".holo-text").clientWidth;
+        const height = document.querySelector(".holo-text").clientHeight;
+        const valueX = x / width;
+        const valueY = y / height;
+        updateHolographicBackground(valueX, valueY);
+        var halfW = document.querySelector(".holo-text").clientWidth / 2;
+        var halfH = document.querySelector(".holo-text").clientHeight / 2;
+        var coorX =
+          halfW -
+          (event.pageX - document.querySelector(".holo-text").offsetLeft);
+        var coorY =
+          halfH -
+          (event.pageY - document.querySelector(".holo-text").offsetTop);
+        var degX = (coorY / halfH) * 5 + "deg";
+        var degY = (coorX / halfW) * -5 + "deg";
+
+        document.querySelector(".card").style.transform =
+          "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
+          degX +
+          ") rotateY(" +
+          degY +
+          ")";
+      }
+    </script>
+
     <!--water picture-->
     <section class="water-bong">
       <script src="waterpictureEffect.js"></script>

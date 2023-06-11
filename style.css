@@ -917,63 +917,7 @@ h1 {
   color: #9d9fa2;
   transition: all ease 500ms;
 }
-/* ------------------------------- NAV SWIPE THROUGH ------------------------------------- */
 
-.swipe-nav-through {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  padding: 50px;
-  font-size: 100px;
-  height: fit-content;
-  color: #9d9fa2;
-}
-.test {
-  position: relative;
-  /* border: 1px solid red; */
-}
-.swipe-link-mask {
-  padding: 0px;
-  background-color: #fff;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: #9d9fa2;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  display: grid;
-}
-
-.test span {
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  right: 0;
-  width: 0%;
-  direction: rtl;
-  font-weight: 350;
-  font-size: 150px !important;
-  font-family: "KormelinkItalic" !important;
-  font-feature-settings: "swsh" !important;
-  background-color: #fff;
-  color: #fff;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  transition: all ease 500ms;
-}
-
-.test:hover h2 {
-  color: #fff;
-}
-.test:hover span {
-  left: 0;
-  right: 0;
-  direction: ltr;
-  width: 100%;
-  color: #9d9fa2;
-}
 /* -------------------------------BUTTONS ------------------------------------- */
 .button-section {
   height: 500px;
@@ -1814,7 +1758,111 @@ hr {
   font-size: 16px;
   color: #9d9fa2;
 }
+/* -------------------*/
+.nav_toggle-btn-swipe {
+  height: 25px;
+  width: 140px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
 
+.nav_toggle-btn-swipe {
+  height: 25px;
+  width: 150px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hamburger_container-swipe {
+  position: relative;
+  width: 80px;
+  max-width: 80px;
+  height: 100%;
+}
+
+.hamburger-swipe {
+  background-color: #9d9fa2;
+  height: 2.5px;
+  width: 33.333%;
+  transition: all ease-out 150ms;
+}
+
+.hamburger_one-swipe {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition-delay: 225ms;
+}
+
+.hamburger_two-swipe {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 33.333%;
+}
+
+.hamburger_three-swipe {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 66.333%;
+  transition-delay: 75ms;
+}
+
+.nav_btn-text-swipe {
+  text-transform: uppercase;
+  position: relative;
+  color: #fff;
+  font-weight: 350;
+  transform: translateX(-2.5px);
+  font-family: "KormelinkItalic" !important;
+  font-feature-settings: "swsh" !important;
+  cursor: pointer;
+  transition: all ease 750ms;
+  padding-top: 2.5px;
+}
+
+.nav_btn-text-swipe:after {
+  position: absolute;
+  content: attr(data-content);
+  font-family: "Montserrat", sans-serif;
+  color: #9d9fa2;
+  background-color: #fff;
+  /* border: 1px solid red; */
+  font-weight: 700;
+  right: 0px;
+  /* border: 1px solid red; */
+  direction: rtl;
+  top: 50%;
+  width: 100%;
+  /* border: 1px solid blue; */
+  text-align: right;
+  transform: translateY(-50%);
+  overflow: hidden;
+  transition: all ease 750ms;
+  opacity: 1;
+}
+
+.nav_toggle-btn-swipe:hover .nav_btn-text-swipe {
+  color: #9d9fa2;
+}
+
+.nav_toggle-btn-swipe:hover .nav_btn-text-swipe:after {
+  width: 0%;
+  color: #fff;
+  opacity: 0;
+}
+
+/* -------------------*/
 .nav_toggle-btn-sidestack {
   height: 25px;
   width: 140px;
@@ -1995,6 +2043,7 @@ hr {
   transform: translate(-50%, -50%);
   width: 100%;
 }
+
 /* ------------------------------*/
 .rotate-fluid-container-ham {
   display: flex;
