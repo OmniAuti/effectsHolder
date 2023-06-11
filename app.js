@@ -592,11 +592,15 @@ const dragTail = document.querySelector(".drag-tail");
 const dragEl = document.querySelectorAll(".drag");
 dragEl.forEach((el) => {
   let movementEl = false;
-  var arr;
   var drugX,
-    drugY = 0;
+    drugY,
+    newY,
+    newX = 0;
+
+  var trailX,
+    trailY = 0;
+
   el.addEventListener("mousedown", (e) => {
-    arr = [];
     e.preventDefault();
     drugX = e.clientX - el.offsetLeft;
     drugY = e.clientY - el.offsetTop;
@@ -606,16 +610,42 @@ dragEl.forEach((el) => {
   el.addEventListener("mousemove", (e) => {
     e.preventDefault();
     if (movementEl === true) {
-      let newX = e.clientX - el.offsetLeft;
-      let newY = e.clientY - el.offsetTop;
+      //
+      if (newX > drugX) {
+        trailX = -25;
+      } else if (newX < drugX) {
+        trailX = 25;
+      }
+      if (newY > drugY) {
+        trailY = -25;
+      } else if (newY < drugY) {
+        trailY = 25;
+      }
+      //
+      console.log(trailX, trailY);
+      newX = e.clientX - el.offsetLeft;
+      newY = e.clientY - el.offsetTop;
       el.style.top = `${el.offsetTop + (newY - drugY)}px`;
       el.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      dragTail.style.transition = "transform ease-in-out 250ms";
+      dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+
+      //-------------------------
     }
   });
 
   el.addEventListener("mouseup", (e) => {
-    console.log(arr);
     movementEl = false;
+    dragTail.style.transition = "all ease 250ms";
+    dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
+    dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+    dragTail.style.transform = `none`;
+
+    setTimeout(() => {
+      dragTail.style.transition = "none";
+    }, 300);
   });
 
   el.addEventListener("mouseleave", (e) => {
