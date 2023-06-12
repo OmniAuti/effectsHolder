@@ -2021,7 +2021,7 @@ hr {
   opacity: 0;
   transition: all ease 750ms;
 }
-/**/
+/*----------------------------*/
 .clip-path-nav-mid-nav {
   display: flex;
   flex-direction: column;
@@ -2076,6 +2076,75 @@ hr {
   color: #fff;
   transition: all ease 500ms;
 }
+/*----------------------------*/
+.nav_toggle-btn-smoosh {
+  display: flex;
+  justify-content: center;
+  height: fit-content;
+  cursor: pointer;
+}
+
+.nav_text-smoosh {
+  color: #9d9fa2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  margin-right: 5px;
+}
+
+.nav_text-smoosh span {
+  display: inline-block;
+  float: left;
+  transition: all ease 500ms;
+}
+
+.hamburger_container-smoosh {
+  position: relative;
+  width: 80px;
+  max-width: 80px;
+  height: 100%;
+}
+
+.hamburger-smoosh {
+  background-color: #9d9fa2;
+  height: 2.5px;
+  width: 33.333%;
+  transition: all ease-out 150ms;
+}
+
+.hamburger_one-smoosh {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition-delay: 50ms;
+}
+
+.hamburger_two-smoosh {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 33.333%;
+}
+
+.hamburger_three-smoosh {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  left: 66.333%;
+}
+
+.nav_toggle-btn-smoosh:hover .hamburger_one-smoosh {
+  left: 10px;
+  transition-delay: 250ms;
+}
+.nav_toggle-btn-smoosh:hover span {
+  transform: translateX(10px);
+}
+
 /* -------------------*/
 .nav_toggle-btn-sidestack {
   height: 25px;
