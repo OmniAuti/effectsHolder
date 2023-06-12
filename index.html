@@ -17,242 +17,518 @@
     <section class="title">
       <h1>Text Effects Deck</h1>
     </section>
-    <section class="horizontal-intro">
-      <p>From The Side</p>
-    </section>
-    <section class="vertical-intro">
-      <p>From The Bottom</p>
-    </section>
-    <section class="one-at-a-time">
-      <p>
-        <span style="transition-delay: 50ms">O</span
-        ><span style="transition-delay: 100ms">n</span
-        ><span style="transition-delay: 150ms">e</span
-        ><span style="transition-delay: 200ms">&nbsp;</span
-        ><span style="transition-delay: 250ms">A</span
-        ><span style="transition-delay: 300ms">t</span
-        ><span style="transition-delay: 350ms">&nbsp;</span
-        ><span style="transition-delay: 400ms">A</span
-        ><span style="transition-delay: 450ms">&nbsp;</span
-        ><span style="transition-delay: 500ms">T</span
-        ><span style="transition-delay: 550ms">i</span
-        ><span style="transition-delay: 600ms">m</span
-        ><span style="transition-delay: 650ms">e</span>
-      </p>
-    </section>
-    <section class="wave-text">
-      <p>
-        <span style="transition-delay: 50ms">G</span
-        ><span style="transition-delay: 150ms">i</span
-        ><span style="transition-delay: 200ms">v</span
-        ><span style="transition-delay: 250ms">e</span
-        ><span style="transition-delay: 300ms">&nbsp;</span
-        ><span style="transition-delay: 350ms">A</span
-        ><span style="transition-delay: 400ms">&nbsp;</span
-        ><span style="transition-delay: 450ms">W</span
-        ><span style="transition-delay: 500ms">a</span
-        ><span style="transition-delay: 550ms">v</span
-        ><span style="transition-delay: 600ms">e</span>
-      </p>
-    </section>
-    <section class="growing-text">
-      <p>
-        <span style="transition-delay: 100ms">G</span
-        ><span style="transition-delay: 200ms">r</span
-        ><span style="transition-delay: 300ms">o</span
-        ><span style="transition-delay: 400ms">w</span
-        ><span style="transition-delay: 500ms">i</span
-        ><span style="transition-delay: 600ms">n</span
-        ><span style="transition-delay: 700ms">g</span>
-      </p>
-    </section>
-    <section class="smokey-text">
-      <p>
-        <span style="transition-delay: 50ms">S</span
-        ><span style="transition-delay: 150ms">m</span
-        ><span style="transition-delay: 200ms">o</span
-        ><span style="transition-delay: 250ms">k</span
-        ><span style="transition-delay: 300ms">e</span
-        ><span style="transition-delay: 350ms">y</span>
-      </p>
-    </section>
-    <section class="hightlight-paragraph">
-      <p>
-        <span class="span-one"
-          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-          repudiandae laudantium inventore labore minima, nihil velit? Corporis,
-          quo ad? Explicabo, voluptatum tempore.</span
-        >
-        <span class="span-two">
-          Perspiciatis magnam architecto earum. Ratione quisquam odit
-          eum.Explicabo, voluptatum tempore. Perspiciatis magnam architecto
-          earum. Ratione quisquam odit eum.</span
-        >
-        <span class="span-three"
-          >Corporis, at harum odio deserunt dolorum corrupti reiciendis quas
-          quibusdam facilis magni tenetur pariatur, exercitationem. Corporis, at
-          harum odio deserunt dolorum corrupti reiciendis quas quibusdam facilis
-          magni tenetur pariatur, exercitationem.</span
-        >
-      </p>
-    </section>
-    <!-- <section class="eight">
-      <div class="glass"></div>
-      <img src="img/pngwing.com.png" alt="" />
-    </section> -->
-    <section class="highlight-sentence">
-      <div class="text-roll">
-        Highlighting as you go
-        <div class="line-mask"></div>
+    <!---->
+    <section class="hamburger-section">
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-swipe hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        <p data-content="MENU" class="nav_btn-text-swipe">MENU</p>
+        <div aria-hidden="true" class="hamburger_container-swipe">
+          <div class="hamburger-swipe hamburger_one-swipe"></div>
+          <div class="hamburger-swipe hamburger_two-swipe"></div>
+          <div class="hamburger-swipe hamburger_three-swipe"></div>
+        </div>
       </div>
-      <div class="text-roll">
-        And as you go
-        <div class="line-mask"></div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-rotate hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        <div class="rotate-fluid-container-ham">
+          <div class="rotate-box-ham" style="transition-delay: 50ms">
+            <span class="top-ham">M</span>
+            <span class="side-ham">M</span>
+            <!-- <span class="bottom-ham">M</span> -->
+          </div>
+          <div class="rotate-box-ham" style="transition-delay: 80ms">
+            <span class="top-ham">E</span>
+            <span class="side-ham">E</span>
+            <!-- <span class="bottom-ham">E</span> -->
+          </div>
+          <div class="rotate-box-ham" style="transition-delay: 110ms">
+            <span class="top-ham">N</span>
+            <span class="side-ham">N</span>
+            <!-- <span class="bottom-ham">N</span> -->
+          </div>
+          <div class="rotate-box-ham" style="transition-delay: 140ms">
+            <span class="top-ham">U</span>
+            <span class="side-ham">U</span>
+            <!-- <span class="bottom-ham">U</span> -->
+          </div>
+        </div>
+        <div aria-hidden="true" class="hamburger_container-rotate">
+          <div class="hamburger-rotate hamburger_one-rotate"></div>
+          <div class="hamburger-rotate hamburger_two-rotate"></div>
+          <div class="hamburger-rotate hamburger_three-rotate"></div>
+        </div>
       </div>
-      <div class="text-roll">
-        And more as you go
-        <div class="line-mask"></div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-sidestack hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        MENU
+        <div aria-hidden="true" class="hamburger_container-sidestack">
+          <div class="hamburger-sidestack hamburger_one-sidestack"></div>
+          <div class="hamburger-sidestack hamburger_two-sidestack"></div>
+          <div class="hamburger-sidestack hamburger_three-sidestack"></div>
+        </div>
       </div>
-    </section>
 
-    <section class="waterfall">
-      <div class="waterfall-container">
-        <div class="fall-cont">
-          <div class="fall-letter">W</div>
-          <div class="fall-letter">W</div>
-          <div class="fall-letter">W</div>
-          <div class="fall-letter">W</div>
-          <div class="fall-letter">W</div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-stack hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        MENU
+        <div aria-hidden="true" class="hamburger_container-stack">
+          <div class="hamburger-stack hamburger_one-stack"></div>
+          <div class="hamburger-stack hamburger_two-stack"></div>
+          <div class="hamburger-stack hamburger_three-stack"></div>
         </div>
-        <div class="fall-cont">
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
+      </div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-pyramid hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        MENU
+        <div aria-hidden="true" class="hamburger_container-pyramid">
+          <div class="hamburger-pyramid hamburger_one-pyramid-top"></div>
+          <div class="hamburger-pyramid hamburger_two-pyramid-top"></div>
+          <div class="hamburger-pyramid hamburger_three-pyramid-top"></div>
         </div>
-        <div class="fall-cont">
-          <div class="fall-letter">t</div>
-          <div class="fall-letter">t</div>
-          <div class="fall-letter">t</div>
-          <div class="fall-letter">t</div>
-          <div class="fall-letter">t</div>
+      </div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-pyramid hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        MENU
+        <div aria-hidden="true" class="hamburger_container-pyramid">
+          <div class="hamburger-pyramid hamburger_one-pyramid-bot"></div>
+          <div class="hamburger-pyramid hamburger_two-pyramid-bot"></div>
+          <div class="hamburger-pyramid hamburger_three-pyramid-bot"></div>
         </div>
-        <div class="fall-cont">
-          <div class="fall-letter">e</div>
-          <div class="fall-letter">e</div>
-          <div class="fall-letter">e</div>
-          <div class="fall-letter">e</div>
-          <div class="fall-letter">e</div>
-        </div>
-        <div class="fall-cont">
-          <div class="fall-letter">r</div>
-          <div class="fall-letter">r</div>
-          <div class="fall-letter">r</div>
-          <div class="fall-letter">r</div>
-          <div class="fall-letter">r</div>
-        </div>
-        <div class="fall-cont">
-          <div class="fall-letter">f</div>
-          <div class="fall-letter">f</div>
-          <div class="fall-letter">f</div>
-          <div class="fall-letter">f</div>
-          <div class="fall-letter">f</div>
-        </div>
-        <div class="fall-cont">
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-          <div class="fall-letter">a</div>
-        </div>
-        <div class="fall-cont">
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-        </div>
-        <div class="fall-cont">
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
-          <div class="fall-letter">l</div>
+      </div>
+      <div
+        tabindex="0"
+        role="button"
+        aria-label="Toggle Navigation Menu"
+        aria-pressed="false"
+        aria-haspopup="true"
+        class="nav_toggle-btn-arrow hamburger_text"
+        id="navigation_toggle-btn"
+      >
+        MENU
+        <div aria-hidden="true" class="hamburger_container-arrow">
+          <div class="hamburger-arrow hamburger_one-arrow"></div>
+          <div class="hamburger-arrow hamburger_two-arrow"></div>
+          <div class="hamburger-arrow hamburger_three-arrow"></div>
         </div>
       </div>
     </section>
-    <section class="settle-text">
-      <div class="settling-cont">
-        <div data-settle="-92">S</div>
-        <div data-settle="-75">e</div>
-        <div data-settle="-90">t</div>
-        <div data-settle="-67">t</div>
-        <div data-settle="-100">l</div>
-        <div data-settle="-87">e</div>
-      </div>
+    <!---->
+    <section class="button-section">
+      <button class="btn-w-arrow">
+        CLEAN FLOWER
+        <div class="btn-arrow"></div>
+      </button>
+      <button class="btn-default btn-w-holographic">shop our cannabis</button>
+      <button class="btn-default btn-w-holographic btn-w-holographic-w-overlay">
+        shop our cannabis
+      </button>
     </section>
-    <section class="zip-container-section">
-      <div class="zip-container">
-        <span data-padding="-7.5" class="zip-letter">Z</span>
-        <span data-padding="15" class="zip-letter">i</span>
-        <span data-padding="-22.5" class="zip-letter">p</span>
-        <span data-padding="30" class="zip-letter">p</span>
-        <span data-padding="-37.5" class="zip-letter">e</span>
-        <span data-padding="45" class="zip-letter">r</span>
-      </div>
+    <!---->
+    <section class="drag-drop">
+      <p>DRAG & DROP</p>
+      <!-- <div draggable="true" class="drag drag-one"></div> -->
+      <div draggable="true" class="drag drag-two"></div>
+      <div class="drag drag-tail"></div>
+      <div class="drag drag-tail-two"></div>
+      <div class="drag drag-tail-three"></div>
     </section>
+    <!---->
+    <section class="clip-path-nav-mid">
+      <h2 data-content="ETHOS" class="clip-path-link-mid">
+        <div class="clip-mid">
+          <span>E</span>
+          <span>E</span>
+        </div>
+        <div class="clip-mid">
+          <span>T</span>
+          <span>T</span>
+        </div>
+        <div class="clip-mid">
+          <span>H</span>
+          <span>H</span>
+        </div>
+        <div class="clip-mid">
+          <span>O</span>
+          <span>O</span>
+        </div>
+        <div class="clip-mid">
+          <span>S</span>
+          <span>S</span>
+        </div>
+      </h2>
+      <h2 data-content="PRODUCTS" class="clip-path-link-mid">
+        <div class="clip-mid">
+          <span>P</span>
+          <span>P</span>
+        </div>
+        <div class="clip-mid">
+          <span>R</span>
+          <span>R</span>
+        </div>
+        <div class="clip-mid">
+          <span>O</span>
+          <span>o</span>
+        </div>
+        <div class="clip-mid">
+          <span>d</span>
+          <span>d</span>
+        </div>
+        <div class="clip-mid">
+          <span>u</span>
+          <span>u</span>
+        </div>
+        <div class="clip-mid">
+          <span>©</span>
+          <span>c</span>
+        </div>
+        <div class="clip-mid">
+          <span>t</span>
+          <span>t</span>
+        </div>
+        <div class="clip-mid">
+          <span>S</span>
+          <span>S</span>
+        </div>
+      </h2>
+      <h2 data-content="SustAinability" class="clip-path-link-mid">
+        <div class="clip-mid">
+          <span>s</span>
+          <span>s</span>
+        </div>
+        <div class="clip-mid">
+          <span>u</span>
+          <span>u</span>
+        </div>
+        <div class="clip-mid">
+          <span>s</span>
+          <span>s</span>
+        </div>
+        <div class="clip-mid">
+          <span>t</span>
+          <span>t</span>
+        </div>
+        <div class="clip-mid">
+          <span>a</span>
+          <span>a</span>
+        </div>
+        <div class="clip-mid">
+          <span>i</span>
+          <span>i</span>
+        </div>
+        <div class="clip-mid">
+          <span>n</span>
+          <span>n</span>
+        </div>
+        <div class="clip-mid">
+          <span>a</span>
+          <span>a</span>
+        </div>
+        <div class="clip-mid">
+          <span>b</span>
+          <span>b</span>
+        </div>
+        <div class="clip-mid">
+          <span>i</span>
+          <span>i</span>
+        </div>
+        <div class="clip-mid">
+          <span>l</span>
+          <span>l</span>
+        </div>
+        <div class="clip-mid">
+          <span>i</span>
+          <span>i</span>
+        </div>
+        <div class="clip-mid">
+          <span>t</span>
+          <span>t</span>
+        </div>
+        <div class="clip-mid">
+          <span>y</span>
+          <span>y</span>
+        </div>
+      </h2>
+      <h2 data-content="Strains" class="clip-path-link-mid">
+        <div class="clip-mid">
+          <span>S</span>
+          <span>s</span>
+        </div>
+        <div class="clip-mid">
+          <span>t</span>
+          <span>t</span>
+        </div>
+        <div class="clip-mid">
+          <span>r</span>
+          <span>r</span>
+        </div>
+        <div class="clip-mid">
+          <span>a</span>
+          <span>a</span>
+        </div>
+        <div class="clip-mid">
+          <span>i</span>
+          <span>i</span>
+        </div>
+        <div class="clip-mid">
+          <span>n</span>
+          <span>n</span>
+        </div>
+        <div class="clip-mid">
+          <span>s</span>
+          <span>s</span>
+        </div>
+      </h2>
 
-    <section class="fill-text">
-      <div class="fill-wrapper">
-        <p>WAVE FILL</p>
-      </div>
-    </section>
-    <section class="coming-soon">
-      <h2>Coming<span>Soon</span></h2>
-    </section>
-    <section class="together">
-      <p>Come Together</p>
-    </section>
-    <section>HOVER AND SCROLL EFFECTS</section>
-    <section class="focus">
-      <p class="focus-text">
-        <span>I</span><span>n</span><span>t</span><span>o</span
-        ><span>&nbsp;</span><span>F</span><span>o</span><span>c</span
-        ><span>u</span><span>s</span>
-      </p>
-    </section>
-    <section class="skew-scroll">
-      <p class="skew-text">
-        <span>S</span><span>c</span><span>r</span><span>o</span><span>l</span
-        ><span>l</span><span>&nbsp;</span><span>S</span><span>k</span
-        ><span>e</span><span>w</span>
-      </p>
-      <div class="skew-box"></div>
-      <div class="skew-box"></div>
-      <div class="skew-box"></div>
-      <div class="skew-box"></div>
-      <h2 class="skew-h2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sequi
-        quidem dolore, odit, nulla repudiandae facilis atque commodi accusantium
-        fugiat provident delectus possimus voluptas, ullam quaerat unde dicta
-        nobis ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Velit sequi quidem dolore, odit, nulla repudiandae facilis atque commodi
-        accusantium fugiat provident delectus possimus voluptas, ullam quaerat
-        unde dicta nobis ipsum. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Velit sequi quidem dolore, odit, nulla repudiandae
-        facilis atque commodi accusantium fugiat provident delectus possimus
-        voluptas, ullam quaerat unde dicta nobis ipsum. Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Velit sequi quidem dolore, odit,
-        nulla repudiandae facilis atque commodi accusantium fugiat provident
-        delectus possimus voluptas, ullam quaerat unde dicta nobis ipsum.
+      <h2 data-content="Culture" class="clip-path-link-mid">
+        <div class="clip-mid">
+          <span>c</span>
+          <span>c</span>
+        </div>
+        <div class="clip-mid">
+          <span>u</span>
+          <span>u</span>
+        </div>
+        <div class="clip-mid">
+          <span>l</span>
+          <span>l</span>
+        </div>
+        <div class="clip-mid">
+          <span>t</span>
+          <span>t</span>
+        </div>
+        <div class="clip-mid">
+          <span>u</span>
+          <span>u</span>
+        </div>
+        <div class="clip-mid">
+          <span>r</span>
+          <span>r</span>
+        </div>
+        <div class="clip-mid">
+          <span>e</span>
+          <span>e</span>
+        </div>
       </h2>
     </section>
-    <section class="gooey">
-      <div class="container-morph">
-        <h1 class="og">PRODUCTS</h1>
-        <h1 class="morph">PRODU©TS</h1>
-      </div>
+    <!---->
+    <section class="clip-path-nav-mid-wave">
+      <h2 data-content="ETHOS" class="clip-path-link-mid-wave">
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 50ms">E</span>
+          <span style="transition-delay: 50ms">E</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 80ms">T</span>
+          <span style="transition-delay: 80ms">T</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 110ms">H</span>
+          <span style="transition-delay: 110ms">H</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 140ms">O</span>
+          <span style="transition-delay: 140ms">O</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 170ms">S</span>
+          <span style="transition-delay: 170ms">S</span>
+        </div>
+      </h2>
+      <h2 data-content="PRODUCTS" class="clip-path-link-mid-wave">
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 50ms">P</span>
+          <span style="transition-delay: 50ms">P</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 80ms">R</span>
+          <span style="transition-delay: 80ms">R</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 110ms">O</span>
+          <span style="transition-delay: 110ms">o</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 140ms">d</span>
+          <span style="transition-delay: 140ms">d</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 170ms">u</span>
+          <span style="transition-delay: 170ms">u</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 200ms">©</span>
+          <span style="transition-delay: 200ms">c</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 230ms">t</span>
+          <span style="transition-delay: 230ms">t</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 260ms">S</span>
+          <span style="transition-delay: 260ms">S</span>
+        </div>
+      </h2>
+      <h2 data-content="SustAinability" class="clip-path-link-mid-wave">
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 50ms">s</span>
+          <span style="transition-delay: 50ms">s</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 80ms">u</span>
+          <span style="transition-delay: 80ms">u</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 110ms">s</span>
+          <span style="transition-delay: 110ms">s</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 140ms">t</span>
+          <span style="transition-delay: 140ms">t</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 170ms">a</span>
+          <span style="transition-delay: 170ms">a</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 200ms">i</span>
+          <span style="transition-delay: 200ms">i</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 230ms">n</span>
+          <span style="transition-delay: 230ms">n</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 270ms">a</span>
+          <span style="transition-delay: 270ms">a</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 300ms">b</span>
+          <span style="transition-delay: 300ms">b</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 330ms">i</span>
+          <span style="transition-delay: 330ms">i</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 370ms">l</span>
+          <span style="transition-delay: 370ms">l</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 400ms">i</span>
+          <span style="transition-delay: 400ms">i</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 430ms">t</span>
+          <span style="transition-delay: 430ms">t</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 470ms">y</span>
+          <span style="transition-delay: 470ms">y</span>
+        </div>
+      </h2>
+      <h2 data-content="Strains" class="clip-path-link-mid-wave">
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 50ms">S</span>
+          <span style="transition-delay: 50ms">s</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 80ms">t</span>
+          <span style="transition-delay: 80ms">t</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 110ms">r</span>
+          <span style="transition-delay: 110ms">r</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 140ms">a</span>
+          <span style="transition-delay: 140ms">a</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 170ms">i</span>
+          <span style="transition-delay: 170ms">i</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 200ms">n</span>
+          <span style="transition-delay: 200ms">n</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 230ms">s</span>
+          <span style="transition-delay: 230ms">s</span>
+        </div>
+      </h2>
+
+      <h2 data-content="Culture" class="clip-path-link-mid-wave">
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 50ms">c</span>
+          <span style="transition-delay: 50ms">c</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 80ms">u</span>
+          <span style="transition-delay: 80ms">u</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 110ms">l</span>
+          <span style="transition-delay: 110ms">l</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 140ms">t</span>
+          <span style="transition-delay: 140ms">t</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 170ms">u</span>
+          <span style="transition-delay: 170ms">u</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 200ms">r</span>
+          <span style="transition-delay: 200ms">r</span>
+        </div>
+        <div class="clip-mid-wave">
+          <span style="transition-delay: 230ms">e</span>
+          <span style="transition-delay: 230ms">e</span>
+        </div>
+      </h2>
     </section>
     <!---->
     <section class="menu-rotate">
@@ -539,7 +815,6 @@
       <h2 data-content="Culture" class="swipe-link">Culture</h2>
     </section>
     <!---->
-    <!---->
     <section class="swipe-nav-left">
       <h2 data-content="ETHOS" class="swipe-link-left">ETHOS</h2>
       <h2 data-content="PRODUCTS" class="swipe-link-left">PRODUCTS</h2>
@@ -550,160 +825,16 @@
       <h2 data-content="Culture" class="swipe-link-left">Culture</h2>
     </section>
     <!---->
-    <section class="hamburger-section">
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-swipe hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        <p data-content="MENU" class="nav_btn-text-swipe">MENU</p>
-        <div aria-hidden="true" class="hamburger_container-swipe">
-          <div class="hamburger-swipe hamburger_one-swipe"></div>
-          <div class="hamburger-swipe hamburger_two-swipe"></div>
-          <div class="hamburger-swipe hamburger_three-swipe"></div>
-        </div>
-      </div>
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-rotate hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        <div class="rotate-fluid-container-ham">
-          <div class="rotate-box-ham" style="transition-delay: 50ms">
-            <span class="top-ham">M</span>
-            <span class="side-ham">M</span>
-            <!-- <span class="bottom-ham">M</span> -->
-          </div>
-          <div class="rotate-box-ham" style="transition-delay: 80ms">
-            <span class="top-ham">E</span>
-            <span class="side-ham">E</span>
-            <!-- <span class="bottom-ham">E</span> -->
-          </div>
-          <div class="rotate-box-ham" style="transition-delay: 110ms">
-            <span class="top-ham">N</span>
-            <span class="side-ham">N</span>
-            <!-- <span class="bottom-ham">N</span> -->
-          </div>
-          <div class="rotate-box-ham" style="transition-delay: 140ms">
-            <span class="top-ham">U</span>
-            <span class="side-ham">U</span>
-            <!-- <span class="bottom-ham">U</span> -->
-          </div>
-        </div>
-        <div aria-hidden="true" class="hamburger_container-rotate">
-          <div class="hamburger-rotate hamburger_one-rotate"></div>
-          <div class="hamburger-rotate hamburger_two-rotate"></div>
-          <div class="hamburger-rotate hamburger_three-rotate"></div>
-        </div>
-      </div>
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-sidestack hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        MENU
-        <div aria-hidden="true" class="hamburger_container-sidestack">
-          <div class="hamburger-sidestack hamburger_one-sidestack"></div>
-          <div class="hamburger-sidestack hamburger_two-sidestack"></div>
-          <div class="hamburger-sidestack hamburger_three-sidestack"></div>
-        </div>
-      </div>
+    <section class="clip-path-nav">
+      <h2 data-content="ETHOS" class="clip-path-link">ETHOS</h2>
+      <h2 data-content="PRODUCTS" class="clip-path-link">PRODU©TS</h2>
+      <h2 data-content="SustAinability" class="clip-path-link">
+        SustAinability
+      </h2>
+      <h2 data-content="Strains" class="clip-path-link">Strains</h2>
+      <h2 data-content="Culture" class="clip-path-link">Culture</h2>
+    </section>
 
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-stack hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        MENU
-        <div aria-hidden="true" class="hamburger_container-stack">
-          <div class="hamburger-stack hamburger_one-stack"></div>
-          <div class="hamburger-stack hamburger_two-stack"></div>
-          <div class="hamburger-stack hamburger_three-stack"></div>
-        </div>
-      </div>
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-pyramid hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        MENU
-        <div aria-hidden="true" class="hamburger_container-pyramid">
-          <div class="hamburger-pyramid hamburger_one-pyramid-top"></div>
-          <div class="hamburger-pyramid hamburger_two-pyramid-top"></div>
-          <div class="hamburger-pyramid hamburger_three-pyramid-top"></div>
-        </div>
-      </div>
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-pyramid hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        MENU
-        <div aria-hidden="true" class="hamburger_container-pyramid">
-          <div class="hamburger-pyramid hamburger_one-pyramid-bot"></div>
-          <div class="hamburger-pyramid hamburger_two-pyramid-bot"></div>
-          <div class="hamburger-pyramid hamburger_three-pyramid-bot"></div>
-        </div>
-      </div>
-      <div
-        tabindex="0"
-        role="button"
-        aria-label="Toggle Navigation Menu"
-        aria-pressed="false"
-        aria-haspopup="true"
-        class="nav_toggle-btn-arrow hamburger_text"
-        id="navigation_toggle-btn"
-      >
-        MENU
-        <div aria-hidden="true" class="hamburger_container-arrow">
-          <div class="hamburger-arrow hamburger_one-arrow"></div>
-          <div class="hamburger-arrow hamburger_two-arrow"></div>
-          <div class="hamburger-arrow hamburger_three-arrow"></div>
-        </div>
-      </div>
-    </section>
-    <section class="button-section">
-      <button class="btn-w-arrow">
-        CLEAN FLOWER
-        <div class="btn-arrow"></div>
-      </button>
-      <button class="btn-default btn-w-holographic">shop our cannabis</button>
-      <button class="btn-default btn-w-holographic btn-w-holographic-w-overlay">
-        shop our cannabis
-      </button>
-    </section>
-    <section class="drag-drop">
-      <p>DRAG & DROP</p>
-      <!-- <div draggable="true" class="drag drag-one"></div> -->
-      <div draggable="true" class="drag drag-two"></div>
-      <div class="drag drag-tail"></div>
-      <div class="drag drag-tail-two"></div>
-      <div class="drag drag-tail-three"></div>
-    </section>
     <!---->
     <section class="drip-section">
       <img src="img/test.png" alt="" />
@@ -787,7 +918,6 @@
           ")";
       }
     </script>
-
     <!--water picture-->
     <section class="water-bong">
       <script src="waterpictureEffect.js"></script>
@@ -998,6 +1128,241 @@
           }
         }
       </script>
+    </section>
+    <!---->
+    <section class="hightlight-paragraph">
+      <p>
+        <span class="span-one"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
+          repudiandae laudantium inventore labore minima, nihil velit? Corporis,
+          quo ad? Explicabo, voluptatum tempore.</span
+        >
+        <span class="span-two">
+          Perspiciatis magnam architecto earum. Ratione quisquam odit
+          eum.Explicabo, voluptatum tempore. Perspiciatis magnam architecto
+          earum. Ratione quisquam odit eum.</span
+        >
+        <span class="span-three"
+          >Corporis, at harum odio deserunt dolorum corrupti reiciendis quas
+          quibusdam facilis magni tenetur pariatur, exercitationem. Corporis, at
+          harum odio deserunt dolorum corrupti reiciendis quas quibusdam facilis
+          magni tenetur pariatur, exercitationem.</span
+        >
+      </p>
+    </section>
+    <section class="highlight-sentence">
+      <div class="text-roll">
+        Highlighting as you go
+        <div class="line-mask"></div>
+      </div>
+      <div class="text-roll">
+        And as you go
+        <div class="line-mask"></div>
+      </div>
+      <div class="text-roll">
+        And more as you go
+        <div class="line-mask"></div>
+      </div>
+    </section>
+    <section class="waterfall">
+      <div class="waterfall-container">
+        <div class="fall-cont">
+          <div class="fall-letter">W</div>
+          <div class="fall-letter">W</div>
+          <div class="fall-letter">W</div>
+          <div class="fall-letter">W</div>
+          <div class="fall-letter">W</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">t</div>
+          <div class="fall-letter">t</div>
+          <div class="fall-letter">t</div>
+          <div class="fall-letter">t</div>
+          <div class="fall-letter">t</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">e</div>
+          <div class="fall-letter">e</div>
+          <div class="fall-letter">e</div>
+          <div class="fall-letter">e</div>
+          <div class="fall-letter">e</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">r</div>
+          <div class="fall-letter">r</div>
+          <div class="fall-letter">r</div>
+          <div class="fall-letter">r</div>
+          <div class="fall-letter">r</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">f</div>
+          <div class="fall-letter">f</div>
+          <div class="fall-letter">f</div>
+          <div class="fall-letter">f</div>
+          <div class="fall-letter">f</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+          <div class="fall-letter">a</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+        </div>
+        <div class="fall-cont">
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+          <div class="fall-letter">l</div>
+        </div>
+      </div>
+    </section>
+    <section class="settle-text">
+      <div class="settling-cont">
+        <div data-settle="-92">S</div>
+        <div data-settle="-75">e</div>
+        <div data-settle="-90">t</div>
+        <div data-settle="-67">t</div>
+        <div data-settle="-100">l</div>
+        <div data-settle="-87">e</div>
+      </div>
+    </section>
+    <section class="zip-container-section">
+      <div class="zip-container">
+        <span data-padding="-7.5" class="zip-letter">Z</span>
+        <span data-padding="15" class="zip-letter">i</span>
+        <span data-padding="-22.5" class="zip-letter">p</span>
+        <span data-padding="30" class="zip-letter">p</span>
+        <span data-padding="-37.5" class="zip-letter">e</span>
+        <span data-padding="45" class="zip-letter">r</span>
+      </div>
+    </section>
+    <section class="fill-text">
+      <div class="fill-wrapper">
+        <p>WAVE FILL</p>
+      </div>
+    </section>
+    <section class="coming-soon">
+      <h2>Coming<span>Soon</span></h2>
+    </section>
+    <section class="together">
+      <p>Come Together</p>
+    </section>
+    <section>HOVER AND SCROLL EFFECTS</section>
+    <section class="focus">
+      <p class="focus-text">
+        <span>I</span><span>n</span><span>t</span><span>o</span
+        ><span>&nbsp;</span><span>F</span><span>o</span><span>c</span
+        ><span>u</span><span>s</span>
+      </p>
+    </section>
+    <section class="skew-scroll">
+      <p class="skew-text">
+        <span>S</span><span>c</span><span>r</span><span>o</span><span>l</span
+        ><span>l</span><span>&nbsp;</span><span>S</span><span>k</span
+        ><span>e</span><span>w</span>
+      </p>
+      <div class="skew-box"></div>
+      <div class="skew-box"></div>
+      <div class="skew-box"></div>
+      <div class="skew-box"></div>
+      <h2 class="skew-h2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit sequi
+        quidem dolore, odit, nulla repudiandae facilis atque commodi accusantium
+        fugiat provident delectus possimus voluptas, ullam quaerat unde dicta
+        nobis ipsum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Velit sequi quidem dolore, odit, nulla repudiandae facilis atque commodi
+        accusantium fugiat provident delectus possimus voluptas, ullam quaerat
+        unde dicta nobis ipsum. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Velit sequi quidem dolore, odit, nulla repudiandae
+        facilis atque commodi accusantium fugiat provident delectus possimus
+        voluptas, ullam quaerat unde dicta nobis ipsum. Lorem ipsum dolor sit
+        amet consectetur adipisicing elit. Velit sequi quidem dolore, odit,
+        nulla repudiandae facilis atque commodi accusantium fugiat provident
+        delectus possimus voluptas, ullam quaerat unde dicta nobis ipsum.
+      </h2>
+    </section>
+    <section class="gooey">
+      <div class="container-morph">
+        <h1 class="og">PRODUCTS</h1>
+        <h1 class="morph">PRODU©TS</h1>
+      </div>
+    </section>
+    <!---->
+    <!---->
+    <!---->
+    <section class="horizontal-intro">
+      <p>From The Side</p>
+    </section>
+    <section class="vertical-intro">
+      <p>From The Bottom</p>
+    </section>
+    <section class="one-at-a-time">
+      <p>
+        <span style="transition-delay: 50ms">O</span
+        ><span style="transition-delay: 100ms">n</span
+        ><span style="transition-delay: 150ms">e</span
+        ><span style="transition-delay: 200ms">&nbsp;</span
+        ><span style="transition-delay: 250ms">A</span
+        ><span style="transition-delay: 300ms">t</span
+        ><span style="transition-delay: 350ms">&nbsp;</span
+        ><span style="transition-delay: 400ms">A</span
+        ><span style="transition-delay: 450ms">&nbsp;</span
+        ><span style="transition-delay: 500ms">T</span
+        ><span style="transition-delay: 550ms">i</span
+        ><span style="transition-delay: 600ms">m</span
+        ><span style="transition-delay: 650ms">e</span>
+      </p>
+    </section>
+    <section class="wave-text">
+      <p>
+        <span style="transition-delay: 50ms">G</span
+        ><span style="transition-delay: 150ms">i</span
+        ><span style="transition-delay: 200ms">v</span
+        ><span style="transition-delay: 250ms">e</span
+        ><span style="transition-delay: 300ms">&nbsp;</span
+        ><span style="transition-delay: 350ms">A</span
+        ><span style="transition-delay: 400ms">&nbsp;</span
+        ><span style="transition-delay: 450ms">W</span
+        ><span style="transition-delay: 500ms">a</span
+        ><span style="transition-delay: 550ms">v</span
+        ><span style="transition-delay: 600ms">e</span>
+      </p>
+    </section>
+    <section class="growing-text">
+      <p>
+        <span style="transition-delay: 100ms">G</span
+        ><span style="transition-delay: 200ms">r</span
+        ><span style="transition-delay: 300ms">o</span
+        ><span style="transition-delay: 400ms">w</span
+        ><span style="transition-delay: 500ms">i</span
+        ><span style="transition-delay: 600ms">n</span
+        ><span style="transition-delay: 700ms">g</span>
+      </p>
+    </section>
+    <section class="smokey-text">
+      <p>
+        <span style="transition-delay: 50ms">S</span
+        ><span style="transition-delay: 150ms">m</span
+        ><span style="transition-delay: 200ms">o</span
+        ><span style="transition-delay: 250ms">k</span
+        ><span style="transition-delay: 300ms">e</span
+        ><span style="transition-delay: 350ms">y</span>
+      </p>
     </section>
     <script src="app.js"></script>
   </body>

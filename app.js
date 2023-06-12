@@ -637,7 +637,7 @@ dragEl.forEach((el) => {
       dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
       dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
       dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-      dragTail.style.filter = ` blur(2.5px)`;
+      dragTail.style.filter = ` blur(2px)`;
       //-------------------------
       dragTailTwo.style.transition = "transform ease-in-out 250ms";
       dragTailTwo.style.top = `${el.offsetTop + (newY - drugY)}px`;
@@ -645,7 +645,7 @@ dragEl.forEach((el) => {
       dragTailTwo.style.transform = `translate(${trailX * 2}px, ${
         trailY * 2
       }px)`;
-      dragTailTwo.style.filter = ` blur(5px)`;
+      dragTailTwo.style.filter = ` blur(4px)`;
       //-------------------------
       dragTailThree.style.transition = "transform ease-in-out 250ms";
       dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
@@ -653,7 +653,7 @@ dragEl.forEach((el) => {
       dragTailThree.style.transform = `translate(${trailX * 3}px, ${
         trailY * 3
       }px)`;
-      dragTailThree.style.filter = ` blur(10px)`;
+      dragTailThree.style.filter = ` blur(6px)`;
     }
   });
 
