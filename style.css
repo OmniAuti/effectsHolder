@@ -2050,31 +2050,30 @@ hr {
   font-family: "KormelinkItalic" !important;
   font-feature-settings: "swsh" !important;
   clip-path: circle(0%);
-  filter: blur(5px);
-  transition: all ease 250ms;
+  filter: blur(10px);
+  transition: all ease 500ms;
 }
 
-.clip-path-link-mid-nav .clip-mid-nav span:nth-of-type(2) {
+.nav_toggle-btn-clip .clip-mid-nav span:last-of-type {
   color: #9d9fa2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
   clip-path: circle(125%);
   filter: blur(0px);
-  transition: all ease 500ms;
+  transition: all ease 250ms;
+  transition-delay: 500ms;
 }
 
 .nav_toggle-btn-clip:hover .clip-mid-nav span:first-of-type {
   clip-path: circle(125%);
-  z-index: 2;
   filter: blur(0px);
   transition: all ease 500ms;
 }
 
-.nav_toggle-btn-clip:hover .clip-mid-nav span:nth-last-of-type(1) {
+.nav_toggle-btn-clip:hover .clip-mid-nav span:last-of-type {
   clip-path: circle(0%);
-  filter: blur(5px);
-  color: #fff;
-  transition: all ease 500ms;
+  filter: blur(0px);
+  transition: all ease 250ms;
 }
 /*----------------------------*/
 .nav_toggle-btn-smoosh {
