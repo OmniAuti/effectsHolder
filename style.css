@@ -967,7 +967,7 @@ h1 {
   color: #fff;
 }
 .clip-path-link:hover:before {
-  clip-path: circle(100%);
+  clip-path: circle(125%);
 }
 /* ------------------------------- NAV CLIP PATH -mid ------------------------------------- */
 
@@ -1008,13 +1008,13 @@ h1 {
   color: #9d9fa2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   filter: blur(0px);
   transition: all ease 250ms;
 }
 
 .clip-path-link-mid:hover .clip-mid span:first-of-type {
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   z-index: 2;
   filter: blur(0px);
   transition: all ease 500ms;
@@ -1065,13 +1065,13 @@ h1 {
   color: #9d9fa2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   filter: blur(0px);
   transition: all ease 500ms;
 }
 
 .clip-path-link-mid-wave:hover .clip-mid-wave span:first-of-type {
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   z-index: 2;
   filter: blur(0px);
   transition: all ease 500ms;
@@ -2058,13 +2058,13 @@ hr {
   color: #9d9fa2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   filter: blur(0px);
   transition: all ease 500ms;
 }
 
 .nav_toggle-btn-clip:hover .clip-mid-nav span:first-of-type {
-  clip-path: circle(100%);
+  clip-path: circle(125%);
   z-index: 2;
   filter: blur(0px);
   transition: all ease 500ms;
