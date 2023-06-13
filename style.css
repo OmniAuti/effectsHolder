@@ -166,12 +166,14 @@ h1 {
 
 .smokey-text {
   border: 1px solid black;
+  width: 100%;
 }
 
 .smokey-text p {
   margin: 50px auto;
   height: 100px;
   width: 356px;
+  white-space: nowrap;
 }
 
 .smokey-text p span {
@@ -2278,6 +2280,71 @@ hr {
   left: 50%;
   transform: translate(-50%, -90%);
   width: 50%;
+}
+/* STACK */
+.nav_toggle-btn-stack-diamond {
+  height: 25px;
+  width: 140px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.hamburger-stack-diamond {
+  background-color: #9d9fa2;
+  height: 2.5px;
+  border-radius: 10px;
+  transition: all ease-out 150ms;
+}
+
+.hamburger_container-stack-diamond {
+  position: relative;
+  width: 80px;
+  height: 100%;
+}
+
+.hamburger_one-stack-diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.hamburger_two-stack-diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.hamburger_three-stack-diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.nav_toggle-btn-stack-diamond:hover .hamburger_one-stack-diamond {
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  width: 25%;
+}
+.nav_toggle-btn-stack-diamond:hover .hamburger_two-stack-diamond {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+.nav_toggle-btn-stack-diamond:hover .hamburger_three-stack-diamond {
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  width: 25%;
 }
 /* STACK */
 .nav_toggle-btn-rotate {
