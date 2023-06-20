@@ -1994,6 +1994,7 @@ hr {
 .hamburger_container-clip {
   position: relative;
   width: 80px;
+  margin-left: 5px;
   max-width: 80px;
   height: 100%;
 }
@@ -2077,15 +2078,7 @@ hr {
   transition: all ease 750ms;
 }
 /*----------------------------*/
-.clip-path-nav-mid-nav {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  padding: 50px;
-  height: fit-content;
-  border: 1px solid #000;
-}
+
 .clip-mid-nav {
   display: inline-block;
   position: relative;
@@ -2142,7 +2135,6 @@ hr {
   color: #9d9fa2;
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
-  margin-right: 5px;
 }
 
 .nav_text-smoosh span {

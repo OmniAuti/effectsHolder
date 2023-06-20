@@ -29,7 +29,6 @@
         class="nav_toggle-btn-clip hamburger_text"
         id="navigation_toggle-btn"
       >
-      <p class="clip-path-link-mid-nav">
         <div class="clip-mid-nav">
           <span style="transition-delay: 50ms">M</span>
           <span class="clip-second" style="transition-delay: 50ms">M</span>
@@ -46,7 +45,7 @@
           <span style="transition-delay: 140ms">U</span>
           <span class="clip-second" style="transition-delay: 140ms">U</span>
         </div>
-      </p>
+
         <div aria-hidden="true" class="hamburger_container-clip">
           <div class="hamburger-clip hamburger_one-clip"></div>
           <div class="hamburger-clip hamburger_two-clip"></div>
@@ -63,12 +62,12 @@
         class="nav_toggle-btn-smoosh hamburger_text"
         id="navigation_toggle-btn"
       >
-      <p class="nav_text-smoosh">
+        <p class="nav_text-smoosh">
           <span style="transition-delay: 50ms">M</span>
           <span style="transition-delay: 80ms">E</span>
           <span style="transition-delay: 110ms">N</span>
           <span style="transition-delay: 140ms">U</span>
-      </p>
+        </p>
         <div aria-hidden="true" class="hamburger_container-smoosh">
           <div class="hamburger-smoosh hamburger_one-smoosh"></div>
           <div class="hamburger-smoosh hamburger_two-smoosh"></div>
@@ -159,9 +158,15 @@
       >
         MENU
         <div aria-hidden="true" class="hamburger_container-stack-diamond">
-          <div class="hamburger-stack-diamond hamburger_one-stack-diamond"></div>
-          <div class="hamburger-stack-diamond hamburger_two-stack-diamond"></div>
-          <div class="hamburger-stack-diamond hamburger_three-stack-diamond"></div>
+          <div
+            class="hamburger-stack-diamond hamburger_one-stack-diamond"
+          ></div>
+          <div
+            class="hamburger-stack-diamond hamburger_two-stack-diamond"
+          ></div>
+          <div
+            class="hamburger-stack-diamond hamburger_three-stack-diamond"
+          ></div>
         </div>
       </div>
       <!---->
@@ -926,13 +931,12 @@
         <h1>WATER BLUR</h1>
         <div class="drop-one"></div>
         <div class="drop-below"></div>
-        
+
         <div class="drop-two"></div>
       </div>
     </section>
     <!---->
-    <section class="water-droplets-bunch">
-    </section>
+    <section class="water-droplets-bunch"></section>
     <!---->
     <section class="drip-section">
       <img src="img/test.png" alt="" />
@@ -973,12 +977,12 @@
     <!--HOLOGRAPHIC TEXT SCRIPT-->
     <script>
       const holographicElement = document.getElementById("holographic");
-      
+
       function updateHolographicBackground(valueX, valueY) {
         const percentage = "" + valueX * 150 + "% " + valueY * 200 + "%";
         holographicElement.style.backgroundPosition = percentage;
       }
-      
+
       function handleMouseMove(event) {
         const x = event.clientX;
         const y = event.clientY;
@@ -990,32 +994,32 @@
         var halfW = document.querySelector(".holo-text").clientWidth / 2;
         var halfH = document.querySelector(".holo-text").clientHeight / 2;
         var coorX =
-        halfW -
-        (event.pageX - document.querySelector(".holo-text").offsetLeft);
+          halfW -
+          (event.pageX - document.querySelector(".holo-text").offsetLeft);
         var coorY =
-        halfH -
-        (event.pageY - document.querySelector(".holo-text").offsetTop);
+          halfH -
+          (event.pageY - document.querySelector(".holo-text").offsetTop);
         var degX = (coorY / halfH) * 5 + "deg";
         var degY = (coorX / halfW) * -5 + "deg";
-        
+
         document.querySelector(".card").style.transform =
-        "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
-        degX +
-        ") rotateY(" +
-        degY +
-        ")";
+          "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
+          degX +
+          ") rotateY(" +
+          degY +
+          ")";
       }
-      </script>
-      <!---->
-      <section class="clip-path-nav">
-        <h2 data-content="ETHOS" class="clip-path-link">ETHOS</h2>
-        <h2 data-content="PRODU©TS" class="clip-path-link">PRODUCTS</h2>
-        <h2 data-content="SustAinability" class="clip-path-link">
-          SustAinability
-        </h2>
-        <h2 data-content="Strains" class="clip-path-link">Strains</h2>
-        <h2 data-content="Culture" class="clip-path-link">Culture</h2>
-      </section>
+    </script>
+    <!---->
+    <section class="clip-path-nav">
+      <h2 data-content="ETHOS" class="clip-path-link">ETHOS</h2>
+      <h2 data-content="PRODU©TS" class="clip-path-link">PRODUCTS</h2>
+      <h2 data-content="SustAinability" class="clip-path-link">
+        SustAinability
+      </h2>
+      <h2 data-content="Strains" class="clip-path-link">Strains</h2>
+      <h2 data-content="Culture" class="clip-path-link">Culture</h2>
+    </section>
     <!--water picture-->
     <section class="water-bong">
       <script src="waterpictureEffect.js"></script>
