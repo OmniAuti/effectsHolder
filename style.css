@@ -2702,7 +2702,7 @@ hr {
   margin: 0 auto;
   padding: 80px 0;
   font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-  font-size: 68px;
+  font-size: 68px !important;
   font-weight: 900;
   letter-spacing: -2px;
   text-transform: uppercase;
