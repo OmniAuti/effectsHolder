@@ -637,7 +637,7 @@ dragEl.forEach((el) => {
       // dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
       // dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
       // dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-      // dragTail.style.filter = ` blur(2px)`;
+      dragTail.style.filter = ` blur(2px)`;
 
       dragTail.animate(
         {
@@ -654,7 +654,7 @@ dragEl.forEach((el) => {
       //   dragTailTwo.style.transform = `translate(${trailX * 2}px, ${
       //     trailY * 2
       //   }px)`;
-      //   dragTailTwo.style.filter = ` blur(4px)`;
+      dragTailTwo.style.filter = ` blur(4px)`;
 
       dragTailTwo.animate(
         {
@@ -671,7 +671,7 @@ dragEl.forEach((el) => {
       //   dragTailThree.style.transform = `translate(${trailX * 3}px, ${
       //     trailY * 3
       //   }px)`;
-      //   dragTailThree.style.filter = ` blur(6px)`;
+      dragTailThree.style.filter = ` blur(6px)`;
 
       dragTailThree.animate(
         {
@@ -685,10 +685,10 @@ dragEl.forEach((el) => {
 
   el.addEventListener("mouseup", (e) => {
     movementEl = false;
-    dragTail.style.transition = "all ease 250ms";
-    dragTailTwo.style.transition = "all ease 250ms";
-    dragTailThree.style.transition = "all ease 250ms";
-    //
+    // dragTail.style.transition = "all ease 250ms";
+    // dragTailTwo.style.transition = "all ease 250ms";
+    // dragTailThree.style.transition = "all ease 250ms";
+    // //
     dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
     dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
     //
@@ -697,16 +697,16 @@ dragEl.forEach((el) => {
     //
     dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
     dragTailThree.style.left = `${el.offsetLeft + (newX - drugX)}px`;
-    //
-    dragTail.style.transform = `none`;
-    dragTailTwo.style.transform = `none`;
-    dragTailThree.style.transform = `none`;
+    // //
+    // dragTail.style.transform = `none`;
+    // dragTailTwo.style.transform = `none`;
+    // dragTailThree.style.transform = `none`;
     dragTail.style.filter = ` blur(0px)`;
     dragTailTwo.style.filter = ` blur(0px)`;
     dragTailThree.style.filter = ` blur(0px)`;
-    setTimeout(() => {
-      dragTail.style.transition = "none";
-    }, 300);
+    // setTimeout(() => {
+    //   dragTail.style.transition = "none";
+    // }, 300);
   });
 
   el.addEventListener("mouseleave", (e) => {
@@ -714,20 +714,303 @@ dragEl.forEach((el) => {
   });
 });
 
-const test = document.querySelector(".container-morph");
+/* ============================== */
 
-test.addEventListener("mouseover", () => {
-  test.style.filter = "contrast(20)";
-  document.querySelector(".og").style.opacity = "0";
-  document.querySelector(".morph").style.opacity = "1";
-  setTimeout(() => {
-    test.style.filter = "contrast(1)";
-  }, 500);
-});
-test.addEventListener("mouseleave", () => {
-  setTimeout(() => {
-    document.querySelector(".og").style.opacity = "1";
-    document.querySelector(".morph").style.opacity = "0";
-    test.style.filter = "contrast(1)";
-  }, 500);
-});
+let centerVec, mouseVec;
+let total = 50;
+let initialForce = 2;
+let friction = 0.8;
+let springForce = 1;
+let k = 0.1;
+let mouseThreshold = 60;
+let mouseRepelForce = 0.1;
+let forceToCenter = 0.008;
+let minDist = 55;
+let minDistSQ = minDist * minDist;
+let particles = [];
+let count = 0;
+let instructionVisible = false;
+
+function init() {
+  centerVec = new Vector(window.innerWidth / 2, window.innerHeight / 2);
+  mouseVec = new Vector();
+
+  window.addEventListener("mousemove", inputMove);
+  window.addEventListener("touchmove", inputMove, { passive: false });
+  window.addEventListener("resize", resize);
+
+  update();
+}
+
+function inputMove(e) {
+  if (e.type == "touchmove") e.preventDefault();
+
+  var x, y;
+  if (e.type.indexOf("mouse") >= 0) {
+    x = e.clientX;
+    y = e.clientY;
+  } else {
+    x = e.changedTouches[0].clientX;
+    y = e.changedTouches[0].clientY;
+  }
+
+  mouseVec.x = x;
+  mouseVec.y = y;
+}
+
+function resize() {
+  centerVec.x = window.innerWidth / 2;
+  centerVec.y = window.innerHeight / 2;
+}
+
+function create() {
+  const color = "transparent";
+
+  const colorStr = `transparent`;
+
+  const particle = new Particle(colorStr, centerVec.x, centerVec.y, friction);
+
+  particle.velocity.x = Math.random() * initialForce - initialForce * 0.5;
+  particle.velocity.y = Math.random() * initialForce - initialForce * 0.5;
+
+  particles.push(particle);
+  count = particles.length;
+}
+
+function update() {
+  requestAnimationFrame(update);
+  if (count < total) create();
+
+  for (let i = 0; i < count; i++) {
+    particles[i].update();
+    repelToMouse(particles[i]);
+    if (count == total) {
+      attactToCenter(particles[i]);
+      if (!instructionVisible) {
+        instructionVisible = true;
+      }
+    }
+  }
+
+  //   for(let i = 0; i < count-1; i++){
+  //     const particleA = particles[i]
+
+  //     for(let j = i + 1; j < count; j++){
+  //       const particleB = particles[j]
+  //       //repel(particleA, particleB)
+  //     }
+  //   }
+
+  for (let i = 0; i < count; i++) {
+    const particleA = particles[i];
+
+    for (let j = 0; j < count; j++) {
+      const particleB = particles[j];
+      repel2(particleA, particleB);
+    }
+  }
+}
+
+function repel(particleA, particleB) {
+  const force = Vector.sub(particleB.position, particleA.position);
+  const dist = force.mag();
+
+  if (dist < minDist) {
+    const x = dist - minDist;
+    force.normalize();
+    force.mult(-1 * k * x);
+
+    particleA.velocity.sub(force);
+    particleB.velocity.add(force);
+  }
+}
+
+// from generative-design book:
+// https://editor.p5js.org/generative-design/sketches/M_6_1_03
+function repel2(particleA, particleB) {
+  const force = Vector.sub(particleA.position, particleB.position);
+  const dist = force.mag();
+
+  if (dist > 0 && dist < minDist) {
+    const ramp = 0.5;
+    const strength = -5;
+    const s = Math.pow(dist / minDist, 1 / ramp);
+    const f = (s * 9 * strength * (1 / (s + 1) + (s - 3) / 4)) / dist;
+    force.mult(f);
+
+    particleA.velocity.sub(force);
+  }
+}
+
+function repelToMouse(particle) {
+  const force = Vector.sub(mouseVec, particle.position);
+  const dist = force.mag();
+  if (dist < mouseThreshold) {
+    const x = dist - mouseThreshold;
+    //force.normalize()
+    force.mult(-1 * k * x);
+    force.mult(mouseRepelForce);
+
+    particle.velocity.sub(force);
+  }
+}
+
+function attactToCenter(particle) {
+  const force = Vector.sub(centerVec, particle.position);
+  const dist = force.mag();
+
+  if (dist > minDist) {
+    const x = dist - minDist;
+    force.normalize();
+    force.mult(-1 * k * x);
+    force.mult(forceToCenter);
+
+    particle.velocity.sub(force);
+  }
+}
+
+class Vector {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+
+    return this;
+  }
+
+  add(v) {
+    this.x += v.x;
+    this.y += v.y;
+    return this;
+  }
+
+  sub(v) {
+    this.x -= v.x;
+    this.y -= v.y;
+    return this;
+  }
+
+  mult(n) {
+    this.x *= n;
+    this.y *= n;
+    return this;
+  }
+
+  div(n) {
+    this.x /= n;
+    this.y /= n;
+    return this;
+  }
+
+  magSQ() {
+    return this.x * this.x + this.y * this.y;
+  }
+
+  mag() {
+    return Math.sqrt(this.magSQ());
+  }
+
+  normalize() {
+    let m = this.mag();
+    if (m != 0) this.div(m);
+
+    return this;
+  }
+
+  limit(n) {
+    let m = this.mag();
+    if (m > n) {
+      this.normalize();
+      this.mult(n);
+    }
+
+    return this;
+  }
+
+  static add(v1, v2) {
+    return new Vector(v1.x, v1.y).add(v2);
+  }
+
+  static sub(v1, v2) {
+    return new Vector(v1.x, v1.y).sub(v2);
+  }
+
+  static mult(v1, n) {
+    return new Vector(v1.x, v1.y).mult(n);
+  }
+
+  static div(v1, n) {
+    return new Vector(v1.x, v1.y).div(n);
+  }
+}
+
+class Particle {
+  constructor(color = "#000000", x = 0, y = 0, friction = 1) {
+    this.position = new Vector(x, y);
+    this.velocity = new Vector();
+    this.acceleration = new Vector();
+    this.friction = friction;
+    this.k = 0.1;
+
+    this.el = document.createElement("div");
+    document.querySelector(".water-droplets-bunch").appendChild(this.el);
+    this.el.className = "droplet-bunch";
+
+    this.el.style.backgroundColor = color;
+    this.size = this.el.offsetWidth;
+    this.sizeHalf = this.size / 2;
+
+    this.update();
+  }
+
+  applyForce(forceVector) {
+    this.acceleration.add(forceVector);
+  }
+
+  // attract(targetVector, intensity){
+  //   const force = Vector.sub(targetVector, this.position)
+  //   const d = force.mag()
+  //   force.mult(intensity * Math.exp(-0.02 * d))
+  //   this.applyForce(force)
+  // }
+
+  //   springTo(targetVector, distMin, intensity){
+  //     const force = Vector.sub(targetVector, this.position)
+  //     const d = force.mag()
+  //     const x = d - distMin;
+  //     force.normalize()
+  //     force.mult(-1 * this.k * x)
+  //     force.mult(intensity)
+
+  //     this.applyForce(force)
+
+  //   }
+
+  //   repelTo(targetVector, distMin, intensity){
+  //     const force = Vector.sub(targetVector, this.position)
+  //     const d = force.mag()
+
+  //     if(d < distMin){
+  //       const x = d - distMin;
+  //       force.normalize()
+  //       force.mult(-1 * this.k * x)
+  //       force.mult(intensity)
+
+  //       this.applyForce(force)
+  //     }
+
+  //   }
+
+  update() {
+    this.velocity.add(this.acceleration);
+    this.velocity.mult(this.friction);
+    this.position.add(this.velocity);
+
+    this.acceleration.mult(0);
+
+    this.el.style.transform = `translate(${
+      this.position.x - this.sizeHalf
+    }px, ${this.position.y - this.sizeHalf}px)`;
+  }
+}
+
+init();

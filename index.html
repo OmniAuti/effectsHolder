@@ -921,16 +921,18 @@
       </ul>
     </section>
     <!---->
-    <section class="clip-path-nav">
-      <h2 data-content="ETHOS" class="clip-path-link">ETHOS</h2>
-      <h2 data-content="PRODUCTS" class="clip-path-link">PRODU©TS</h2>
-      <h2 data-content="SustAinability" class="clip-path-link">
-        SustAinability
-      </h2>
-      <h2 data-content="Strains" class="clip-path-link">Strains</h2>
-      <h2 data-content="Culture" class="clip-path-link">Culture</h2>
+    <section class="water-droplets">
+      <div class="drops">
+        <h1>WATER BLUR</h1>
+        <div class="drop-one"></div>
+        <div class="drop-below"></div>
+        
+        <div class="drop-two"></div>
+      </div>
     </section>
-
+    <!---->
+    <section class="water-droplets-bunch">
+    </section>
     <!---->
     <section class="drip-section">
       <img src="img/test.png" alt="" />
@@ -947,16 +949,6 @@
         <div class="drip-two"></div>
         <div class="drip-three"></div>
         <div class="drip-four"></div>
-      </div>
-    </section>
-    <!---->
-    <section class="water-droplets">
-      <div class="drops">
-        <h1>WATER BLUR</h1>
-        <div class="drop-one"></div>
-        <div class="drop-below"></div>
-
-        <div class="drop-two"></div>
       </div>
     </section>
     <!---->
@@ -981,12 +973,12 @@
     <!--HOLOGRAPHIC TEXT SCRIPT-->
     <script>
       const holographicElement = document.getElementById("holographic");
-
+      
       function updateHolographicBackground(valueX, valueY) {
         const percentage = "" + valueX * 150 + "% " + valueY * 200 + "%";
         holographicElement.style.backgroundPosition = percentage;
       }
-
+      
       function handleMouseMove(event) {
         const x = event.clientX;
         const y = event.clientY;
@@ -998,22 +990,32 @@
         var halfW = document.querySelector(".holo-text").clientWidth / 2;
         var halfH = document.querySelector(".holo-text").clientHeight / 2;
         var coorX =
-          halfW -
-          (event.pageX - document.querySelector(".holo-text").offsetLeft);
+        halfW -
+        (event.pageX - document.querySelector(".holo-text").offsetLeft);
         var coorY =
-          halfH -
-          (event.pageY - document.querySelector(".holo-text").offsetTop);
+        halfH -
+        (event.pageY - document.querySelector(".holo-text").offsetTop);
         var degX = (coorY / halfH) * 5 + "deg";
         var degY = (coorX / halfW) * -5 + "deg";
-
+        
         document.querySelector(".card").style.transform =
-          "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
-          degX +
-          ") rotateY(" +
-          degY +
-          ")";
+        "perspective( 600px ) translate3d( 0, -2px, 0 ) scale(1) rotateX(" +
+        degX +
+        ") rotateY(" +
+        degY +
+        ")";
       }
-    </script>
+      </script>
+      <!---->
+      <section class="clip-path-nav">
+        <h2 data-content="ETHOS" class="clip-path-link">ETHOS</h2>
+        <h2 data-content="PRODU©TS" class="clip-path-link">PRODUCTS</h2>
+        <h2 data-content="SustAinability" class="clip-path-link">
+          SustAinability
+        </h2>
+        <h2 data-content="Strains" class="clip-path-link">Strains</h2>
+        <h2 data-content="Culture" class="clip-path-link">Culture</h2>
+      </section>
     <!--water picture-->
     <section class="water-bong">
       <script src="waterpictureEffect.js"></script>

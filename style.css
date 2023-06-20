@@ -1240,6 +1240,7 @@ h1 {
   border: 1px solid #000;
   min-height: 900px;
   height: 100vh;
+  max-height: 900px;
   width: 100vw;
   min-width: 1200px;
 
@@ -1706,6 +1707,59 @@ h1 {
     width: 40px;
     height: 55px;
   }
+}
+/*  DROPLETS ----------------------------------*/
+
+.water-droplets-bunch {
+  border: 1px solid blue;
+  height: 100vh;
+  width: 100vw;
+  display: block;
+}
+
+.droplet-bunch {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 54% 46% 43% 57% / 37% 41% 59% 63%;
+  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.5),
+    inset 15px 15px 15px rgba(0, 0, 0, 0.25), 7px 7.5px 10px rgba(0, 0, 0, 0.5),
+    50px 10px 20px rgba(0, 0, 0, 0.05),
+    inset -10px -10px 15px rgba(255, 255, 255, 1);
+  backdrop-filter: blur(2.5px);
+}
+
+.droplet-bunch::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 54% 46% 43% 57% / 37% 41% 59% 63%;
+  filter: blur(2px);
+  top: 7.5px;
+  left: 5px;
+}
+.droplet-bunch::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  background-color: rgba(255, 255, 255, 1);
+  /* border: 1px solid red; */
+  border-radius: 84% 56% 83% 37% / 77% 51% 79% 63%;
+  filter: blur(2px);
+  bottom: -5px;
+  z-index: 11;
+  bottom: 5px;
+  right: 12px;
+  /* border: 1px solid red; */
+}
+
+.droplet-bunch:hover {
+  transform: translate(-5px, 5px);
+
+  border-radius: 67% 43% 40% 63% / 45% 52% 48% 55%;
 }
 /*  DROPLETS ----------------------------------*/
 
