@@ -633,27 +633,53 @@ dragEl.forEach((el) => {
       newY = e.clientY - el.offsetTop;
       el.style.top = `${el.offsetTop + (newY - drugY)}px`;
       el.style.left = `${el.offsetLeft + (newX - drugX)}px`;
-      dragTail.style.transition = "transform ease-in-out 250ms";
-      dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
-      dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
-      dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
-      dragTail.style.filter = ` blur(2px)`;
-      //-------------------------
-      dragTailTwo.style.transition = "transform ease-in-out 250ms";
-      dragTailTwo.style.top = `${el.offsetTop + (newY - drugY)}px`;
-      dragTailTwo.style.left = `${el.offsetLeft + (newX - drugX)}px`;
-      dragTailTwo.style.transform = `translate(${trailX * 2}px, ${
-        trailY * 2
-      }px)`;
-      dragTailTwo.style.filter = ` blur(4px)`;
-      //-------------------------
-      dragTailThree.style.transition = "transform ease-in-out 250ms";
-      dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
-      dragTailThree.style.left = `${el.offsetLeft + (newX - drugX)}px`;
-      dragTailThree.style.transform = `translate(${trailX * 3}px, ${
-        trailY * 3
-      }px)`;
-      dragTailThree.style.filter = ` blur(6px)`;
+      // dragTail.style.transition = "transform ease-in-out 250ms";
+      // dragTail.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      // dragTail.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      // dragTail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+      // dragTail.style.filter = ` blur(2px)`;
+
+      dragTail.animate(
+        {
+          left: `${el.offsetLeft + (newX - drugX)}px`,
+          top: `${el.offsetTop + (newY - drugY)}px`,
+        },
+        { duration: 150, fill: "forwards" }
+      );
+
+      //   //-------------------------
+      //   dragTailTwo.style.transition = "transform ease-in-out 250ms";
+      //   dragTailTwo.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      //   dragTailTwo.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      //   dragTailTwo.style.transform = `translate(${trailX * 2}px, ${
+      //     trailY * 2
+      //   }px)`;
+      //   dragTailTwo.style.filter = ` blur(4px)`;
+
+      dragTailTwo.animate(
+        {
+          left: `${el.offsetLeft + (newX - drugX)}px`,
+          top: `${el.offsetTop + (newY - drugY)}px`,
+        },
+        { duration: 250, fill: "forwards" }
+      );
+
+      //   //-------------------------
+      //   dragTailThree.style.transition = "transform ease-in-out 250ms";
+      //   dragTailThree.style.top = `${el.offsetTop + (newY - drugY)}px`;
+      //   dragTailThree.style.left = `${el.offsetLeft + (newX - drugX)}px`;
+      //   dragTailThree.style.transform = `translate(${trailX * 3}px, ${
+      //     trailY * 3
+      //   }px)`;
+      //   dragTailThree.style.filter = ` blur(6px)`;
+
+      dragTailThree.animate(
+        {
+          left: `${el.offsetLeft + (newX - drugX)}px`,
+          top: `${el.offsetTop + (newY - drugY)}px`,
+        },
+        { duration: 350, fill: "forwards" }
+      );
     }
   });
 

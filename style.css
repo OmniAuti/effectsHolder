@@ -1069,22 +1069,21 @@ h1 {
   font-weight: 700;
   clip-path: circle(125%);
   filter: blur(0px);
-  transition: all ease 500ms;
+  transition: all ease 250ms;
 }
 
 .clip-path-link-mid-wave:hover .clip-mid-wave span:first-of-type {
   clip-path: circle(125%);
   z-index: 2;
   filter: blur(0px);
-  transition: all ease 500ms;
+  transition: all ease 250ms;
 }
 
 .clip-path-link-mid-wave:hover .clip-mid-wave span:nth-last-of-type(1) {
   clip-path: circle(0%);
   filter: blur(5px);
-
   color: #fff;
-  transition: all ease 500ms;
+  transition: all ease 250ms;
   z-index: -1;
 }
 
