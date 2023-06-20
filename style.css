@@ -2766,5 +2766,5 @@ p {
 ** The hover interaction
 */
 .Words:hover p {
-  transform: translate3d(0, -62.5px, 0);
+  transform: translate3d(0, -64px, 0);
 }
