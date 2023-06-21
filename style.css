@@ -424,15 +424,15 @@ h1 {
 }
 
 .fill-wrapper p {
-  font-size: 150px;
-  -webkit-text-stroke: 1px #000;
-  height: 150px;
+  font-size: 100px;
+  /* -webkit-text-stroke: 1px #000; */
+  height: 160px;
   color: transparent !important;
   font-weight: bolder;
-  background-image: url("img/wave.svg");
+  background-image: url("img/wave.png");
   background-repeat: repeat-x;
-  background-size: 80%;
-  background-position: 0% -10%;
+  background-size: 70%;
+  background-position: -27.5% -110%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -266,30 +266,41 @@ const zipperObserver = new IntersectionObserver(
 );
 
 // FILLING TEXT
-const fillText = new IntersectionObserver((entries) => {
-  if (entries[0].isIntersecting) {
-    let idx = -10;
-    const int = setInterval(() => {
-      if (idx >= 700) clearInterval(int);
-      document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
-        idx * 4
-      }% ${idx * 0.25}%`;
-      idx++;
-      console.log(idx);
-    }, 5);
+const fillText = new IntersectionObserver(
+  (entries) => {
+    if (entries[0].isIntersecting) {
+      let idx = -110;
+      const int = setInterval(() => {
+        document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
+          idx * 4
+        }% ${idx * 0.25}%`;
+        idx++;
+        console.log(idx);
+        if (idx * 0.25 >= 190) {
+          document.querySelector(".fill-wrapper p").style.backgroundColor =
+            "#000";
+          document.querySelector(".fill-wrapper p").style.backgroundClip =
+            "none";
+          clearInterval(int);
+        }
+      }, 5);
+    }
+    // } else {
+    //   console.log("ok");
+    //   const int = setInterval(() => {
+    //     let idx = 325;
+    //     if (idx <= -10) clearInterval(int);
+    //     document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
+    //       idx * 4
+    //     }% ${idx * 0.25}%`;
+    //     idx--;
+    //   }, 10);
+    // }
+  },
+  {
+    threshold: 0.7,
   }
-  // } else {
-  //   console.log("ok");
-  //   const int = setInterval(() => {
-  //     let idx = 325;
-  //     if (idx <= -10) clearInterval(int);
-  //     document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
-  //       idx * 4
-  //     }% ${idx * 0.25}%`;
-  //     idx--;
-  //   }, 10);
-  // }
-}, options);
+);
 
 // COMING SOON TEXT
 var timer = null;
@@ -509,7 +520,7 @@ waterfallObserver.observe(document.querySelector(".waterfall"));
 highlightText.observe(document.querySelector(".highlight-sentence"));
 settleObserver.observe(document.querySelector(".settle-text"));
 zipperObserver.observe(document.querySelector(".zip-container-section"));
-fillText.observe(document.querySelector(".fill-text"));
+// fillText.observe(document.querySelector(".fill-text"));
 comingSoonObserver.observe(document.querySelector(".coming-soon"));
 comeTogetherObserver.observe(document.querySelector(".together"));
 focusTextObserver.observe(document.querySelector(".focus"));
@@ -763,8 +774,8 @@ function inputMove(e) {
 }
 
 function resize() {
-  centerVec.x = window.innerWidth / 2;
-  centerVec.y = window.innerHeight / 2;
+  centerVec.x = document.querySelector(".water-droplets-bunch").innerWidth / 2;
+  centerVec.y = document.querySelector(".water-droplets-bunch").innerHeight / 2;
 }
 
 function create() {
