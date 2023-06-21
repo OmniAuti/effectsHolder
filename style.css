@@ -2819,3 +2819,44 @@ p {
 .Words:hover p {
   transform: translate3d(0, -64px, 0);
 }
+
+/*=======*/
+
+.wavey-grow-text {
+  height: 100vh;
+  border: 1px solid #000;
+  color: #9d9fa2;
+  font-size: 100px;
+}
+
+.content-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-line span {
+  display: inline-block;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-name: change;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes change {
+  0%,
+  100% {
+    font-variation-settings: "wght" 900, "ital" 1;
+  }
+
+  50% {
+    font-variation-settings: "wght" 100, "ital" 0;
+  }
+}
