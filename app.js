@@ -717,7 +717,7 @@ dragEl.forEach((el) => {
 /* ============================== */
 
 let centerVec, mouseVec;
-let total = 50;
+let total = 25;
 let initialForce = 2;
 let friction = 0.8;
 let springForce = 1;
@@ -725,14 +725,17 @@ let k = 0.1;
 let mouseThreshold = 60;
 let mouseRepelForce = 0.1;
 let forceToCenter = 0.008;
-let minDist = 55;
+let minDist = 100;
 let minDistSQ = minDist * minDist;
 let particles = [];
 let count = 0;
 let instructionVisible = false;
 
 function init() {
-  centerVec = new Vector(window.innerWidth / 2, window.innerHeight / 2);
+  centerVec = new Vector(
+    document.querySelector(".water-droplets-bunch").clientWidth / 2,
+    document.querySelector(".water-droplets-bunch").clientHeight / 2
+  );
   mouseVec = new Vector();
 
   window.addEventListener("mousemove", inputMove);
