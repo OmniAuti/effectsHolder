@@ -416,20 +416,29 @@ h1 {
   margin: 0 auto;
   width: 1000px;
   text-align: center;
+  height: 500px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fill-wrapper p {
   font-size: 150px;
-  /* -webkit-text-stroke: 1px #000;*/
+  -webkit-text-stroke: 1px #000;
+  height: 150px;
   color: transparent !important;
   font-weight: bolder;
-  background-image: url("img/svg.png");
+  background-image: url("img/wave.svg");
   background-repeat: repeat-x;
   background-size: 80%;
   background-position: 0% -10%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --------------------- COMING SOON TEXT --------------------- */

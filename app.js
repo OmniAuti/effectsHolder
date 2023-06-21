@@ -270,12 +270,13 @@ const fillText = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting) {
     let idx = -10;
     const int = setInterval(() => {
-      if (idx >= 325) clearInterval(int);
+      if (idx >= 700) clearInterval(int);
       document.querySelector(".fill-wrapper p").style.backgroundPosition = `${
         idx * 4
       }% ${idx * 0.25}%`;
       idx++;
-    }, 10);
+      console.log(idx);
+    }, 5);
   }
   // } else {
   //   console.log("ok");
