@@ -249,10 +249,12 @@ h1 {
   color: #eee;
   padding: 25px 0px;
   line-height: 1.5;
+  height: fit-content;
 }
 
 .hightlight-paragraph p span {
   transition: color ease 500ms;
+  white-space: wrap;
 }
 
 .highlight-active {
