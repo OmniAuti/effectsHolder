@@ -1654,7 +1654,7 @@ function lotto() {
   let k = 0.1;
   let mouseThreshold = 75;
   let mouseRepelForce = 0.15;
-  let forceToCenter = 0.0;
+  let forceToCenter = 0.001;
   let minDist = 50;
   let minDistSQ = minDist * minDist;
   let particles = [];
