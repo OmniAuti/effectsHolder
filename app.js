@@ -726,306 +726,923 @@ dragEl.forEach((el) => {
   });
 });
 
-/* ============================== */
+/* ==================================================================================Droplets======================= */
 
-let centerVec, mouseVec;
-let total = 25;
-let initialForce = 2;
-let friction = 0.8;
-let springForce = 1;
-let k = 0.1;
-let mouseThreshold = 60;
-let mouseRepelForce = 0.1;
-let forceToCenter = 0.008;
-let minDist = 100;
-let minDistSQ = minDist * minDist;
-let particles = [];
-let count = 0;
-let instructionVisible = false;
+function waterDropBunch() {
+  let centerVec, mouseVec;
+  let total = 25;
+  let initialForce = 2;
+  let friction = 0.8;
+  let springForce = 1;
+  let k = 0.1;
+  let mouseThreshold = 60;
+  let mouseRepelForce = 0.1;
+  let forceToCenter = 0.008;
+  let minDist = 100;
+  let minDistSQ = minDist * minDist;
+  let particles = [];
+  let count = 0;
+  let instructionVisible = false;
 
-function init() {
-  centerVec = new Vector(
-    document.querySelector(".water-droplets-bunch").clientWidth / 2,
-    document.querySelector(".water-droplets-bunch").clientHeight / 2
-  );
-  mouseVec = new Vector();
+  function init() {
+    centerVec = new Vector(
+      document.querySelector(".water-droplets-bunch").clientWidth / 2,
+      document.querySelector(".water-droplets-bunch").clientHeight / 2
+    );
+    mouseVec = new Vector();
 
-  window.addEventListener("mousemove", inputMove);
-  window.addEventListener("touchmove", inputMove, { passive: false });
-  window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", inputMove);
+    window.addEventListener("touchmove", inputMove, { passive: false });
+    window.addEventListener("resize", resize);
 
-  update();
-}
-
-function inputMove(e) {
-  if (e.type == "touchmove") e.preventDefault();
-
-  var x, y;
-  if (e.type.indexOf("mouse") >= 0) {
-    x = e.clientX;
-    y = e.clientY;
-  } else {
-    x = e.changedTouches[0].clientX;
-    y = e.changedTouches[0].clientY;
+    update();
   }
 
-  mouseVec.x = x;
-  mouseVec.y = y;
-}
+  function inputMove(e) {
+    if (e.type == "touchmove") e.preventDefault();
 
-function resize() {
-  centerVec.x = document.querySelector(".water-droplets-bunch").innerWidth / 2;
-  centerVec.y = document.querySelector(".water-droplets-bunch").innerHeight / 2;
-}
+    var x, y;
+    if (e.type.indexOf("mouse") >= 0) {
+      x = e.clientX;
+      y = e.clientY;
+    } else {
+      x = e.changedTouches[0].clientX;
+      y = e.changedTouches[0].clientY;
+    }
 
-function create() {
-  const color = "transparent";
+    mouseVec.x = x;
+    mouseVec.y = y;
+  }
 
-  const colorStr = `transparent`;
+  function resize() {
+    centerVec.x =
+      document.querySelector(".water-droplets-bunch").innerWidth / 2;
+    centerVec.y =
+      document.querySelector(".water-droplets-bunch").innerHeight / 2;
+  }
 
-  const particle = new Particle(colorStr, centerVec.x, centerVec.y, friction);
+  function create() {
+    const color = "transparent";
 
-  particle.velocity.x = Math.random() * initialForce - initialForce * 0.5;
-  particle.velocity.y = Math.random() * initialForce - initialForce * 0.5;
+    const colorStr = `transparent`;
 
-  particles.push(particle);
-  count = particles.length;
-}
+    const particle = new Particle(colorStr, centerVec.x, centerVec.y, friction);
 
-function update() {
-  requestAnimationFrame(update);
-  if (count < total) create();
+    particle.velocity.x = Math.random() * initialForce - initialForce * 0.5;
+    particle.velocity.y = Math.random() * initialForce - initialForce * 0.5;
 
-  for (let i = 0; i < count; i++) {
-    particles[i].update();
-    repelToMouse(particles[i]);
-    if (count == total) {
-      attactToCenter(particles[i]);
-      if (!instructionVisible) {
-        instructionVisible = true;
+    particles.push(particle);
+    count = particles.length;
+  }
+
+  function update() {
+    requestAnimationFrame(update);
+    if (count < total) create();
+
+    for (let i = 0; i < count; i++) {
+      particles[i].update();
+      repelToMouse(particles[i]);
+      if (count == total) {
+        attactToCenter(particles[i]);
+        if (!instructionVisible) {
+          instructionVisible = true;
+        }
+      }
+    }
+
+    //   for(let i = 0; i < count-1; i++){
+    //     const particleA = particles[i]
+
+    //     for(let j = i + 1; j < count; j++){
+    //       const particleB = particles[j]
+    //       //repel(particleA, particleB)
+    //     }
+    //   }
+
+    for (let i = 0; i < count; i++) {
+      const particleA = particles[i];
+
+      for (let j = 0; j < count; j++) {
+        const particleB = particles[j];
+        repel2(particleA, particleB);
       }
     }
   }
 
-  //   for(let i = 0; i < count-1; i++){
-  //     const particleA = particles[i]
+  function repel(particleA, particleB) {
+    const force = Vector.sub(particleB.position, particleA.position);
+    const dist = force.mag();
 
-  //     for(let j = i + 1; j < count; j++){
-  //       const particleB = particles[j]
-  //       //repel(particleA, particleB)
-  //     }
-  //   }
+    if (dist < minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
 
-  for (let i = 0; i < count; i++) {
-    const particleA = particles[i];
-
-    for (let j = 0; j < count; j++) {
-      const particleB = particles[j];
-      repel2(particleA, particleB);
+      particleA.velocity.sub(force);
+      particleB.velocity.add(force);
     }
   }
-}
 
-function repel(particleA, particleB) {
-  const force = Vector.sub(particleB.position, particleA.position);
-  const dist = force.mag();
+  // from generative-design book:
+  // https://editor.p5js.org/generative-design/sketches/M_6_1_03
+  function repel2(particleA, particleB) {
+    const force = Vector.sub(particleA.position, particleB.position);
+    const dist = force.mag();
 
-  if (dist < minDist) {
-    const x = dist - minDist;
-    force.normalize();
-    force.mult(-1 * k * x);
+    if (dist > 0 && dist < minDist) {
+      const ramp = 0.5;
+      const strength = -5;
+      const s = Math.pow(dist / minDist, 1 / ramp);
+      const f = (s * 9 * strength * (1 / (s + 1) + (s - 3) / 4)) / dist;
+      force.mult(f);
 
-    particleA.velocity.sub(force);
-    particleB.velocity.add(force);
-  }
-}
-
-// from generative-design book:
-// https://editor.p5js.org/generative-design/sketches/M_6_1_03
-function repel2(particleA, particleB) {
-  const force = Vector.sub(particleA.position, particleB.position);
-  const dist = force.mag();
-
-  if (dist > 0 && dist < minDist) {
-    const ramp = 0.5;
-    const strength = -5;
-    const s = Math.pow(dist / minDist, 1 / ramp);
-    const f = (s * 9 * strength * (1 / (s + 1) + (s - 3) / 4)) / dist;
-    force.mult(f);
-
-    particleA.velocity.sub(force);
-  }
-}
-
-function repelToMouse(particle) {
-  const force = Vector.sub(mouseVec, particle.position);
-  const dist = force.mag();
-  if (dist < mouseThreshold) {
-    const x = dist - mouseThreshold;
-    //force.normalize()
-    force.mult(-1 * k * x);
-    force.mult(mouseRepelForce);
-
-    particle.velocity.sub(force);
-  }
-}
-
-function attactToCenter(particle) {
-  const force = Vector.sub(centerVec, particle.position);
-  const dist = force.mag();
-
-  if (dist > minDist) {
-    const x = dist - minDist;
-    force.normalize();
-    force.mult(-1 * k * x);
-    force.mult(forceToCenter);
-
-    particle.velocity.sub(force);
-  }
-}
-
-class Vector {
-  constructor(x = 0, y = 0) {
-    this.x = x;
-    this.y = y;
-
-    return this;
+      particleA.velocity.sub(force);
+    }
   }
 
-  add(v) {
-    this.x += v.x;
-    this.y += v.y;
-    return this;
+  function repelToMouse(particle) {
+    const force = Vector.sub(mouseVec, particle.position);
+    const dist = force.mag();
+    if (dist < mouseThreshold) {
+      const x = dist - mouseThreshold;
+      //force.normalize()
+      force.mult(-1 * k * x);
+      force.mult(mouseRepelForce);
+
+      particle.velocity.sub(force);
+    }
   }
 
-  sub(v) {
-    this.x -= v.x;
-    this.y -= v.y;
-    return this;
+  function attactToCenter(particle) {
+    const force = Vector.sub(centerVec, particle.position);
+    const dist = force.mag();
+
+    if (dist > minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
+      force.mult(forceToCenter);
+
+      particle.velocity.sub(force);
+    }
   }
 
-  mult(n) {
-    this.x *= n;
-    this.y *= n;
-    return this;
-  }
+  class Vector {
+    constructor(x = 0, y = 0) {
+      this.x = x;
+      this.y = y;
 
-  div(n) {
-    this.x /= n;
-    this.y /= n;
-    return this;
-  }
-
-  magSQ() {
-    return this.x * this.x + this.y * this.y;
-  }
-
-  mag() {
-    return Math.sqrt(this.magSQ());
-  }
-
-  normalize() {
-    let m = this.mag();
-    if (m != 0) this.div(m);
-
-    return this;
-  }
-
-  limit(n) {
-    let m = this.mag();
-    if (m > n) {
-      this.normalize();
-      this.mult(n);
+      return this;
     }
 
-    return this;
+    add(v) {
+      this.x += v.x;
+      this.y += v.y;
+      return this;
+    }
+
+    sub(v) {
+      this.x -= v.x;
+      this.y -= v.y;
+      return this;
+    }
+
+    mult(n) {
+      this.x *= n;
+      this.y *= n;
+      return this;
+    }
+
+    div(n) {
+      this.x /= n;
+      this.y /= n;
+      return this;
+    }
+
+    magSQ() {
+      return this.x * this.x + this.y * this.y;
+    }
+
+    mag() {
+      return Math.sqrt(this.magSQ());
+    }
+
+    normalize() {
+      let m = this.mag();
+      if (m != 0) this.div(m);
+
+      return this;
+    }
+
+    limit(n) {
+      let m = this.mag();
+      if (m > n) {
+        this.normalize();
+        this.mult(n);
+      }
+
+      return this;
+    }
+
+    static add(v1, v2) {
+      return new Vector(v1.x, v1.y).add(v2);
+    }
+
+    static sub(v1, v2) {
+      return new Vector(v1.x, v1.y).sub(v2);
+    }
+
+    static mult(v1, n) {
+      return new Vector(v1.x, v1.y).mult(n);
+    }
+
+    static div(v1, n) {
+      return new Vector(v1.x, v1.y).div(n);
+    }
   }
 
-  static add(v1, v2) {
-    return new Vector(v1.x, v1.y).add(v2);
+  class Particle {
+    constructor(color = "#000000", x = 0, y = 0, friction = 1) {
+      this.position = new Vector(x, y);
+      this.velocity = new Vector();
+      this.acceleration = new Vector();
+      this.friction = friction;
+      this.k = 0.1;
+
+      this.el = document.createElement("div");
+      document.querySelector(".water-droplets-bunch").appendChild(this.el);
+      this.el.className = "droplet-bunch";
+
+      this.el.style.backgroundColor = color;
+      this.size = this.el.offsetWidth;
+      this.sizeHalf = this.size / 2;
+
+      this.update();
+    }
+
+    applyForce(forceVector) {
+      this.acceleration.add(forceVector);
+    }
+
+    // attract(targetVector, intensity){
+    //   const force = Vector.sub(targetVector, this.position)
+    //   const d = force.mag()
+    //   force.mult(intensity * Math.exp(-0.02 * d))
+    //   this.applyForce(force)
+    // }
+
+    //   springTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+    //     const x = d - distMin;
+    //     force.normalize()
+    //     force.mult(-1 * this.k * x)
+    //     force.mult(intensity)
+
+    //     this.applyForce(force)
+
+    //   }
+
+    //   repelTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+
+    //     if(d < distMin){
+    //       const x = d - distMin;
+    //       force.normalize()
+    //       force.mult(-1 * this.k * x)
+    //       force.mult(intensity)
+
+    //       this.applyForce(force)
+    //     }
+
+    //   }
+
+    update() {
+      this.velocity.add(this.acceleration);
+      this.velocity.mult(this.friction);
+      this.position.add(this.velocity);
+
+      this.acceleration.mult(0);
+
+      this.el.style.transform = `translate(${
+        this.position.x - this.sizeHalf
+      }px, ${this.position.y - this.sizeHalf}px)`;
+    }
   }
 
-  static sub(v1, v2) {
-    return new Vector(v1.x, v1.y).sub(v2);
-  }
-
-  static mult(v1, n) {
-    return new Vector(v1.x, v1.y).mult(n);
-  }
-
-  static div(v1, n) {
-    return new Vector(v1.x, v1.y).div(n);
-  }
+  init();
 }
 
-class Particle {
-  constructor(color = "#000000", x = 0, y = 0, friction = 1) {
-    this.position = new Vector(x, y);
-    this.velocity = new Vector();
-    this.acceleration = new Vector();
-    this.friction = friction;
-    this.k = 0.1;
+waterDropBunch();
+function lottoScratch() {
+  let centerVec, mouseVec;
+  let total = 55;
+  let initialForce = 2;
+  let friction = 0.8;
+  let springForce = 1;
+  let k = 0.1;
+  let mouseThreshold = 60;
+  let mouseRepelForce = 0.05;
+  let forceToCenter = 0.009;
+  let minDist = 65;
+  let minDistSQ = minDist * minDist;
+  let particles = [];
+  let count = 0;
+  let instructionVisible = false;
 
-    this.el = document.createElement("div");
-    document.querySelector(".water-droplets-bunch").appendChild(this.el);
-    this.el.className = "droplet-bunch";
+  function init() {
+    centerVec = new Vector(
+      document.querySelector(".lotto-scratch").clientWidth / 2,
+      document.querySelector(".lotto-scratch").clientHeight / 2
+    );
+    mouseVec = new Vector();
 
-    this.el.style.backgroundColor = color;
-    this.size = this.el.offsetWidth;
-    this.sizeHalf = this.size / 2;
+    window.addEventListener("mousemove", inputMove);
+    window.addEventListener("touchmove", inputMove, { passive: false });
+    window.addEventListener("resize", resize);
 
-    this.update();
+    update();
   }
 
-  applyForce(forceVector) {
-    this.acceleration.add(forceVector);
+  function inputMove(e) {
+    if (e.type == "touchmove") e.preventDefault();
+
+    var x, y;
+    if (e.type.indexOf("mouse") >= 0) {
+      x = e.clientX;
+      y = e.clientY;
+    } else {
+      x = e.changedTouches[0].clientX;
+      y = e.changedTouches[0].clientY;
+    }
+
+    mouseVec.x = x;
+    mouseVec.y = y;
   }
 
-  // attract(targetVector, intensity){
-  //   const force = Vector.sub(targetVector, this.position)
-  //   const d = force.mag()
-  //   force.mult(intensity * Math.exp(-0.02 * d))
-  //   this.applyForce(force)
-  // }
-
-  //   springTo(targetVector, distMin, intensity){
-  //     const force = Vector.sub(targetVector, this.position)
-  //     const d = force.mag()
-  //     const x = d - distMin;
-  //     force.normalize()
-  //     force.mult(-1 * this.k * x)
-  //     force.mult(intensity)
-
-  //     this.applyForce(force)
-
-  //   }
-
-  //   repelTo(targetVector, distMin, intensity){
-  //     const force = Vector.sub(targetVector, this.position)
-  //     const d = force.mag()
-
-  //     if(d < distMin){
-  //       const x = d - distMin;
-  //       force.normalize()
-  //       force.mult(-1 * this.k * x)
-  //       force.mult(intensity)
-
-  //       this.applyForce(force)
-  //     }
-
-  //   }
-
-  update() {
-    this.velocity.add(this.acceleration);
-    this.velocity.mult(this.friction);
-    this.position.add(this.velocity);
-
-    this.acceleration.mult(0);
-
-    this.el.style.transform = `translate(${
-      this.position.x - this.sizeHalf
-    }px, ${this.position.y - this.sizeHalf}px)`;
+  function resize() {
+    centerVec.x = document.querySelector(".lotto-scratch").innerWidth / 2;
+    centerVec.y = document.querySelector(".lotto-scratch").innerHeight / 2;
   }
+
+  function create() {
+    const color = "transparent";
+
+    const colorStr = `transparent`;
+
+    const particle = new Particle(colorStr, centerVec.x, centerVec.y, friction);
+
+    particle.velocity.x = Math.random() * initialForce - initialForce * 0.5;
+    particle.velocity.y = Math.random() * initialForce - initialForce * 0.5;
+
+    particles.push(particle);
+    count = particles.length;
+  }
+
+  function update() {
+    requestAnimationFrame(update);
+    if (count < total) create();
+
+    for (let i = 0; i < count; i++) {
+      particles[i].update();
+      repelToMouse(particles[i]);
+      if (count == total) {
+        attactToCenter(particles[i]);
+        if (!instructionVisible) {
+          instructionVisible = true;
+        }
+      }
+    }
+
+    //   for(let i = 0; i < count-1; i++){
+    //     const particleA = particles[i]
+
+    //     for(let j = i + 1; j < count; j++){
+    //       const particleB = particles[j]
+    //       //repel(particleA, particleB)
+    //     }
+    //   }
+
+    for (let i = 0; i < count; i++) {
+      const particleA = particles[i];
+
+      for (let j = 0; j < count; j++) {
+        const particleB = particles[j];
+        repel2(particleA, particleB);
+      }
+    }
+  }
+
+  function repel(particleA, particleB) {
+    const force = Vector.sub(particleB.position, particleA.position);
+    const dist = force.mag();
+
+    if (dist < minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
+
+      particleA.velocity.sub(force);
+      particleB.velocity.add(force);
+    }
+  }
+
+  // from generative-design book:
+  // https://editor.p5js.org/generative-design/sketches/M_6_1_03
+  function repel2(particleA, particleB) {
+    const force = Vector.sub(particleA.position, particleB.position);
+    const dist = force.mag();
+
+    if (dist > 0 && dist < minDist) {
+      const ramp = 0.5;
+      const strength = -5;
+      const s = Math.pow(dist / minDist, 1 / ramp);
+      const f = (s * 9 * strength * (1 / (s + 1) + (s - 3) / 4)) / dist;
+      force.mult(f);
+
+      particleA.velocity.sub(force);
+    }
+  }
+
+  function repelToMouse(particle) {
+    const force = Vector.sub(mouseVec, particle.position);
+    const dist = force.mag();
+    if (dist < mouseThreshold) {
+      const x = dist - mouseThreshold;
+      //force.normalize()
+      force.mult(-1 * k * x);
+      force.mult(mouseRepelForce);
+
+      particle.velocity.sub(force);
+    }
+  }
+
+  function attactToCenter(particle) {
+    const force = Vector.sub(centerVec, particle.position);
+    const dist = force.mag();
+
+    if (dist > minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
+      force.mult(forceToCenter);
+
+      particle.velocity.sub(force);
+    }
+  }
+
+  class Vector {
+    constructor(x = 0, y = 0) {
+      this.x = x;
+      this.y = y;
+
+      return this;
+    }
+
+    add(v) {
+      this.x += v.x;
+      this.y += v.y;
+      return this;
+    }
+
+    sub(v) {
+      this.x -= v.x;
+      this.y -= v.y;
+      return this;
+    }
+
+    mult(n) {
+      this.x *= n;
+      this.y *= n;
+      return this;
+    }
+
+    div(n) {
+      this.x /= n;
+      this.y /= n;
+      return this;
+    }
+
+    magSQ() {
+      return this.x * this.x + this.y * this.y;
+    }
+
+    mag() {
+      return Math.sqrt(this.magSQ());
+    }
+
+    normalize() {
+      let m = this.mag();
+      if (m != 0) this.div(m);
+
+      return this;
+    }
+
+    limit(n) {
+      let m = this.mag();
+      if (m > n) {
+        this.normalize();
+        this.mult(n);
+      }
+
+      return this;
+    }
+
+    static add(v1, v2) {
+      return new Vector(v1.x, v1.y).add(v2);
+    }
+
+    static sub(v1, v2) {
+      return new Vector(v1.x, v1.y).sub(v2);
+    }
+
+    static mult(v1, n) {
+      return new Vector(v1.x, v1.y).mult(n);
+    }
+
+    static div(v1, n) {
+      return new Vector(v1.x, v1.y).div(n);
+    }
+  }
+
+  class Particle {
+    constructor(color = "#000000", x = 0, y = 0, friction = 1) {
+      this.position = new Vector(x, y);
+      this.velocity = new Vector();
+      this.acceleration = new Vector();
+      this.friction = friction;
+      this.k = 0.1;
+
+      this.el = document.createElement("div");
+      document.querySelector(".lotto-scratch").appendChild(this.el);
+      this.el.className = "lotto-paper";
+
+      this.el.style.backgroundColor = color;
+      this.size = this.el.offsetWidth;
+      this.sizeHalf = this.size / 2;
+
+      this.update();
+    }
+
+    applyForce(forceVector) {
+      this.acceleration.add(forceVector);
+    }
+
+    // attract(targetVector, intensity){
+    //   const force = Vector.sub(targetVector, this.position)
+    //   const d = force.mag()
+    //   force.mult(intensity * Math.exp(-0.02 * d))
+    //   this.applyForce(force)
+    // }
+
+    //   springTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+    //     const x = d - distMin;
+    //     force.normalize()
+    //     force.mult(-1 * this.k * x)
+    //     force.mult(intensity)
+
+    //     this.applyForce(force)
+
+    //   }
+
+    //   repelTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+
+    //     if(d < distMin){
+    //       const x = d - distMin;
+    //       force.normalize()
+    //       force.mult(-1 * this.k * x)
+    //       force.mult(intensity)
+
+    //       this.applyForce(force)
+    //     }
+
+    //   }
+
+    update() {
+      this.velocity.add(this.acceleration);
+      this.velocity.mult(this.friction);
+      this.position.add(this.velocity);
+
+      this.acceleration.mult(0);
+
+      this.el.style.transform = `translate(${
+        this.position.x - this.sizeHalf
+      }px, ${this.position.y - this.sizeHalf}px)`;
+    }
+  }
+
+  init();
 }
 
-init();
+lottoScratch();
+
+function squares() {
+  let centerVec, mouseVec;
+  let total = 100;
+  let initialForce = 2;
+  let friction = 0.8;
+  let springForce = 1;
+  let k = 0.1;
+  let mouseThreshold = 60;
+  let mouseRepelForce = 0.05;
+  let forceToCenter = 0.009;
+  let minDist = 65;
+  let minDistSQ = minDist * minDist;
+  let particles = [];
+  let count = 0;
+  let instructionVisible = false;
+
+  function init() {
+    centerVec = new Vector(
+      document.querySelector(".space-box-aeriz").clientWidth / 2,
+      document.querySelector(".space-box-aeriz").clientHeight / 2
+    );
+    mouseVec = new Vector();
+
+    window.addEventListener("mousemove", inputMove);
+    window.addEventListener("touchmove", inputMove, { passive: false });
+    window.addEventListener("resize", resize);
+
+    update();
+  }
+
+  function inputMove(e) {
+    if (e.type == "touchmove") e.preventDefault();
+
+    var x, y;
+    if (e.type.indexOf("mouse") >= 0) {
+      x = e.clientX;
+      y = e.clientY;
+    } else {
+      x = e.changedTouches[0].clientX;
+      y = e.changedTouches[0].clientY;
+    }
+
+    mouseVec.x = x;
+    mouseVec.y = y;
+  }
+
+  function resize() {
+    centerVec.x = document.querySelector(".space-box-aeriz").innerWidth / 2;
+    centerVec.y = document.querySelector(".space-box-aeriz").innerHeight / 2;
+  }
+
+  function create() {
+    const color = "transparent";
+
+    const colorStr = `transparent`;
+
+    const particle = new Particle(colorStr, centerVec.x, centerVec.y, friction);
+
+    particle.velocity.x = Math.random() * initialForce - initialForce * 0.5;
+    particle.velocity.y = Math.random() * initialForce - initialForce * 0.5;
+
+    particles.push(particle);
+    count = particles.length;
+  }
+
+  function update() {
+    requestAnimationFrame(update);
+    if (count < total) create();
+
+    for (let i = 0; i < count; i++) {
+      particles[i].update();
+      repelToMouse(particles[i]);
+      if (count == total) {
+        attactToCenter(particles[i]);
+        if (!instructionVisible) {
+          instructionVisible = true;
+        }
+      }
+    }
+
+    //   for(let i = 0; i < count-1; i++){
+    //     const particleA = particles[i]
+
+    //     for(let j = i + 1; j < count; j++){
+    //       const particleB = particles[j]
+    //       //repel(particleA, particleB)
+    //     }
+    //   }
+
+    for (let i = 0; i < count; i++) {
+      const particleA = particles[i];
+
+      for (let j = 0; j < count; j++) {
+        const particleB = particles[j];
+        repel2(particleA, particleB);
+      }
+    }
+  }
+
+  function repel(particleA, particleB) {
+    const force = Vector.sub(particleB.position, particleA.position);
+    const dist = force.mag();
+
+    if (dist < minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
+
+      particleA.velocity.sub(force);
+      particleB.velocity.add(force);
+    }
+  }
+
+  // from generative-design book:
+  // https://editor.p5js.org/generative-design/sketches/M_6_1_03
+  function repel2(particleA, particleB) {
+    const force = Vector.sub(particleA.position, particleB.position);
+    const dist = force.mag();
+
+    if (dist > 0 && dist < minDist) {
+      const ramp = 0.5;
+      const strength = -5;
+      const s = Math.pow(dist / minDist, 1 / ramp);
+      const f = (s * 9 * strength * (1 / (s + 1) + (s - 3) / 4)) / dist;
+      force.mult(f);
+
+      particleA.velocity.sub(force);
+    }
+  }
+
+  function repelToMouse(particle) {
+    const force = Vector.sub(mouseVec, particle.position);
+    const dist = force.mag();
+    if (dist < mouseThreshold) {
+      const x = dist - mouseThreshold;
+      //force.normalize()
+      force.mult(-1 * k * x);
+      force.mult(mouseRepelForce);
+
+      particle.velocity.sub(force);
+    }
+  }
+
+  function attactToCenter(particle) {
+    const force = Vector.sub(centerVec, particle.position);
+    const dist = force.mag();
+
+    if (dist > minDist) {
+      const x = dist - minDist;
+      force.normalize();
+      force.mult(-1 * k * x);
+      force.mult(forceToCenter);
+
+      particle.velocity.sub(force);
+    }
+  }
+
+  class Vector {
+    constructor(x = 0, y = 0) {
+      this.x = x;
+      this.y = y;
+
+      return this;
+    }
+
+    add(v) {
+      this.x += v.x;
+      this.y += v.y;
+      return this;
+    }
+
+    sub(v) {
+      this.x -= v.x;
+      this.y -= v.y;
+      return this;
+    }
+
+    mult(n) {
+      this.x *= n;
+      this.y *= n;
+      return this;
+    }
+
+    div(n) {
+      this.x /= n;
+      this.y /= n;
+      return this;
+    }
+
+    magSQ() {
+      return this.x * this.x + this.y * this.y;
+    }
+
+    mag() {
+      return Math.sqrt(this.magSQ());
+    }
+
+    normalize() {
+      let m = this.mag();
+      if (m != 0) this.div(m);
+
+      return this;
+    }
+
+    limit(n) {
+      let m = this.mag();
+      if (m > n) {
+        this.normalize();
+        this.mult(n);
+      }
+
+      return this;
+    }
+
+    static add(v1, v2) {
+      return new Vector(v1.x, v1.y).add(v2);
+    }
+
+    static sub(v1, v2) {
+      return new Vector(v1.x, v1.y).sub(v2);
+    }
+
+    static mult(v1, n) {
+      return new Vector(v1.x, v1.y).mult(n);
+    }
+
+    static div(v1, n) {
+      return new Vector(v1.x, v1.y).div(n);
+    }
+  }
+
+  class Particle {
+    constructor(color = "#000000", x = 0, y = 0, friction = 1) {
+      this.position = new Vector(x, y);
+      this.velocity = new Vector();
+      this.acceleration = new Vector();
+      this.friction = friction;
+      this.k = 0.1;
+
+      this.el = document.createElement("div");
+      document.querySelector(".space-box-aeriz").appendChild(this.el);
+      this.el.className = "aeriz-sqaures";
+
+      this.el.style.backgroundColor = color;
+      this.size = this.el.offsetWidth;
+      this.sizeHalf = this.size / 2;
+
+      this.update();
+    }
+
+    applyForce(forceVector) {
+      this.acceleration.add(forceVector);
+    }
+
+    // attract(targetVector, intensity){
+    //   const force = Vector.sub(targetVector, this.position)
+    //   const d = force.mag()
+    //   force.mult(intensity * Math.exp(-0.02 * d))
+    //   this.applyForce(force)
+    // }
+
+    //   springTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+    //     const x = d - distMin;
+    //     force.normalize()
+    //     force.mult(-1 * this.k * x)
+    //     force.mult(intensity)
+
+    //     this.applyForce(force)
+
+    //   }
+
+    //   repelTo(targetVector, distMin, intensity){
+    //     const force = Vector.sub(targetVector, this.position)
+    //     const d = force.mag()
+
+    //     if(d < distMin){
+    //       const x = d - distMin;
+    //       force.normalize()
+    //       force.mult(-1 * this.k * x)
+    //       force.mult(intensity)
+
+    //       this.applyForce(force)
+    //     }
+
+    //   }
+
+    update() {
+      this.velocity.add(this.acceleration);
+      this.velocity.mult(this.friction);
+      this.position.add(this.velocity);
+
+      this.acceleration.mult(0);
+
+      this.el.style.transform = `translate(${
+        this.position.x - this.sizeHalf
+      }px, ${this.position.y - this.sizeHalf}px)`;
+    }
+  }
+
+  init();
+}
+
+squares();
